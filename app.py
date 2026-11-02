@@ -211,7 +211,8 @@ def docs():
                            self_check=live_scores(con, 7), in_use=m["name"] if m else None,
                            features=FEATURES, k=K, min_runs=MIN_RUNS, recent_days=RECENT_DAYS,
                            refresh_min=REFRESH_S // 60, trains=len(TRAINS), corridors=CORRIDORS,
-                           drop_recent=DROP_RECENT, delayed_min=DELAYED_MIN, disrupted_min=DISRUPTED_MIN)
+                           drop_recent=DROP_RECENT, delayed_min=DELAYED_MIN, disrupted_min=DISRUPTED_MIN,
+                           all_count=len(NAMES), rivals=rival_scores(con, 7))
 
 
 @app.errorhandler(404)

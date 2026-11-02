@@ -51,7 +51,12 @@
     <li><a href="#winner">Why this model wins</a></li>
     <li><a href="#testing">How we test</a></li>
     <li><a href="#routing">Which method answers when</a></li>
-    <li><a href="#range">The range</a></li>
+    <li><a href="#range">P10, P50 and P90</a></li>
+    <li><a href="#recovery">Spotting recovery</a></li>
+    <li><a href="#cascade">One train's delay to another</a></li>
+    <li><a href="#halts">Unscheduled halts</a></li>
+    <li><a href="#others">Against other estimates</a></li>
+    <li><a href="#screens">Station boards, map, control room</a></li>
     <li><a href="#why">Why it's late</a></li>
     <li><a href="#status">Train status</a></li>
     <li><a href="#self-check">Checking itself</a></li>
@@ -78,9 +83,11 @@
 
 <section id="data">
   <h2>The data</h2>
-  <p>Every stop of every run of {{ trains }} daily trains on {{ corridors | length }} corridors across India: scheduled
-    and actual times, distance and position at each station. They range from three-hour Shatabdis to the Kerala
-    Express, which runs for about 50 hours across 3,000 km.</p>
+  <p>Every stop of every run of the trains we follow: scheduled and actual times, distance and position at each
+    station. {{ trains }} trains on {{ corridors | length }} corridors are followed from the start, from three-hour
+    Shatabdis to the Kerala Express, which runs for about 50 hours across 3,000 km. Any of
+    {{ "{:,}".format(all_count) }} trains across India can be opened: the first time someone does, the site fetches its
+    last 90 days of runs, and from then on the feed follows it too.</p>
   <ul>
     {% for c, nos in corridors.items() %}<li>{{ c }}: {{ nos | length }} trains</li>{% endfor %}
   </ul>
@@ -89,8 +96,9 @@
     for every train.</p>
   <p>Weather: daily rain and coldest temperature from <a href="https://open-meteo.com/">Open-Meteo</a>, for each
     50 km square a route passes through, recorded for past days and forecast for the next three.</p>
-  <p>Live positions come from the public whereismytrain.in cache. If it fails for a train, the feed asks
-    <a href="https://railradar.in/">RailRadar</a> instead, so one source going down does not blank the site.
+  <p>Live positions come from two sources, merged on every pass: the public whereismytrain.in cache and
+    <a href="https://railradar.in/">RailRadar</a>. For each station the feed keeps whichever saw the train later; the
+    cache can lag by an hour, and either one going down does not blank the site.
     Station names come from the open <a href="https://github.com/datameet/railways">datameet railways</a> list.</p>
   <p>Cleaning keeps only stations that actually reported, drops the handful of diverted or misreported runs
     (more than 2 hours early or 10 hours late), and computes delay from the timestamps, so trains running early show as
@@ -236,11 +244,73 @@
 </section>
 
 <section id="range">
-  <h2>The range</h2>
-  <p>Each arrival time comes with a likely window: the spread that 8 in 10 similar past runs fell within (10th to 90th
-    percentile), centred on the prediction. A wide window means the stretch ahead is unpredictable; a narrow one means
-    trains behave consistently there.{% if self_check.scored and self_check.inside_range is not none %} In live use so
-    far, {{ (self_check.inside_range * 100) | round | int }}% of trains arrived inside it.{% endif %}</p>
+  <h2>P10, P50 and P90</h2>
+  <p>Every arrival time comes as three numbers:</p>
+  <ul>
+    <li><b>Expected (P50)</b>: our best estimate. Half of trains in this situation arrive before it, half after.</li>
+    <li><b>Earliest likely (P10)</b>: only 1 in 10 arrive earlier.</li>
+    <li><b>Latest likely (P90)</b>: only 1 in 10 arrive later.</li>
+  </ul>
+  <p>So 8 in 10 trains arrive between P10 and P90. The window is not a guess: it is set from how far off the model really
+    was on 90 days of runs it never saw, separately for each train and for how far ahead the station is (next hour,
+    1 to 3 hours, 3 to 8, 8 to 24, more than a day). It is narrow for the next station and wide a day ahead, because
+    that is how uncertainty really grows. Trains without enough test runs use the all-trains window.
+    {% if self_check.scored and self_check.inside_range is not none %}In live use over the last {{ self_check.days }}
+    days, {{ (self_check.inside_range * 100) | round | int }}% of trains arrived inside it (target 80%).{% endif %}</p>
+</section>
+
+<section id="recovery">
+  <h2>Spotting recovery</h2>
+  <p>A recovery is a train winning back 5 or more minutes between two stations. For every train, the test counts how many
+    recoveries happened on runs the model never saw, how many the model predicted, and how many predicted recoveries
+    really happened. It also lists the stretches where each train recovers most, with real against predicted minutes.
+    {% if acc and acc.recovery %}{% set rs = acc.recovery.values() | list %}{% set n = rs | sum(attribute='recoveries') %}
+    Across all trains: {{ "{:,}".format(n) }} recoveries tested.{% endif %}</p>
+  <p>Carrying the delay forward, which is how most running-status displays estimate, predicts none of them: it assumes
+    a late train never catches up. Each train page shows its own numbers under "Where it wins back time".</p>
+</section>
+
+<section id="cascade">
+  <h2>One train's delay to another</h2>
+  <p>Delay spreads along a line. Track Pulse uses it in two ways:</p>
+  <ul>
+    <li><b>As a model input</b>: how many other trains reported on the next 200 km in the last 2 hours, how late they
+      were and whether they were losing time. A slow line ahead shows up here before this train reaches it.</li>
+    <li><b>On the train page</b>: trains in front going the same way (they can hold this one up), trains coming the
+      other way (they share stations and platforms), and trains behind going the same way. For those behind, if this
+      train is expected more than 15 minutes late at a station they share, they are marked at risk of being held up.</li>
+  </ul>
+  <p>Direction comes from comparing the two trains' whole routes, not just one shared station.</p>
+</section>
+
+<section id="halts">
+  <h2>Unscheduled halts</h2>
+  <p>If a live train has not reported at its next station although even a slow run (its P90) would have got there more
+    than 15 minutes ago, it is flagged "Possibly held": at a signal, for a crossing, or by a fault. Its arrival times
+    then assume it moves again now. A missed report in the source can also trigger it, so it is a prompt to look, not
+    a certainty.</p>
+</section>
+
+<section id="others">
+  <h2>Against other estimates</h2>
+  <p>Each time the feed records a train's position, it also saves RailRadar's own forecast made from the same moment.
+    When the train arrives, both are scored against the real time, along with carrying the delay forward, on exactly
+    the same arrivals.{% if rivals.scored %} Last {{ rivals.days }} days: Track Pulse {{ rivals.ours }} min average
+    error, RailRadar {{ rivals.railradar }} min, delay carried forward {{ rivals.carried }} min, on {{ rivals.scored }}
+    arrivals.{% endif %} Whereismytrain's public data only repeats the timetable for stations ahead, so there is no
+    forecast of theirs to score.</p>
+</section>
+
+<section id="screens">
+  <h2>Station boards, map, control room</h2>
+  <ul>
+    <li><b>Stations</b>: a display board for any station, every train on its way with expected time and P10 to P90,
+      refreshed every minute. The same data is in <code>/api/stations/&lt;code&gt;/arrivals</code> for real screens.</li>
+    <li><b>Map</b>: every operational line in India, single and double track, with the live trains coloured by status.
+      Single lines are where trains wait to cross, so delay spreads fastest there.</li>
+    <li><b>Control</b>: every running train on one screen, worst first, with held trains, trains at risk of holding
+      others up and platform clashes.</li>
+  </ul>
 </section>
 
 <section id="why">
@@ -285,8 +355,10 @@
   <ul>
     <li>A station can only be predicted if it has reported in past runs. Some terminal stations never report in the
       source data, so a few routes end one or two stations early.</li>
-    <li>Live positions come from a public third-party cache. In service, this would be replaced by NTES or RTIS through
+    <li>Live positions come from public third-party sources. In service, they would be replaced by NTES or RTIS through
       the same API, with no change to the model.</li>
+    <li>New trains are predicted by a model trained on the trains followed so far until the nightly retrain includes
+      them; the cascade view and congestion inputs only see trains the site follows.</li>
     <li>Congestion is measured only from the trains we follow. With every train on the network in the feed, the same
       inputs would see the full traffic on a line.</li>
     <li>GPS positions and signal aspects are not public. The model uses station reports instead; with RTIS GPS it would
@@ -306,13 +378,14 @@
       <tr><td><code>GET /api/trains/16021/live</code></td><td>Apps</td><td>Arrival times from the train’s last reported position</td></tr>
       <tr><td><code>GET /api/trains/16021/sections</code></td><td>Planners</td><td>Running time between stations: timetable, usual and slow days</td></tr>
       <tr><td><code>GET /api/stations/KPN/arrivals</code></td><td>Station displays</td><td>Every reporting train still heading to that station, soonest first</td></tr>
-      <tr><td><code>GET /api/control</code></td><td>Control office</td><td>Every reporting train: position, delay, expected delay further ahead, trend, stale flag</td></tr>
+      <tr><td><code>GET /api/control</code></td><td>Control office</td><td>Every reporting train: position, delay, expected delay further ahead, trend, status, stale flag, possible unscheduled halt</td></tr>
       <tr><td><code>GET /api/models</code></td><td>Anyone</td><td>The full model comparison on this page</td></tr>
       <tr><td><code>GET /api/accuracy</code></td><td>Anyone</td><td>Test-month accuracy, overall, by train and by how far ahead</td></tr>
       <tr><td><code>GET /api/accuracy/live?days=7</code></td><td>Anyone</td><td>Live arrival times scored against real arrivals</td></tr>
     </tbody>
   </table>
-  <p>Each predicted station carries <code>scheduled</code>, <code>eta</code>, <code>eta_range</code>,
+  <p>Each predicted station carries <code>scheduled</code>, <code>eta</code>, <code>p10</code>, <code>p50</code>,
+    <code>p90</code>, <code>eta_range</code>,
     <code>delay_min</code>, <code>change_min</code> (negative means time won back), <code>similar_runs</code> and <code>method</code>.</p>
 </section>
 </article>
