@@ -163,6 +163,8 @@ input[type=number] { width: 5.5em; }
 .run-now small { color: var(--muted); font-size: .8rem; }
 .run-now b { color: var(--ink); }
 .big-ish { font: 700 1.5rem var(--display); }
+.run-now small.cap { display: block; font-size: .8rem; font-weight: 600; }
+.day-tag.inline { display: inline; font-size: .75rem; }
 .run-foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 10px; font-size: .88rem; }
 
 /* Accuracy: three numbers in a row, no boxes */

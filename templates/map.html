@@ -39,7 +39,7 @@
     markers.forEach(m => m.bringToFront());
   });
   const colour = { normal: "#0d7a45", delayed: "#e0a100", disrupted: "#b3261e" };
-  const fmt = m => (m < 0 ? "-" : "+") + (Math.abs(m) >= 60 ? Math.floor(Math.abs(m) / 60) + " h " + String(Math.abs(Math.round(m)) % 60).padStart(2, "0") + " min" : Math.abs(Math.round(m)) + " min");
+  const fmt = m => Math.round(m) === 0 ? "on time" : (m < 0 ? "early " : "late ") + (Math.abs(m) >= 60 ? Math.floor(Math.abs(m) / 60) + " h " + String(Math.abs(Math.round(m)) % 60).padStart(2, "0") + " min" : Math.abs(Math.round(m)) + " min");
   const markers = trains.map(t => L.circleMarker([t.lat, t.lng], {
       radius: 7, color: "#fff", weight: 2, fillColor: colour[t.status], fillOpacity: 1 })
     .bindPopup(`<b>${t.train} ${t.name}</b><br>At ${t.at_name}, ${fmt(t.delay_min)}` +

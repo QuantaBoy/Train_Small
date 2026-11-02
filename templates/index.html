@@ -57,10 +57,12 @@
       </div>
       <div class="run-now">
         <div><small>Now at</small><b>{{ stn(t.at) }}</b>
-          <span class="num {{ 'loss-text' if t.delay_min > 5 else 'gain-text' }}">{{ late(t.delay_min) }}</span></div>
+          <span class="num {{ 'loss-text' if t.delay_min > 5 else 'gain-text' }}">{{ behind(t.delay_min) }}</span></div>
         {% if t.last_station %}
         <div class="end"><small>Expected at {{ stn(t.last_station) }}</small>
-          <span class="num big-ish {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ late(t.delay_there_min) }}</span></div>
+          {% set hm, dd = clock(t.eta_there) %}
+          <span class="num big-ish {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ hm }}{% if dd %} <small class="day-tag inline">{{ dd }}</small>{% endif %}</span>
+          <small class="cap {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ behind(t.delay_there_min) }} (timetable {{ t.sch_there[11:16] }})</small></div>
         {% endif %}
       </div>
       <div class="run-foot">

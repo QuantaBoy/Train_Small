@@ -47,6 +47,19 @@ def late(minutes) -> str:
     return ("-" if round(minutes) < 0 else "+") + span(minutes)
 
 
+def behind(minutes) -> str:
+    """How late, in words: '3 h 44 min late', '4 min early', 'on time'. Easier to read than '+3 h 44 min'."""
+    m = round(minutes)
+    return "on time" if m == 0 else f"{span(m)} late" if m > 0 else f"{span(m)} early"
+
+
+def clock(iso: str) -> tuple[str, str]:
+    """'2026-11-03T02:17+05:30' -> ('02:17', 'Tue 3 Nov'); the date only when it is not today."""
+    t = datetime.fromisoformat(iso)
+    today = datetime.now(IST).date()
+    return t.strftime("%H:%M"), "" if t.date() == today else f"{t:%a} {t.day} {t:%b}"
+
+
 def on_day(sch: str, delay: float, day: int = 0, run_date: str | None = None) -> str:
     """The day an expected time falls on, once delay can push it past midnight: the date on a live
     run ('Tue 3 Nov'), otherwise 'day 2'; empty on the first day."""
@@ -60,7 +73,7 @@ def on_day(sch: str, delay: float, day: int = 0, run_date: str | None = None) ->
 
 @app.context_processor
 def helpers():
-    return {"stn": lambda code: STATIONS.get(code, code), "methods": METHODS, "eta": eta, "late": late, "span": span, "on_day": on_day,
+    return {"stn": lambda code: STATIONS.get(code, code), "methods": METHODS, "eta": eta, "late": late, "span": span, "on_day": on_day, "behind": behind, "clock": clock,
             "feed_down": feed_status(), "show_model": SHOW_MODEL,
             "nice": lambda name: name.removeprefix("blend_").replace("+", " + ").replace("_", " ")}
 
@@ -258,6 +271,7 @@ def not_found(e):
 
 if __name__ == "__main__":
     assert matches("12951") == ["12951"] and matches("zzzz") == []
+    assert behind(224) == "3 h 44 min late" and behind(-4) == "4 min early" and behind(0) == "on time"
     assert on_day("23:30", 45) == "day 2" and on_day("10:00", 5) == "" and span(1500) == "1 d 1 h 00 min"
     assert late(594) == "+9 h 54 min" and late(-4) == "-4 min" and span(60) == "1 h 00 min"
     app.run(debug=True)

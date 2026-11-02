@@ -416,6 +416,7 @@ def control_rows() -> list[dict]:
         last = v["etas"][-1] if v["etas"] else None
         out.append({k: v[k] for k in ("train", "name", "at", "delay_min", "minutes_since_update", "stale", "held")} | {
             "last_station": last and last["station"], "delay_there_min": last and last["delay_min"],
+            "eta_there": last and last["eta"], "sch_there": last and last["scheduled"],
             "trend": None if not last else "recovering" if last["change_min"] <= -3 else
                      "losing" if last["change_min"] >= 3 else "steady",
             "status": status(v["delay_min"], last and last["delay_min"])})

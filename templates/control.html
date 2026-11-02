@@ -38,7 +38,7 @@
       {% endfor %}
       {% for s in spread %}
       <li class="flag spread"><b>Delay can spread</b>: <a href="{{ url_for('train', number=s.train) }}">{{ s.train }} {{ s.name }}</a>
-        is {{ late(s.delay) }} with {% for b in s.behind %}<a href="{{ url_for('train', number=b.no) }}">{{ b.no }} {{ b.name }}</a>{{ ', ' if not loop.last }}{% endfor %}
+        is {{ behind(s.delay) }} with {% for b in s.behind %}<a href="{{ url_for('train', number=b.no) }}">{{ b.no }} {{ b.name }}</a>{{ ', ' if not loop.last }}{% endfor %}
         following it on the same line.</li>
       {% endfor %}
     </ul>
@@ -55,8 +55,9 @@
         <td><a href="{{ url_for('train', number=t.train) }}"><span class="tno">{{ t.train }}</span> {{ t.name }}</a></td>
         <td><span class="chip status {{ t.status }}">{{ t.status }}</span>{% if t.held %} <span class="chip held">held?</span>{% endif %}</td>
         <td>{{ stn(t.at) }}</td>
-        <td class="num {{ 'loss-text' if t.delay_min > 5 }}">{{ late(t.delay_min) }}</td>
-        <td>{% if t.last_station %}{{ stn(t.last_station) }} <b class="num {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ late(t.delay_there_min) }}</b>
+        <td class="num {{ 'loss-text' if t.delay_min > 5 }}">{{ behind(t.delay_min) }}</td>
+        <td>{% if t.last_station %}{{ stn(t.last_station) }} {% set hm, dd = clock(t.eta_there) %}<b class="num {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ hm }}{% if dd %} {{ dd }}{% endif %}</b>
+          <small class="line {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ behind(t.delay_there_min) }}</small>
           <small class="{{ 'gain-text' if t.trend == 'recovering' else 'loss-text' if t.trend == 'losing' else 'muted' }}">{{ t.trend }}</small>{% endif %}</td>
         <td class="hide-sm {{ 'loss-text' if t.stale else 'muted' }}">{{ span(t.minutes_since_update) }} ago</td>
       </tr>

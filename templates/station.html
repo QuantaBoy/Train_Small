@@ -30,7 +30,7 @@
         <td>{{ a.scheduled[11:16] }}</td>
         <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ a.p50[11:16] }}{% set dd = a.p50[:10] %}{% if dd != a.scheduled[:10] %}<small>{{ dd }}</small>{% endif %}</td>
         <td>{% if a.p10 %}{{ a.p10[11:16] }} to {{ a.p90[11:16] }}{% else %}<small>not enough history</small>{% endif %}</td>
-        <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ late(a.delay_min) }}</td>
+        <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ behind(a.delay_min) }}</td>
       </tr>
       {% endfor %}
       </tbody>
