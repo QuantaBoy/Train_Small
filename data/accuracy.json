@@ -1,0 +1,3056 @@
+{
+  "all": {
+    "predictions": 986556,
+    "ours": 19.07,
+    "naive": 33.79,
+    "timetable": 60.91,
+    "within_5_min": 0.344
+  },
+  "12007": {
+    "predictions": 158,
+    "ours": 8.47,
+    "naive": 8.86,
+    "timetable": 16.47,
+    "within_5_min": 0.462
+  },
+  "30-90 min ahead": {
+    "predictions": 75203,
+    "ours": 6.48,
+    "naive": 11.87,
+    "timetable": 47.91,
+    "within_5_min": 0.626
+  },
+  "90+ min ahead": {
+    "predictions": 884561,
+    "ours": 20.61,
+    "naive": 36.53,
+    "timetable": 62.47,
+    "within_5_min": 0.305
+  },
+  "12008": {
+    "predictions": 162,
+    "ours": 9.24,
+    "naive": 12.57,
+    "timetable": 14.25,
+    "within_5_min": 0.5
+  },
+  "12027": {
+    "predictions": 175,
+    "ours": 5.48,
+    "naive": 9.65,
+    "timetable": 8.79,
+    "within_5_min": 0.589
+  },
+  "12028": {
+    "predictions": 385,
+    "ours": 4.72,
+    "naive": 5.47,
+    "timetable": 9.23,
+    "within_5_min": 0.683
+  },
+  "0-30 min ahead": {
+    "predictions": 26792,
+    "ours": 3.27,
+    "naive": 5.0,
+    "timetable": 46.1,
+    "within_5_min": 0.856
+  },
+  "12163": {
+    "predictions": 22087,
+    "ours": 12.97,
+    "naive": 17.32,
+    "timetable": 35.49,
+    "within_5_min": 0.357
+  },
+  "12164": {
+    "predictions": 20799,
+    "ours": 14.31,
+    "naive": 22.3,
+    "timetable": 46.29,
+    "within_5_min": 0.322
+  },
+  "12301": {
+    "predictions": 1806,
+    "ours": 8.96,
+    "naive": 11.75,
+    "timetable": 13.66,
+    "within_5_min": 0.503
+  },
+  "12302": {
+    "predictions": 1896,
+    "ours": 8.58,
+    "naive": 12.35,
+    "timetable": 21.82,
+    "within_5_min": 0.56
+  },
+  "12311": {
+    "predictions": 54720,
+    "ours": 26.56,
+    "naive": 33.86,
+    "timetable": 52.06,
+    "within_5_min": 0.273
+  },
+  "12312": {
+    "predictions": 65589,
+    "ours": 16.85,
+    "naive": 24.57,
+    "timetable": 29.7,
+    "within_5_min": 0.344
+  },
+  "12313": {
+    "predictions": 1592,
+    "ours": 7.98,
+    "naive": 13.31,
+    "timetable": 10.73,
+    "within_5_min": 0.519
+  },
+  "12314": {
+    "predictions": 1677,
+    "ours": 11.28,
+    "naive": 18.54,
+    "timetable": 31.11,
+    "within_5_min": 0.537
+  },
+  "12423": {
+    "predictions": 19980,
+    "ours": 15.87,
+    "naive": 24.94,
+    "timetable": 49.5,
+    "within_5_min": 0.316
+  },
+  "12424": {
+    "predictions": 19538,
+    "ours": 18.06,
+    "naive": 27.11,
+    "timetable": 41.04,
+    "within_5_min": 0.306
+  },
+  "12607": {
+    "predictions": 4203,
+    "ours": 7.64,
+    "naive": 10.5,
+    "timetable": 16.85,
+    "within_5_min": 0.533
+  },
+  "12608": {
+    "predictions": 4269,
+    "ours": 5.44,
+    "naive": 7.28,
+    "timetable": 17.38,
+    "within_5_min": 0.662
+  },
+  "12615": {
+    "predictions": 50543,
+    "ours": 19.05,
+    "naive": 25.36,
+    "timetable": 33.69,
+    "within_5_min": 0.317
+  },
+  "12616": {
+    "predictions": 50581,
+    "ours": 18.9,
+    "naive": 27.8,
+    "timetable": 39.91,
+    "within_5_min": 0.285
+  },
+  "12621": {
+    "predictions": 3604,
+    "ours": 20.57,
+    "naive": 24.76,
+    "timetable": 26.66,
+    "within_5_min": 0.353
+  },
+  "12622": {
+    "predictions": 3956,
+    "ours": 28.64,
+    "naive": 34.93,
+    "timetable": 63.35,
+    "within_5_min": 0.264
+  },
+  "12625": {
+    "predictions": 62953,
+    "ours": 17.73,
+    "naive": 21.73,
+    "timetable": 28.1,
+    "within_5_min": 0.4
+  },
+  "12626": {
+    "predictions": 58205,
+    "ours": 14.54,
+    "naive": 24.67,
+    "timetable": 47.46,
+    "within_5_min": 0.371
+  },
+  "12627": {
+    "predictions": 33301,
+    "ours": 25.27,
+    "naive": 31.26,
+    "timetable": 39.91,
+    "within_5_min": 0.252
+  },
+  "12628": {
+    "predictions": 37052,
+    "ours": 19.23,
+    "naive": 25.92,
+    "timetable": 62.59,
+    "within_5_min": 0.274
+  },
+  "12639": {
+    "predictions": 4438,
+    "ours": 5.97,
+    "naive": 8.41,
+    "timetable": 15.7,
+    "within_5_min": 0.596
+  },
+  "12640": {
+    "predictions": 5305,
+    "ours": 6.03,
+    "naive": 10.13,
+    "timetable": 20.77,
+    "within_5_min": 0.634
+  },
+  "12657": {
+    "predictions": 761,
+    "ours": 5.91,
+    "naive": 10.02,
+    "timetable": 12.32,
+    "within_5_min": 0.639
+  },
+  "12658": {
+    "predictions": 1251,
+    "ours": 6.3,
+    "naive": 9.06,
+    "timetable": 15.39,
+    "within_5_min": 0.637
+  },
+  "12723": {
+    "predictions": 9396,
+    "ours": 16.87,
+    "naive": 25.22,
+    "timetable": 27.68,
+    "within_5_min": 0.365
+  },
+  "12724": {
+    "predictions": 6579,
+    "ours": 22.56,
+    "naive": 33.13,
+    "timetable": 53.5,
+    "within_5_min": 0.326
+  },
+  "12809": {
+    "predictions": 63370,
+    "ours": 26.41,
+    "naive": 78.96,
+    "timetable": 120.83,
+    "within_5_min": 0.206
+  },
+  "12810": {
+    "predictions": 62549,
+    "ours": 41.62,
+    "naive": 91.8,
+    "timetable": 264.57,
+    "within_5_min": 0.158
+  },
+  "12859": {
+    "predictions": 22448,
+    "ours": 29.7,
+    "naive": 78.46,
+    "timetable": 132.51,
+    "within_5_min": 0.183
+  },
+  "12860": {
+    "predictions": 22483,
+    "ours": 42.11,
+    "naive": 98.62,
+    "timetable": 245.98,
+    "within_5_min": 0.141
+  },
+  "12903": {
+    "predictions": 41098,
+    "ours": 15.1,
+    "naive": 21.31,
+    "timetable": 25.13,
+    "within_5_min": 0.402
+  },
+  "12904": {
+    "predictions": 43992,
+    "ours": 12.06,
+    "naive": 18.35,
+    "timetable": 27.55,
+    "within_5_min": 0.474
+  },
+  "12925": {
+    "predictions": 65155,
+    "ours": 11.27,
+    "naive": 19.19,
+    "timetable": 19.1,
+    "within_5_min": 0.397
+  },
+  "12926": {
+    "predictions": 61655,
+    "ours": 10.18,
+    "naive": 18.8,
+    "timetable": 18.12,
+    "within_5_min": 0.488
+  },
+  "12951": {
+    "predictions": 1692,
+    "ours": 5.65,
+    "naive": 8.79,
+    "timetable": 16.37,
+    "within_5_min": 0.673
+  },
+  "12952": {
+    "predictions": 1645,
+    "ours": 6.22,
+    "naive": 10.66,
+    "timetable": 18.22,
+    "within_5_min": 0.68
+  },
+  "12953": {
+    "predictions": 5350,
+    "ours": 5.74,
+    "naive": 9.92,
+    "timetable": 14.36,
+    "within_5_min": 0.636
+  },
+  "12954": {
+    "predictions": 5295,
+    "ours": 5.92,
+    "naive": 8.82,
+    "timetable": 11.91,
+    "within_5_min": 0.647
+  },
+  "16021": {
+    "predictions": 19110,
+    "ours": 8.13,
+    "naive": 13.57,
+    "timetable": 20.14,
+    "within_5_min": 0.545
+  },
+  "16022": {
+    "predictions": 15826,
+    "ours": 11.77,
+    "naive": 16.2,
+    "timetable": 24.25,
+    "within_5_min": 0.432
+  },
+  "22625": {
+    "predictions": 3492,
+    "ours": 5.12,
+    "naive": 8.21,
+    "timetable": 17.02,
+    "within_5_min": 0.682
+  },
+  "22626": {
+    "predictions": 4435,
+    "ours": 6.26,
+    "naive": 9.74,
+    "timetable": 13.36,
+    "within_5_min": 0.597
+  },
+  "recovery": {
+    "12007": {
+      "stretches": [
+        {
+          "from": "KPD",
+          "to": "SBC",
+          "runs": 72,
+          "real": -1.8,
+          "predicted": 1.0
+        },
+        {
+          "from": "MAS",
+          "to": "KPD",
+          "runs": 43,
+          "real": -3.9,
+          "predicted": -4.5
+        }
+      ],
+      "recoveries": 28,
+      "caught": 0.036,
+      "right": 0.25,
+      "real_avg": 8.3,
+      "predicted_avg": 0.2
+    },
+    "12008": {
+      "stretches": [
+        {
+          "from": "SBC",
+          "to": "KPD",
+          "runs": 74,
+          "real": 13.3,
+          "predicted": 13.2
+        },
+        {
+          "from": "MYS",
+          "to": "SBC",
+          "runs": 44,
+          "real": -9.0,
+          "predicted": -3.4
+        }
+      ],
+      "recoveries": 64,
+      "caught": 0.938,
+      "right": 0.811,
+      "real_avg": 16.3,
+      "predicted_avg": 12.7
+    },
+    "12027": {
+      "stretches": [
+        {
+          "from": "KPD",
+          "to": "JTJ",
+          "runs": 71,
+          "real": 11.6,
+          "predicted": 13.9
+        },
+        {
+          "from": "MAS",
+          "to": "KPD",
+          "runs": 52,
+          "real": -9.2,
+          "predicted": -8.4
+        }
+      ],
+      "recoveries": 68,
+      "caught": 0.985,
+      "right": 0.944,
+      "real_avg": 12.0,
+      "predicted_avg": 13.7
+    },
+    "12028": {
+      "stretches": [
+        {
+          "from": "JTJ",
+          "to": "KPD",
+          "runs": 75,
+          "real": 4.5,
+          "predicted": 5.3
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 56,
+          "real": 2.1,
+          "predicted": 3.0
+        },
+        {
+          "from": "BNC",
+          "to": "JTJ",
+          "runs": 68,
+          "real": -1.0,
+          "predicted": -0.4
+        }
+      ],
+      "recoveries": 66,
+      "caught": 0.5,
+      "right": 0.569,
+      "real_avg": 7.7,
+      "predicted_avg": 4.5
+    },
+    "12163": {
+      "stretches": [
+        {
+          "from": "KLBG",
+          "to": "WADI",
+          "runs": 82,
+          "real": 32.0,
+          "predicted": 32.5
+        },
+        {
+          "from": "KOU",
+          "to": "RU",
+          "runs": 81,
+          "real": 21.9,
+          "predicted": 23.3
+        },
+        {
+          "from": "AD",
+          "to": "GTL",
+          "runs": 82,
+          "real": 15.2,
+          "predicted": 18.6
+        },
+        {
+          "from": "YA",
+          "to": "HX",
+          "runs": 81,
+          "real": 5.8,
+          "predicted": 8.0
+        },
+        {
+          "from": "SADP",
+          "to": "RC",
+          "runs": 82,
+          "real": 5.1,
+          "predicted": 5.8
+        }
+      ],
+      "recoveries": 629,
+      "caught": 0.703,
+      "right": 0.749,
+      "real_avg": 14.6,
+      "predicted_avg": 12.4
+    },
+    "12164": {
+      "stretches": [
+        {
+          "from": "YG",
+          "to": "WADI",
+          "runs": 80,
+          "real": 25.1,
+          "predicted": 24.6
+        },
+        {
+          "from": "MALM",
+          "to": "RC",
+          "runs": 80,
+          "real": 18.1,
+          "predicted": 18.6
+        },
+        {
+          "from": "TU",
+          "to": "GY",
+          "runs": 80,
+          "real": 17.4,
+          "predicted": 17.6
+        },
+        {
+          "from": "SUR",
+          "to": "PUNE",
+          "runs": 76,
+          "real": 15.3,
+          "predicted": 16.8
+        },
+        {
+          "from": "PUT",
+          "to": "RU",
+          "runs": 76,
+          "real": 8.2,
+          "predicted": 8.1
+        }
+      ],
+      "recoveries": 640,
+      "caught": 0.727,
+      "right": 0.809,
+      "real_avg": 14.2,
+      "predicted_avg": 11.1
+    },
+    "12301": {
+      "stretches": [
+        {
+          "from": "ASN",
+          "to": "DHN",
+          "runs": 69,
+          "real": 18.0,
+          "predicted": 18.6
+        },
+        {
+          "from": "PNME",
+          "to": "GAYA",
+          "runs": 69,
+          "real": 16.7,
+          "predicted": 18.0
+        },
+        {
+          "from": "PRYJ",
+          "to": "CNB",
+          "runs": 69,
+          "real": 4.0,
+          "predicted": 7.4
+        },
+        {
+          "from": "DDU",
+          "to": "PRYJ",
+          "runs": 69,
+          "real": 0.4,
+          "predicted": 3.6
+        },
+        {
+          "from": "GAYA",
+          "to": "DDU",
+          "runs": 69,
+          "real": -4.6,
+          "predicted": 0.4
+        }
+      ],
+      "recoveries": 196,
+      "caught": 0.908,
+      "right": 0.781,
+      "real_avg": 15.1,
+      "predicted_avg": 14.3
+    },
+    "12302": {
+      "stretches": [
+        {
+          "from": "PNME",
+          "to": "DHN",
+          "runs": 72,
+          "real": 13.4,
+          "predicted": 15.4
+        },
+        {
+          "from": "CNB",
+          "to": "PRYJ",
+          "runs": 70,
+          "real": 11.4,
+          "predicted": 12.7
+        },
+        {
+          "from": "PRYJ",
+          "to": "DDU",
+          "runs": 71,
+          "real": 9.0,
+          "predicted": 11.7
+        },
+        {
+          "from": "DDU",
+          "to": "GAYA",
+          "runs": 71,
+          "real": 5.1,
+          "predicted": 5.7
+        },
+        {
+          "from": "GAYA",
+          "to": "PNME",
+          "runs": 71,
+          "real": -1.3,
+          "predicted": 1.6
+        }
+      ],
+      "recoveries": 246,
+      "caught": 0.915,
+      "right": 0.83,
+      "real_avg": 11.9,
+      "predicted_avg": 11.5
+    },
+    "12311": {
+      "stretches": [
+        {
+          "from": "KKDE",
+          "to": "UMB",
+          "runs": 83,
+          "real": 34.1,
+          "predicted": 34.0
+        },
+        {
+          "from": "KRJ",
+          "to": "GZB",
+          "runs": 73,
+          "real": 27.0,
+          "predicted": 25.9
+        },
+        {
+          "from": "BBU",
+          "to": "DDU",
+          "runs": 78,
+          "real": 25.1,
+          "predicted": 25.6
+        },
+        {
+          "from": "ASN",
+          "to": "DHN",
+          "runs": 78,
+          "real": 24.1,
+          "predicted": 24.3
+        },
+        {
+          "from": "KQR",
+          "to": "GAYA",
+          "runs": 78,
+          "real": 18.8,
+          "predicted": 19.3
+        }
+      ],
+      "recoveries": 850,
+      "caught": 0.814,
+      "right": 0.842,
+      "real_avg": 18.5,
+      "predicted_avg": 15.8
+    },
+    "12312": {
+      "stretches": [
+        {
+          "from": "MZP",
+          "to": "DDU",
+          "runs": 81,
+          "real": 60.0,
+          "predicted": 60.8
+        },
+        {
+          "from": "ANDI",
+          "to": "SZM",
+          "runs": 81,
+          "real": 31.3,
+          "predicted": 32.9
+        },
+        {
+          "from": "GMO",
+          "to": "DHN",
+          "runs": 81,
+          "real": 28.1,
+          "predicted": 28.6
+        },
+        {
+          "from": "DGR",
+          "to": "BWN",
+          "runs": 81,
+          "real": 27.8,
+          "predicted": 30.8
+        },
+        {
+          "from": "HRS",
+          "to": "TDL",
+          "runs": 81,
+          "real": 15.9,
+          "predicted": 17.3
+        }
+      ],
+      "recoveries": 1267,
+      "caught": 0.904,
+      "right": 0.789,
+      "real_avg": 18.1,
+      "predicted_avg": 17.0
+    },
+    "12313": {
+      "stretches": [
+        {
+          "from": "ASN",
+          "to": "DHN",
+          "runs": 82,
+          "real": 22.6,
+          "predicted": 23.1
+        },
+        {
+          "from": "DHN",
+          "to": "GAYA",
+          "runs": 83,
+          "real": 11.1,
+          "predicted": 12.4
+        },
+        {
+          "from": "GAYA",
+          "to": "DDU",
+          "runs": 84,
+          "real": 0.0,
+          "predicted": 3.8
+        },
+        {
+          "from": "DDU",
+          "to": "CNB",
+          "runs": 84,
+          "real": -4.7,
+          "predicted": -1.4
+        },
+        {
+          "from": "DGR",
+          "to": "ASN",
+          "runs": 82,
+          "real": -7.0,
+          "predicted": -4.8
+        }
+      ],
+      "recoveries": 199,
+      "caught": 0.834,
+      "right": 0.794,
+      "real_avg": 16.2,
+      "predicted_avg": 14.1
+    },
+    "12314": {
+      "stretches": [
+        {
+          "from": "CNB",
+          "to": "DDU",
+          "runs": 83,
+          "real": 20.8,
+          "predicted": 25.5
+        },
+        {
+          "from": "GAYA",
+          "to": "DHN",
+          "runs": 83,
+          "real": 14.0,
+          "predicted": 17.6
+        },
+        {
+          "from": "DDU",
+          "to": "GAYA",
+          "runs": 84,
+          "real": -1.7,
+          "predicted": 0.4
+        },
+        {
+          "from": "ASN",
+          "to": "DGR",
+          "runs": 83,
+          "real": -4.0,
+          "predicted": -2.7
+        },
+        {
+          "from": "DHN",
+          "to": "ASN",
+          "runs": 83,
+          "real": -14.2,
+          "predicted": -12.7
+        }
+      ],
+      "recoveries": 179,
+      "caught": 0.849,
+      "right": 0.916,
+      "real_avg": 17.9,
+      "predicted_avg": 18.4
+    },
+    "12423": {
+      "stretches": [
+        {
+          "from": "DNR",
+          "to": "DDU",
+          "runs": 81,
+          "real": 25.9,
+          "predicted": 28.0
+        },
+        {
+          "from": "NCB",
+          "to": "NJP",
+          "runs": 81,
+          "real": 22.7,
+          "predicted": 21.9
+        },
+        {
+          "from": "BJU",
+          "to": "PPTA",
+          "runs": 82,
+          "real": 20.7,
+          "predicted": 24.3
+        },
+        {
+          "from": "CPK",
+          "to": "GHY",
+          "runs": 71,
+          "real": 19.7,
+          "predicted": 23.1
+        },
+        {
+          "from": "NBQ",
+          "to": "KOJ",
+          "runs": 81,
+          "real": 14.4,
+          "predicted": 9.7
+        }
+      ],
+      "recoveries": 838,
+      "caught": 0.895,
+      "right": 0.859,
+      "real_avg": 16.1,
+      "predicted_avg": 14.8
+    },
+    "12424": {
+      "stretches": [
+        {
+          "from": "KOJ",
+          "to": "NBQ",
+          "runs": 76,
+          "real": 28.0,
+          "predicted": 28.6
+        },
+        {
+          "from": "KNE",
+          "to": "NJP",
+          "runs": 76,
+          "real": 20.8,
+          "predicted": 21.4
+        },
+        {
+          "from": "RNY",
+          "to": "GHY",
+          "runs": 69,
+          "real": 20.7,
+          "predicted": 20.8
+        },
+        {
+          "from": "PRYJ",
+          "to": "DDU",
+          "runs": 77,
+          "real": 18.8,
+          "predicted": 23.3
+        },
+        {
+          "from": "PPTA",
+          "to": "BJU",
+          "runs": 77,
+          "real": 17.9,
+          "predicted": 16.3
+        }
+      ],
+      "recoveries": 800,
+      "caught": 0.905,
+      "right": 0.835,
+      "real_avg": 16.8,
+      "predicted_avg": 15.8
+    },
+    "12607": {
+      "stretches": [
+        {
+          "from": "AB",
+          "to": "JTJ",
+          "runs": 84,
+          "real": 17.1,
+          "predicted": 18.5
+        },
+        {
+          "from": "SHU",
+          "to": "WJR",
+          "runs": 84,
+          "real": 2.2,
+          "predicted": 2.0
+        },
+        {
+          "from": "WJR",
+          "to": "KPD",
+          "runs": 84,
+          "real": 1.3,
+          "predicted": 1.6
+        },
+        {
+          "from": "AJJ",
+          "to": "SHU",
+          "runs": 85,
+          "real": 0.0,
+          "predicted": 0.7
+        },
+        {
+          "from": "KPD",
+          "to": "AB",
+          "runs": 84,
+          "real": -0.4,
+          "predicted": -0.3
+        }
+      ],
+      "recoveries": 152,
+      "caught": 0.572,
+      "right": 0.978,
+      "real_avg": 12.3,
+      "predicted_avg": 10.9
+    },
+    "12608": {
+      "stretches": [
+        {
+          "from": "KPN",
+          "to": "JTJ",
+          "runs": 86,
+          "real": 12.0,
+          "predicted": 11.9
+        },
+        {
+          "from": "AB",
+          "to": "KPD",
+          "runs": 84,
+          "real": 2.8,
+          "predicted": 3.1
+        },
+        {
+          "from": "WJR",
+          "to": "SHU",
+          "runs": 85,
+          "real": 2.4,
+          "predicted": 2.4
+        },
+        {
+          "from": "JTJ",
+          "to": "AB",
+          "runs": 86,
+          "real": 1.5,
+          "predicted": 2.0
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 47,
+          "real": 1.4,
+          "predicted": 4.6
+        }
+      ],
+      "recoveries": 167,
+      "caught": 0.653,
+      "right": 0.879,
+      "real_avg": 9.2,
+      "predicted_avg": 7.8
+    },
+    "12615": {
+      "stretches": [
+        {
+          "from": "GDYA",
+          "to": "ET",
+          "runs": 78,
+          "real": 47.6,
+          "predicted": 51.1
+        },
+        {
+          "from": "MRA",
+          "to": "DHO",
+          "runs": 78,
+          "real": 24.1,
+          "predicted": 22.2
+        },
+        {
+          "from": "MTJ",
+          "to": "FDB",
+          "runs": 31,
+          "real": 21.9,
+          "predicted": 22.4
+        },
+        {
+          "from": "SKZR",
+          "to": "BPQ",
+          "runs": 80,
+          "real": 20.4,
+          "predicted": 21.1
+        },
+        {
+          "from": "SEGM",
+          "to": "NGP",
+          "runs": 79,
+          "real": 12.5,
+          "predicted": 15.6
+        }
+      ],
+      "recoveries": 1146,
+      "caught": 0.741,
+      "right": 0.766,
+      "real_avg": 15.3,
+      "predicted_avg": 12.4
+    },
+    "12616": {
+      "stretches": [
+        {
+          "from": "CD",
+          "to": "BPQ",
+          "runs": 78,
+          "real": 50.6,
+          "predicted": 50.8
+        },
+        {
+          "from": "KMT",
+          "to": "BZA",
+          "runs": 78,
+          "real": 30.2,
+          "predicted": 30.3
+        },
+        {
+          "from": "GWL",
+          "to": "VGLJ",
+          "runs": 81,
+          "real": 26.9,
+          "predicted": 27.7
+        },
+        {
+          "from": "DHO",
+          "to": "MRA",
+          "runs": 81,
+          "real": 26.7,
+          "predicted": 27.4
+        },
+        {
+          "from": "NDPM",
+          "to": "ET",
+          "runs": 77,
+          "real": 26.3,
+          "predicted": 26.3
+        }
+      ],
+      "recoveries": 1269,
+      "caught": 0.915,
+      "right": 0.841,
+      "real_avg": 19.2,
+      "predicted_avg": 17.6
+    },
+    "12621": {
+      "stretches": [
+        {
+          "from": "WL",
+          "to": "BPQ",
+          "runs": 74,
+          "real": 19.3,
+          "predicted": 16.7
+        },
+        {
+          "from": "NGP",
+          "to": "ET",
+          "runs": 73,
+          "real": 15.2,
+          "predicted": 24.2
+        },
+        {
+          "from": "GWL",
+          "to": "AGC",
+          "runs": 63,
+          "real": 10.1,
+          "predicted": 9.5
+        },
+        {
+          "from": "KMT",
+          "to": "WL",
+          "runs": 75,
+          "real": 7.9,
+          "predicted": 7.5
+        },
+        {
+          "from": "BPL",
+          "to": "VGLJ",
+          "runs": 60,
+          "real": 2.4,
+          "predicted": 4.1
+        }
+      ],
+      "recoveries": 320,
+      "caught": 0.775,
+      "right": 0.749,
+      "real_avg": 16.5,
+      "predicted_avg": 11.9
+    },
+    "12622": {
+      "stretches": [
+        {
+          "from": "KMT",
+          "to": "BZA",
+          "runs": 71,
+          "real": 26.1,
+          "predicted": 29.6
+        },
+        {
+          "from": "AGC",
+          "to": "GWL",
+          "runs": 79,
+          "real": 18.9,
+          "predicted": 20.5
+        },
+        {
+          "from": "BPL",
+          "to": "ET",
+          "runs": 75,
+          "real": 18.4,
+          "predicted": 20.6
+        },
+        {
+          "from": "VGLJ",
+          "to": "BPL",
+          "runs": 71,
+          "real": 11.0,
+          "predicted": 13.2
+        },
+        {
+          "from": "GWL",
+          "to": "VGLJ",
+          "runs": 71,
+          "real": 1.9,
+          "predicted": 0.5
+        }
+      ],
+      "recoveries": 352,
+      "caught": 0.776,
+      "right": 0.85,
+      "real_avg": 19.9,
+      "predicted_avg": 16.0
+    },
+    "12625": {
+      "stretches": [
+        {
+          "from": "RDM",
+          "to": "SKZR",
+          "runs": 71,
+          "real": 58.7,
+          "predicted": 56.7
+        },
+        {
+          "from": "NGP",
+          "to": "ET",
+          "runs": 75,
+          "real": 37.3,
+          "predicted": 41.7
+        },
+        {
+          "from": "SA",
+          "to": "JTJ",
+          "runs": 78,
+          "real": 18.6,
+          "predicted": 21.4
+        },
+        {
+          "from": "PGT",
+          "to": "CBE",
+          "runs": 78,
+          "real": 15.8,
+          "predicted": 17.9
+        },
+        {
+          "from": "MTJ",
+          "to": "FDB",
+          "runs": 35,
+          "real": 14.6,
+          "predicted": 21.6
+        }
+      ],
+      "recoveries": 1182,
+      "caught": 0.727,
+      "right": 0.75,
+      "real_avg": 16.0,
+      "predicted_avg": 13.9
+    },
+    "12626": {
+      "stretches": [
+        {
+          "from": "WL",
+          "to": "BZA",
+          "runs": 72,
+          "real": 44.0,
+          "predicted": 43.8
+        },
+        {
+          "from": "CD",
+          "to": "BPQ",
+          "runs": 74,
+          "real": 36.4,
+          "predicted": 40.4
+        },
+        {
+          "from": "CTO",
+          "to": "KPD",
+          "runs": 72,
+          "real": 20.1,
+          "predicted": 21.6
+        },
+        {
+          "from": "MVLK",
+          "to": "KYJ",
+          "runs": 76,
+          "real": 20.1,
+          "predicted": 20.5
+        },
+        {
+          "from": "VARD",
+          "to": "KTYM",
+          "runs": 73,
+          "real": 15.9,
+          "predicted": 16.3
+        }
+      ],
+      "recoveries": 1257,
+      "caught": 0.835,
+      "right": 0.796,
+      "real_avg": 17.0,
+      "predicted_avg": 15.1
+    },
+    "12627": {
+      "stretches": [
+        {
+          "from": "BAU",
+          "to": "KNW",
+          "runs": 63,
+          "real": 20.0,
+          "predicted": 20.8
+        },
+        {
+          "from": "KPG",
+          "to": "MMR",
+          "runs": 67,
+          "real": 19.6,
+          "predicted": 19.6
+        },
+        {
+          "from": "SSPN",
+          "to": "DMM",
+          "runs": 75,
+          "real": 16.6,
+          "predicted": 17.2
+        },
+        {
+          "from": "YG",
+          "to": "WADI",
+          "runs": 74,
+          "real": 14.2,
+          "predicted": 15.9
+        },
+        {
+          "from": "BAP",
+          "to": "KPG",
+          "runs": 68,
+          "real": 14.2,
+          "predicted": 12.9
+        }
+      ],
+      "recoveries": 1071,
+      "caught": 0.769,
+      "right": 0.75,
+      "real_avg": 13.5,
+      "predicted_avg": 10.4
+    },
+    "12628": {
+      "stretches": [
+        {
+          "from": "KLBG",
+          "to": "WADI",
+          "runs": 79,
+          "real": 33.2,
+          "predicted": 37.5
+        },
+        {
+          "from": "ATP",
+          "to": "DMM",
+          "runs": 79,
+          "real": 25.8,
+          "predicted": 26.2
+        },
+        {
+          "from": "KWV",
+          "to": "SUR",
+          "runs": 77,
+          "real": 24.9,
+          "predicted": 26.6
+        },
+        {
+          "from": "AGC",
+          "to": "GWL",
+          "runs": 81,
+          "real": 22.8,
+          "predicted": 24.3
+        },
+        {
+          "from": "ANG",
+          "to": "DD",
+          "runs": 76,
+          "real": 22.4,
+          "predicted": 18.9
+        }
+      ],
+      "recoveries": 1090,
+      "caught": 0.844,
+      "right": 0.819,
+      "real_avg": 18.4,
+      "predicted_avg": 15.4
+    },
+    "12639": {
+      "stretches": [
+        {
+          "from": "VN",
+          "to": "JTJ",
+          "runs": 87,
+          "real": 13.6,
+          "predicted": 13.5
+        },
+        {
+          "from": "KPN",
+          "to": "BWT",
+          "runs": 87,
+          "real": 4.0,
+          "predicted": 4.4
+        },
+        {
+          "from": "SHU",
+          "to": "WJR",
+          "runs": 88,
+          "real": 3.0,
+          "predicted": 2.9
+        },
+        {
+          "from": "WJR",
+          "to": "KPD",
+          "runs": 87,
+          "real": 2.8,
+          "predicted": 2.8
+        },
+        {
+          "from": "AB",
+          "to": "VN",
+          "runs": 87,
+          "real": 1.0,
+          "predicted": 1.4
+        }
+      ],
+      "recoveries": 177,
+      "caught": 0.61,
+      "right": 0.878,
+      "real_avg": 10.0,
+      "predicted_avg": 8.6
+    },
+    "12640": {
+      "stretches": [
+        {
+          "from": "KPN",
+          "to": "JTJ",
+          "runs": 83,
+          "real": 17.0,
+          "predicted": 17.1
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 72,
+          "real": 4.5,
+          "predicted": 4.1
+        },
+        {
+          "from": "AB",
+          "to": "KPD",
+          "runs": 80,
+          "real": 3.4,
+          "predicted": 3.1
+        },
+        {
+          "from": "WJR",
+          "to": "SHU",
+          "runs": 82,
+          "real": 2.6,
+          "predicted": 2.3
+        },
+        {
+          "from": "VN",
+          "to": "AB",
+          "runs": 81,
+          "real": 2.1,
+          "predicted": 2.5
+        }
+      ],
+      "recoveries": 164,
+      "caught": 0.646,
+      "right": 0.855,
+      "real_avg": 12.3,
+      "predicted_avg": 10.3
+    },
+    "12657": {
+      "stretches": [
+        {
+          "from": "KPD",
+          "to": "JTJ",
+          "runs": 86,
+          "real": 16.7,
+          "predicted": 17.5
+        },
+        {
+          "from": "AJJ",
+          "to": "KPD",
+          "runs": 86,
+          "real": 3.5,
+          "predicted": 4.2
+        },
+        {
+          "from": "MAS",
+          "to": "AJJ",
+          "runs": 62,
+          "real": -4.8,
+          "predicted": -4.0
+        },
+        {
+          "from": "JTJ",
+          "to": "BWT",
+          "runs": 86,
+          "real": -9.1,
+          "predicted": -8.3
+        }
+      ],
+      "recoveries": 135,
+      "caught": 0.822,
+      "right": 0.847,
+      "real_avg": 13.3,
+      "predicted_avg": 12.2
+    },
+    "12658": {
+      "stretches": [
+        {
+          "from": "BWT",
+          "to": "JTJ",
+          "runs": 85,
+          "real": 11.9,
+          "predicted": 13.6
+        },
+        {
+          "from": "JTJ",
+          "to": "KPD",
+          "runs": 85,
+          "real": 8.3,
+          "predicted": 7.6
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 80,
+          "real": 3.7,
+          "predicted": 4.7
+        },
+        {
+          "from": "KPD",
+          "to": "AJJ",
+          "runs": 86,
+          "real": -2.9,
+          "predicted": -2.5
+        },
+        {
+          "from": "BNC",
+          "to": "BWT",
+          "runs": 86,
+          "real": -5.3,
+          "predicted": -3.5
+        }
+      ],
+      "recoveries": 198,
+      "caught": 0.904,
+      "right": 0.799,
+      "real_avg": 10.6,
+      "predicted_avg": 9.2
+    },
+    "12723": {
+      "stretches": [
+        {
+          "from": "MTJ",
+          "to": "BVH",
+          "runs": 85,
+          "real": 39.4,
+          "predicted": 41.0
+        },
+        {
+          "from": "SKZR",
+          "to": "BPQ",
+          "runs": 85,
+          "real": 24.0,
+          "predicted": 23.7
+        },
+        {
+          "from": "NGP",
+          "to": "BPL",
+          "runs": 84,
+          "real": 20.0,
+          "predicted": 27.7
+        },
+        {
+          "from": "KZJ",
+          "to": "RDM",
+          "runs": 84,
+          "real": 14.6,
+          "predicted": 15.9
+        },
+        {
+          "from": "VGLJ",
+          "to": "GWL",
+          "runs": 86,
+          "real": 14.0,
+          "predicted": 15.0
+        }
+      ],
+      "recoveries": 578,
+      "caught": 0.83,
+      "right": 0.881,
+      "real_avg": 20.7,
+      "predicted_avg": 19.0
+    },
+    "12724": {
+      "stretches": [
+        {
+          "from": "CD",
+          "to": "BPQ",
+          "runs": 76,
+          "real": 47.1,
+          "predicted": 50.3
+        },
+        {
+          "from": "GWL",
+          "to": "VGLJ",
+          "runs": 74,
+          "real": 28.3,
+          "predicted": 26.3
+        },
+        {
+          "from": "AGC",
+          "to": "GWL",
+          "runs": 79,
+          "real": 16.6,
+          "predicted": 20.9
+        },
+        {
+          "from": "RDM",
+          "to": "KZJ",
+          "runs": 67,
+          "real": 2.7,
+          "predicted": 2.9
+        },
+        {
+          "from": "BPA",
+          "to": "MCI",
+          "runs": 73,
+          "real": -2.7,
+          "predicted": -2.1
+        }
+      ],
+      "recoveries": 273,
+      "caught": 0.85,
+      "right": 0.862,
+      "real_avg": 28.2,
+      "predicted_avg": 26.3
+    },
+    "12809": {
+      "stretches": [
+        {
+          "from": "MZR",
+          "to": "BD",
+          "runs": 75,
+          "real": 38.9,
+          "predicted": 42.5
+        },
+        {
+          "from": "WR",
+          "to": "NGP",
+          "runs": 75,
+          "real": 29.9,
+          "predicted": 33.1
+        },
+        {
+          "from": "JL",
+          "to": "BSL",
+          "runs": 76,
+          "real": 15.3,
+          "predicted": 19.4
+        },
+        {
+          "from": "SEG",
+          "to": "AK",
+          "runs": 74,
+          "real": 8.0,
+          "predicted": 11.7
+        },
+        {
+          "from": "RJN",
+          "to": "DURG",
+          "runs": 77,
+          "real": 5.9,
+          "predicted": 9.2
+        }
+      ],
+      "recoveries": 667,
+      "caught": 0.7,
+      "right": 0.731,
+      "real_avg": 15.3,
+      "predicted_avg": 13.2
+    },
+    "12810": {
+      "stretches": [
+        {
+          "from": "DMN",
+          "to": "BD",
+          "runs": 78,
+          "real": 54.6,
+          "predicted": 56.3
+        },
+        {
+          "from": "DVL",
+          "to": "IGP",
+          "runs": 80,
+          "real": 18.9,
+          "predicted": 20.8
+        },
+        {
+          "from": "CPH",
+          "to": "BSP",
+          "runs": 80,
+          "real": 16.2,
+          "predicted": 19.0
+        },
+        {
+          "from": "BRD",
+          "to": "NGP",
+          "runs": 80,
+          "real": 11.9,
+          "predicted": 22.2
+        },
+        {
+          "from": "R",
+          "to": "DURG",
+          "runs": 79,
+          "real": 4.1,
+          "predicted": 7.6
+        }
+      ],
+      "recoveries": 546,
+      "caught": 0.714,
+      "right": 0.756,
+      "real_avg": 19.6,
+      "predicted_avg": 17.5
+    },
+    "12859": {
+      "stretches": [
+        {
+          "from": "TATA",
+          "to": "GTS",
+          "runs": 30,
+          "real": 39.8,
+          "predicted": 20.6
+        },
+        {
+          "from": "WR",
+          "to": "NGP",
+          "runs": 74,
+          "real": 26.3,
+          "predicted": 32.3
+        },
+        {
+          "from": "AK",
+          "to": "BD",
+          "runs": 71,
+          "real": 24.8,
+          "predicted": 25.7
+        },
+        {
+          "from": "JL",
+          "to": "BSL",
+          "runs": 74,
+          "real": 13.9,
+          "predicted": 14.7
+        },
+        {
+          "from": "RJN",
+          "to": "DURG",
+          "runs": 72,
+          "real": 12.4,
+          "predicted": 15.8
+        }
+      ],
+      "recoveries": 438,
+      "caught": 0.751,
+      "right": 0.827,
+      "real_avg": 19.5,
+      "predicted_avg": 15.6
+    },
+    "12860": {
+      "stretches": [
+        {
+          "from": "BRD",
+          "to": "NGP",
+          "runs": 77,
+          "real": 15.3,
+          "predicted": 21.0
+        },
+        {
+          "from": "NK",
+          "to": "IGP",
+          "runs": 77,
+          "real": 11.6,
+          "predicted": 13.7
+        },
+        {
+          "from": "WR",
+          "to": "BD",
+          "runs": 77,
+          "real": 11.2,
+          "predicted": 14.4
+        },
+        {
+          "from": "RIG",
+          "to": "BSP",
+          "runs": 79,
+          "real": 9.8,
+          "predicted": 9.0
+        },
+        {
+          "from": "R",
+          "to": "DURG",
+          "runs": 79,
+          "real": 7.7,
+          "predicted": 11.1
+        }
+      ],
+      "recoveries": 438,
+      "caught": 0.822,
+      "right": 0.726,
+      "real_avg": 15.0,
+      "predicted_avg": 10.5
+    },
+    "12903": {
+      "stretches": [
+        {
+          "from": "MOZ",
+          "to": "SRE",
+          "runs": 76,
+          "real": 26.1,
+          "predicted": 29.6
+        },
+        {
+          "from": "MGN",
+          "to": "RTM",
+          "runs": 82,
+          "real": 17.6,
+          "predicted": 19.4
+        },
+        {
+          "from": "LDH",
+          "to": "JUC",
+          "runs": 82,
+          "real": 17.5,
+          "predicted": 20.8
+        },
+        {
+          "from": "BTE",
+          "to": "MTJ",
+          "runs": 78,
+          "real": 16.6,
+          "predicted": 18.5
+        },
+        {
+          "from": "UMB",
+          "to": "LDH",
+          "runs": 83,
+          "real": 10.7,
+          "predicted": 10.5
+        }
+      ],
+      "recoveries": 1006,
+      "caught": 0.845,
+      "right": 0.836,
+      "real_avg": 13.6,
+      "predicted_avg": 12.4
+    },
+    "12904": {
+      "stretches": [
+        {
+          "from": "SGZ",
+          "to": "NAD",
+          "runs": 83,
+          "real": 30.0,
+          "predicted": 31.3
+        },
+        {
+          "from": "DHD",
+          "to": "GDA",
+          "runs": 83,
+          "real": 22.1,
+          "predicted": 23.0
+        },
+        {
+          "from": "LDH",
+          "to": "UMB",
+          "runs": 83,
+          "real": 19.0,
+          "predicted": 20.3
+        },
+        {
+          "from": "GZB",
+          "to": "NZM",
+          "runs": 85,
+          "real": 16.8,
+          "predicted": 19.7
+        },
+        {
+          "from": "SWM",
+          "to": "KOTA",
+          "runs": 84,
+          "real": 15.9,
+          "predicted": 18.8
+        }
+      ],
+      "recoveries": 901,
+      "caught": 0.807,
+      "right": 0.832,
+      "real_avg": 15.4,
+      "predicted_avg": 13.7
+    },
+    "12925": {
+      "stretches": [
+        {
+          "from": "KKDE",
+          "to": "UMB",
+          "runs": 79,
+          "real": 46.7,
+          "predicted": 48.9
+        },
+        {
+          "from": "BTE",
+          "to": "MTJ",
+          "runs": 83,
+          "real": 31.6,
+          "predicted": 29.0
+        },
+        {
+          "from": "SASN",
+          "to": "LDH",
+          "runs": 80,
+          "real": 29.4,
+          "predicted": 28.7
+        },
+        {
+          "from": "NVS",
+          "to": "ST",
+          "runs": 81,
+          "real": 26.8,
+          "predicted": 28.7
+        },
+        {
+          "from": "NZM",
+          "to": "NDLS",
+          "runs": 81,
+          "real": 19.5,
+          "predicted": 20.8
+        }
+      ],
+      "recoveries": 1363,
+      "caught": 0.905,
+      "right": 0.781,
+      "real_avg": 17.8,
+      "predicted_avg": 16.4
+    },
+    "12926": {
+      "stretches": [
+        {
+          "from": "FDB",
+          "to": "MTJ",
+          "runs": 78,
+          "real": 45.2,
+          "predicted": 49.2
+        },
+        {
+          "from": "SGZ",
+          "to": "NAD",
+          "runs": 82,
+          "real": 35.3,
+          "predicted": 35.5
+        },
+        {
+          "from": "LDH",
+          "to": "SASN",
+          "runs": 81,
+          "real": 33.2,
+          "predicted": 30.7
+        },
+        {
+          "from": "BVI",
+          "to": "BDTS",
+          "runs": 47,
+          "real": 31.4,
+          "predicted": 33.6
+        },
+        {
+          "from": "SZM",
+          "to": "NDLS",
+          "runs": 73,
+          "real": 25.5,
+          "predicted": 26.5
+        }
+      ],
+      "recoveries": 1101,
+      "caught": 0.84,
+      "right": 0.835,
+      "real_avg": 19.3,
+      "predicted_avg": 17.7
+    },
+    "12951": {
+      "stretches": [
+        {
+          "from": "BRC",
+          "to": "RTM",
+          "runs": 84,
+          "real": 9.8,
+          "predicted": 11.6
+        },
+        {
+          "from": "RTM",
+          "to": "NAD",
+          "runs": 85,
+          "real": 7.8,
+          "predicted": 8.4
+        },
+        {
+          "from": "BVI",
+          "to": "ST",
+          "runs": 81,
+          "real": 5.5,
+          "predicted": 6.4
+        },
+        {
+          "from": "ST",
+          "to": "BRC",
+          "runs": 83,
+          "real": -2.7,
+          "predicted": -1.5
+        },
+        {
+          "from": "NAD",
+          "to": "KOTA",
+          "runs": 85,
+          "real": -4.1,
+          "predicted": -2.0
+        }
+      ],
+      "recoveries": 209,
+      "caught": 0.962,
+      "right": 0.859,
+      "real_avg": 9.6,
+      "predicted_avg": 9.2
+    },
+    "12952": {
+      "stretches": [
+        {
+          "from": "KOTA",
+          "to": "NAD",
+          "runs": 82,
+          "real": 6.3,
+          "predicted": 8.6
+        },
+        {
+          "from": "RTM",
+          "to": "BRC",
+          "runs": 84,
+          "real": 5.2,
+          "predicted": 4.8
+        },
+        {
+          "from": "BRC",
+          "to": "ST",
+          "runs": 84,
+          "real": 2.0,
+          "predicted": 3.2
+        },
+        {
+          "from": "NAD",
+          "to": "RTM",
+          "runs": 84,
+          "real": 1.8,
+          "predicted": 2.4
+        },
+        {
+          "from": "ST",
+          "to": "BVI",
+          "runs": 84,
+          "real": -12.6,
+          "predicted": -10.5
+        }
+      ],
+      "recoveries": 148,
+      "caught": 0.709,
+      "right": 0.705,
+      "real_avg": 8.7,
+      "predicted_avg": 6.7
+    },
+    "12953": {
+      "stretches": [
+        {
+          "from": "SWM",
+          "to": "MTJ",
+          "runs": 84,
+          "real": 16.2,
+          "predicted": 16.9
+        },
+        {
+          "from": "BL",
+          "to": "ST",
+          "runs": 84,
+          "real": 12.0,
+          "predicted": 11.2
+        },
+        {
+          "from": "DHD",
+          "to": "RTM",
+          "runs": 85,
+          "real": 6.8,
+          "predicted": 8.0
+        },
+        {
+          "from": "RTM",
+          "to": "KOTA",
+          "runs": 85,
+          "real": 5.1,
+          "predicted": 8.6
+        },
+        {
+          "from": "BRC",
+          "to": "DHD",
+          "runs": 85,
+          "real": 4.7,
+          "predicted": 5.4
+        }
+      ],
+      "recoveries": 355,
+      "caught": 0.893,
+      "right": 0.823,
+      "real_avg": 11.5,
+      "predicted_avg": 10.3
+    },
+    "12954": {
+      "stretches": [
+        {
+          "from": "KOTA",
+          "to": "RTM",
+          "runs": 83,
+          "real": 9.0,
+          "predicted": 9.8
+        },
+        {
+          "from": "SWM",
+          "to": "KOTA",
+          "runs": 82,
+          "real": 4.5,
+          "predicted": 6.0
+        },
+        {
+          "from": "DHD",
+          "to": "BRC",
+          "runs": 83,
+          "real": 4.1,
+          "predicted": 4.9
+        },
+        {
+          "from": "BRC",
+          "to": "BH",
+          "runs": 83,
+          "real": 2.8,
+          "predicted": 3.5
+        },
+        {
+          "from": "BH",
+          "to": "ST",
+          "runs": 83,
+          "real": 2.1,
+          "predicted": 3.9
+        }
+      ],
+      "recoveries": 239,
+      "caught": 0.657,
+      "right": 0.628,
+      "real_avg": 9.4,
+      "predicted_avg": 6.3
+    },
+    "16021": {
+      "stretches": [
+        {
+          "from": "BNC",
+          "to": "SBC",
+          "runs": 86,
+          "real": 31.0,
+          "predicted": 31.0
+        },
+        {
+          "from": "KPD",
+          "to": "JTJ",
+          "runs": 86,
+          "real": 16.6,
+          "predicted": 16.4
+        },
+        {
+          "from": "MYA",
+          "to": "PANP",
+          "runs": 86,
+          "real": 6.3,
+          "predicted": 7.0
+        },
+        {
+          "from": "MAS",
+          "to": "TRL",
+          "runs": 50,
+          "real": 3.6,
+          "predicted": 3.2
+        },
+        {
+          "from": "BNCE",
+          "to": "BNC",
+          "runs": 86,
+          "real": 3.3,
+          "predicted": 3.5
+        }
+      ],
+      "recoveries": 341,
+      "caught": 0.727,
+      "right": 0.905,
+      "real_avg": 15.4,
+      "predicted_avg": 14.0
+    },
+    "16022": {
+      "stretches": [
+        {
+          "from": "KPN",
+          "to": "JTJ",
+          "runs": 84,
+          "real": 35.0,
+          "predicted": 34.4
+        },
+        {
+          "from": "KGI",
+          "to": "SBC",
+          "runs": 83,
+          "real": 18.7,
+          "predicted": 20.3
+        },
+        {
+          "from": "JTJ",
+          "to": "KPD",
+          "runs": 84,
+          "real": 7.3,
+          "predicted": 5.7
+        },
+        {
+          "from": "PANP",
+          "to": "MYA",
+          "runs": 85,
+          "real": 3.4,
+          "predicted": 3.4
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 84,
+          "real": 2.8,
+          "predicted": 3.4
+        }
+      ],
+      "recoveries": 348,
+      "caught": 0.615,
+      "right": 0.826,
+      "real_avg": 17.2,
+      "predicted_avg": 14.6
+    },
+    "22625": {
+      "stretches": [
+        {
+          "from": "VN",
+          "to": "JTJ",
+          "runs": 85,
+          "real": 13.8,
+          "predicted": 13.6
+        },
+        {
+          "from": "TRL",
+          "to": "AJJ",
+          "runs": 84,
+          "real": 1.9,
+          "predicted": 1.4
+        },
+        {
+          "from": "AB",
+          "to": "VN",
+          "runs": 85,
+          "real": 1.1,
+          "predicted": 1.6
+        },
+        {
+          "from": "AJJ",
+          "to": "KPD",
+          "runs": 83,
+          "real": 1.0,
+          "predicted": 2.5
+        },
+        {
+          "from": "KPN",
+          "to": "BWT",
+          "runs": 85,
+          "real": -0.9,
+          "predicted": 0.3
+        }
+      ],
+      "recoveries": 105,
+      "caught": 0.819,
+      "right": 1,
+      "real_avg": 12.2,
+      "predicted_avg": 11.5
+    },
+    "22626": {
+      "stretches": [
+        {
+          "from": "KPN",
+          "to": "JTJ",
+          "runs": 85,
+          "real": 22.2,
+          "predicted": 23.5
+        },
+        {
+          "from": "SBC",
+          "to": "BNC",
+          "runs": 68,
+          "real": 2.9,
+          "predicted": 4.9
+        },
+        {
+          "from": "VN",
+          "to": "AB",
+          "runs": 84,
+          "real": 1.7,
+          "predicted": 2.4
+        },
+        {
+          "from": "BWT",
+          "to": "KPN",
+          "runs": 85,
+          "real": 1.0,
+          "predicted": 1.9
+        },
+        {
+          "from": "AB",
+          "to": "KPD",
+          "runs": 83,
+          "real": 0.8,
+          "predicted": 2.5
+        }
+      ],
+      "recoveries": 195,
+      "caught": 0.595,
+      "right": 0.841,
+      "real_avg": 13.5,
+      "predicted_avg": 11.7
+    }
+  },
+  "bands": {
+    "12007|1-3h": [
+      -9.0,
+      15.0
+    ],
+    "all|1-3h": [
+      -10.0,
+      17.0
+    ],
+    "all|3-8h": [
+      -15.0,
+      30.0
+    ],
+    "12008|3-8h": [
+      -13.0,
+      12.2
+    ],
+    "12027|1-3h": [
+      -7.0,
+      10.0
+    ],
+    "12028|0-1h": [
+      -2.0,
+      3.0
+    ],
+    "all|0-1h": [
+      -5.0,
+      9.0
+    ],
+    "12028|1-3h": [
+      -6.0,
+      9.0
+    ],
+    "12163|0-1h": [
+      -5.0,
+      8.0
+    ],
+    "12163|1-3h": [
+      -10.0,
+      14.0
+    ],
+    "12163|3-8h": [
+      -15.0,
+      22.0
+    ],
+    "12163|8-24h": [
+      -20.0,
+      34.0
+    ],
+    "all|8-24h": [
+      -20.0,
+      60.0
+    ],
+    "12164|0-1h": [
+      -6.0,
+      8.0
+    ],
+    "12164|1-3h": [
+      -13.0,
+      16.0
+    ],
+    "12164|3-8h": [
+      -19.0,
+      18.4
+    ],
+    "12164|8-24h": [
+      -31.0,
+      27.0
+    ],
+    "12301|1-3h": [
+      -5.0,
+      11.0
+    ],
+    "12301|3-8h": [
+      -6.0,
+      20.0
+    ],
+    "12301|8-24h": [
+      -8.0,
+      30.0
+    ],
+    "12301|0-1h": [
+      -2.0,
+      12.0
+    ],
+    "12302|3-8h": [
+      -7.0,
+      18.0
+    ],
+    "12302|8-24h": [
+      -8.0,
+      34.0
+    ],
+    "12302|1-3h": [
+      -5.0,
+      10.0
+    ],
+    "12302|0-1h": [
+      -3.0,
+      8.0
+    ],
+    "12311|0-1h": [
+      -5.0,
+      12.0
+    ],
+    "12311|1-3h": [
+      -11.0,
+      24.0
+    ],
+    "12311|3-8h": [
+      -17.0,
+      45.0
+    ],
+    "12311|8-24h": [
+      -24.0,
+      107.0
+    ],
+    "12311|24h+": [
+      -35.0,
+      130.0
+    ],
+    "all|24h+": [
+      -20.0,
+      67.0
+    ],
+    "12312|0-1h": [
+      -4.0,
+      9.0
+    ],
+    "12312|1-3h": [
+      -10.0,
+      17.0
+    ],
+    "12312|3-8h": [
+      -14.0,
+      27.0
+    ],
+    "12312|8-24h": [
+      -14.0,
+      45.0
+    ],
+    "12312|24h+": [
+      -16.0,
+      62.0
+    ],
+    "12313|0-1h": [
+      -1.0,
+      4.0
+    ],
+    "12313|1-3h": [
+      -5.0,
+      11.0
+    ],
+    "12313|3-8h": [
+      -8.0,
+      16.0
+    ],
+    "12313|8-24h": [
+      -10.0,
+      26.3
+    ],
+    "12314|3-8h": [
+      -7.0,
+      25.6
+    ],
+    "12314|8-24h": [
+      -7.0,
+      38.1
+    ],
+    "12314|1-3h": [
+      -5.0,
+      12.9
+    ],
+    "12314|0-1h": [
+      -3.0,
+      5.0
+    ],
+    "12423|8-24h": [
+      -18.9,
+      41.9
+    ],
+    "12423|24h+": [
+      -17.0,
+      54.0
+    ],
+    "12423|1-3h": [
+      -8.0,
+      16.0
+    ],
+    "12423|3-8h": [
+      -13.0,
+      29.0
+    ],
+    "12423|0-1h": [
+      -7.0,
+      8.0
+    ],
+    "12424|3-8h": [
+      -13.0,
+      28.0
+    ],
+    "12424|8-24h": [
+      -16.0,
+      45.0
+    ],
+    "12424|1-3h": [
+      -9.0,
+      16.0
+    ],
+    "12424|0-1h": [
+      -5.0,
+      7.0
+    ],
+    "12424|24h+": [
+      -17.0,
+      67.1
+    ],
+    "12607|0-1h": [
+      -5.0,
+      7.0
+    ],
+    "12607|1-3h": [
+      -10.0,
+      13.0
+    ],
+    "12607|3-8h": [
+      -14.0,
+      19.0
+    ],
+    "12608|0-1h": [
+      -3.0,
+      7.0
+    ],
+    "12608|1-3h": [
+      -6.0,
+      11.0
+    ],
+    "12608|3-8h": [
+      -8.0,
+      17.0
+    ],
+    "12615|1-3h": [
+      -11.0,
+      17.0
+    ],
+    "12615|3-8h": [
+      -14.0,
+      32.0
+    ],
+    "12615|8-24h": [
+      -16.0,
+      55.0
+    ],
+    "12615|24h+": [
+      -18.0,
+      105.0
+    ],
+    "12615|0-1h": [
+      -6.0,
+      8.0
+    ],
+    "12616|1-3h": [
+      -11.0,
+      18.0
+    ],
+    "12616|3-8h": [
+      -16.0,
+      31.0
+    ],
+    "12616|8-24h": [
+      -20.0,
+      59.0
+    ],
+    "12616|24h+": [
+      -21.0,
+      74.0
+    ],
+    "12616|0-1h": [
+      -6.0,
+      9.0
+    ],
+    "12621|3-8h": [
+      -14.0,
+      22.0
+    ],
+    "12621|8-24h": [
+      -14.0,
+      49.0
+    ],
+    "12621|24h+": [
+      -14.9,
+      55.9
+    ],
+    "12621|1-3h": [
+      -8.0,
+      11.0
+    ],
+    "12622|1-3h": [
+      -10.0,
+      15.0
+    ],
+    "12622|3-8h": [
+      -20.0,
+      28.0
+    ],
+    "12622|8-24h": [
+      -30.0,
+      90.0
+    ],
+    "12622|24h+": [
+      -45.5,
+      133.2
+    ],
+    "12625|0-1h": [
+      -4.0,
+      5.0
+    ],
+    "12625|1-3h": [
+      -8.0,
+      12.0
+    ],
+    "12625|3-8h": [
+      -11.0,
+      16.0
+    ],
+    "12625|8-24h": [
+      -13.0,
+      21.0
+    ],
+    "12625|24h+": [
+      -15.0,
+      40.0
+    ],
+    "12626|1-3h": [
+      -10.2,
+      14.0
+    ],
+    "12626|3-8h": [
+      -15.0,
+      18.0
+    ],
+    "12626|8-24h": [
+      -18.0,
+      27.0
+    ],
+    "12626|24h+": [
+      -13.0,
+      35.0
+    ],
+    "12626|0-1h": [
+      -4.0,
+      7.0
+    ],
+    "12627|0-1h": [
+      -5.0,
+      10.0
+    ],
+    "12627|1-3h": [
+      -11.0,
+      17.0
+    ],
+    "12627|3-8h": [
+      -18.0,
+      28.0
+    ],
+    "12627|8-24h": [
+      -26.0,
+      71.0
+    ],
+    "12627|24h+": [
+      -50.0,
+      134.0
+    ],
+    "12628|0-1h": [
+      -6.0,
+      9.0
+    ],
+    "12628|1-3h": [
+      -12.0,
+      16.0
+    ],
+    "12628|3-8h": [
+      -19.0,
+      22.0
+    ],
+    "12628|8-24h": [
+      -32.0,
+      29.0
+    ],
+    "12628|24h+": [
+      -62.0,
+      41.0
+    ],
+    "12639|0-1h": [
+      -4.0,
+      5.0
+    ],
+    "12639|1-3h": [
+      -8.0,
+      12.0
+    ],
+    "12639|3-8h": [
+      -12.0,
+      18.0
+    ],
+    "12640|0-1h": [
+      -3.0,
+      6.0
+    ],
+    "12640|1-3h": [
+      -7.0,
+      11.0
+    ],
+    "12640|3-8h": [
+      -10.0,
+      15.0
+    ],
+    "12657|0-1h": [
+      -6.0,
+      8.0
+    ],
+    "12657|1-3h": [
+      -7.0,
+      9.0
+    ],
+    "12657|3-8h": [
+      -8.0,
+      11.1
+    ],
+    "12658|0-1h": [
+      -6.0,
+      8.7
+    ],
+    "12658|1-3h": [
+      -7.5,
+      10.0
+    ],
+    "12658|3-8h": [
+      -8.0,
+      14.4
+    ],
+    "12723|1-3h": [
+      -9.0,
+      13.0
+    ],
+    "12723|3-8h": [
+      -13.0,
+      21.0
+    ],
+    "12723|8-24h": [
+      -16.0,
+      64.0
+    ],
+    "12723|24h+": [
+      -19.0,
+      59.0
+    ],
+    "12723|0-1h": [
+      -6.0,
+      6.0
+    ],
+    "12724|1-3h": [
+      -12.0,
+      14.0
+    ],
+    "12724|3-8h": [
+      -16.0,
+      22.0
+    ],
+    "12724|8-24h": [
+      -19.0,
+      78.0
+    ],
+    "12724|0-1h": [
+      -6.0,
+      7.0
+    ],
+    "12809|0-1h": [
+      -7.0,
+      13.0
+    ],
+    "12809|1-3h": [
+      -13.0,
+      26.0
+    ],
+    "12809|3-8h": [
+      -21.0,
+      41.0
+    ],
+    "12809|8-24h": [
+      -28.0,
+      72.0
+    ],
+    "12809|24h+": [
+      -38.0,
+      105.0
+    ],
+    "12810|1-3h": [
+      -14.0,
+      36.0
+    ],
+    "12810|3-8h": [
+      -25.0,
+      65.0
+    ],
+    "12810|8-24h": [
+      -35.0,
+      128.0
+    ],
+    "12810|24h+": [
+      -42.0,
+      186.0
+    ],
+    "12810|0-1h": [
+      -6.0,
+      13.0
+    ],
+    "12859|0-1h": [
+      -7.0,
+      15.0
+    ],
+    "12859|1-3h": [
+      -15.0,
+      24.0
+    ],
+    "12859|3-8h": [
+      -23.0,
+      42.0
+    ],
+    "12859|8-24h": [
+      -46.0,
+      77.0
+    ],
+    "12859|24h+": [
+      -68.0,
+      109.0
+    ],
+    "12860|1-3h": [
+      -17.0,
+      35.0
+    ],
+    "12860|3-8h": [
+      -29.0,
+      60.0
+    ],
+    "12860|8-24h": [
+      -41.0,
+      120.0
+    ],
+    "12860|24h+": [
+      -49.0,
+      215.9
+    ],
+    "12860|0-1h": [
+      -9.0,
+      14.0
+    ],
+    "12903|0-1h": [
+      -3.0,
+      8.0
+    ],
+    "12903|3-8h": [
+      -9.0,
+      26.0
+    ],
+    "12903|8-24h": [
+      -11.0,
+      45.0
+    ],
+    "12903|24h+": [
+      -17.0,
+      57.0
+    ],
+    "12903|1-3h": [
+      -7.0,
+      15.0
+    ],
+    "12904|0-1h": [
+      -4.0,
+      6.0
+    ],
+    "12904|1-3h": [
+      -8.0,
+      11.0
+    ],
+    "12904|3-8h": [
+      -11.0,
+      21.0
+    ],
+    "12904|8-24h": [
+      -12.0,
+      29.0
+    ],
+    "12904|24h+": [
+      -8.0,
+      48.4
+    ],
+    "12925|0-1h": [
+      -5.0,
+      13.0
+    ],
+    "12925|1-3h": [
+      -10.0,
+      17.0
+    ],
+    "12925|3-8h": [
+      -12.0,
+      20.0
+    ],
+    "12925|8-24h": [
+      -11.0,
+      27.0
+    ],
+    "12925|24h+": [
+      -9.8,
+      33.0
+    ],
+    "12926|0-1h": [
+      -4.0,
+      7.0
+    ],
+    "12926|1-3h": [
+      -9.0,
+      13.0
+    ],
+    "12926|3-8h": [
+      -10.0,
+      18.9
+    ],
+    "12926|8-24h": [
+      -11.0,
+      18.0
+    ],
+    "12926|24h+": [
+      -12.0,
+      16.0
+    ],
+    "12951|1-3h": [
+      -5.0,
+      8.0
+    ],
+    "12951|3-8h": [
+      -6.0,
+      13.0
+    ],
+    "12951|8-24h": [
+      -7.8,
+      16.8
+    ],
+    "12951|0-1h": [
+      -2.0,
+      5.0
+    ],
+    "12952|3-8h": [
+      -6.0,
+      10.0
+    ],
+    "12952|8-24h": [
+      -5.0,
+      12.9
+    ],
+    "12952|1-3h": [
+      -5.0,
+      8.0
+    ],
+    "12952|0-1h": [
+      -3.5,
+      6.0
+    ],
+    "12953|0-1h": [
+      -4.0,
+      4.0
+    ],
+    "12953|1-3h": [
+      -6.0,
+      6.0
+    ],
+    "12953|3-8h": [
+      -8.0,
+      11.0
+    ],
+    "12953|8-24h": [
+      -10.0,
+      13.0
+    ],
+    "12954|1-3h": [
+      -5.0,
+      9.0
+    ],
+    "12954|3-8h": [
+      -7.0,
+      11.0
+    ],
+    "12954|8-24h": [
+      -6.0,
+      12.0
+    ],
+    "12954|0-1h": [
+      -2.0,
+      7.0
+    ],
+    "16021|0-1h": [
+      -4.0,
+      5.0
+    ],
+    "16021|1-3h": [
+      -8.0,
+      13.0
+    ],
+    "16021|3-8h": [
+      -11.0,
+      21.0
+    ],
+    "16021|8-24h": [
+      -11.1,
+      21.1
+    ],
+    "16022|0-1h": [
+      -5.0,
+      10.0
+    ],
+    "16022|1-3h": [
+      -15.0,
+      16.0
+    ],
+    "16022|3-8h": [
+      -19.0,
+      15.0
+    ],
+    "16022|8-24h": [
+      -18.4,
+      19.4
+    ],
+    "22625|0-1h": [
+      -3.0,
+      5.0
+    ],
+    "22625|1-3h": [
+      -6.1,
+      9.0
+    ],
+    "22625|3-8h": [
+      -10.0,
+      14.0
+    ],
+    "22626|0-1h": [
+      -4.0,
+      8.0
+    ],
+    "22626|1-3h": [
+      -7.0,
+      12.0
+    ],
+    "22626|3-8h": [
+      -11.0,
+      17.0
+    ]
+  },
+  "_meta": {
+    "trained_on": "runs before 2026-08-04",
+    "tested_on": "3832 runs from 2026-08-04"
+  }
+}

@@ -1,8 +1,10 @@
 __pycache__/
-.venv/
+*.pyc
+.claude/
 .env
-tests/
-cross checked/*.json
-.playwright-cli/
-weather.db
+
+# Built locally (see README): the run history database and the trained model
+data/trackpulse.db*
+data/model.joblib
+data/raw/
 runs.db
