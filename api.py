@@ -123,6 +123,11 @@ con.execute("""CREATE TABLE IF NOT EXISTS predictions (
 con.execute("""CREATE TABLE IF NOT EXISTS rivals (
     train_no TEXT, date TEXT, made_at TEXT, station TEXT, pred_delay REAL, source TEXT,
     PRIMARY KEY (train_no, date, made_at, station, source))""")
+# Where each running train is expected to stand at the halts ahead (RailRadar's platform and times),
+# kept up to date by live/feed.py, to spot two trains due at one platform at once.
+con.execute("""CREATE TABLE IF NOT EXISTS platforms (
+    train_no TEXT, date TEXT, station TEXT, platform TEXT, arr TEXT, dep TEXT,
+    PRIMARY KEY (train_no, date, station))""")
 con.commit()
 
 
@@ -325,7 +330,9 @@ def station_board(code: str) -> list[dict]:
             continue  # skip the prediction for trains that never come here
         for e in etas(no, pos["seq"], pos["delay"], pos["date"], pos["updated_at"], explain=False):
             if e["station"] == code:
-                board.append({"train": no, "name": NAMES[no], "now_at": pos["station"],
+                pf = con.execute("SELECT platform FROM platforms WHERE train_no=? AND date=? AND station=?",
+                                 (no, pos["date"], code)).fetchone()
+                board.append({"train": no, "name": NAMES[no], "now_at": pos["station"], "platform": pf and pf[0],
                               "updated_at": pos["updated_at"],
                               **{k: e[k] for k in ("scheduled", "eta", "eta_range", "p10", "p50", "p90",
                                                    "delay_min", "delay_lo", "delay_hi")}})
@@ -335,6 +342,31 @@ def station_board(code: str) -> list[dict]:
 @api.get("/stations/<code>/arrivals")
 def arrivals(code):
     return jsonify(station=code.upper(), name=STATIONS.get(code.upper(), code.upper()), arrivals=station_board(code))
+
+
+CLASH_GAP_MIN = 5  # trains due at one platform closer than this apart (after the first leaves) clash
+
+
+def platform_clashes(station: str | None = None) -> list[dict]:
+    """Two running trains expected at the same platform of a station at overlapping times (plus
+    CLASH_GAP_MIN to clear it), from now on: one of them will be held outside or moved."""
+    rows = con.execute(f"""
+        SELECT a.station, a.platform, a.train_no, a.arr, a.dep, b.train_no, b.arr, b.dep
+        FROM platforms a JOIN platforms b
+          ON a.station = b.station AND a.platform = b.platform AND a.train_no < b.train_no
+        WHERE a.platform != '' AND a.arr >= ? AND b.arr >= ? AND a.station = COALESCE(?, a.station)
+          AND julianday(a.arr) < julianday(b.dep) + {CLASH_GAP_MIN} / 1440.0
+          AND julianday(b.arr) < julianday(a.dep) + {CLASH_GAP_MIN} / 1440.0
+        ORDER BY a.arr""", (now().isoformat(timespec="seconds"),) * 2 + (station,)).fetchall()
+    return [{"station": s, "name": STATIONS.get(s, s), "platform": p,
+             "trains": [{"train": t1, "name": NAMES.get(t1, t1), "arr": a1, "dep": d1},
+                        {"train": t2, "name": NAMES.get(t2, t2), "arr": a2, "dep": d2}]}
+            for s, p, t1, a1, d1, t2, a2, d2 in rows]
+
+
+@api.get("/platforms/clashes")
+def clashes():
+    return jsonify(clashes=platform_clashes(request.args.get("station")), gap_min=CLASH_GAP_MIN)
 
 
 DELAYED_MIN, DISRUPTED_MIN = 15, 60  # status cut-offs, in minutes late

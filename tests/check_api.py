@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from api import CORRIDORS, TRAINS, con, status  # noqa: E402
+from api import CORRIDORS, TRAINS, con, platform_clashes, status  # noqa: E402
 from eta import TRAIN_CODES  # noqa: E402
 from app import app  # noqa: E402
 
@@ -47,6 +47,13 @@ try:
     c.post("/api/trains/22625/position", json={"station": "AJJ", "delay": 10})  # unchanged -> not logged again
     assert con.execute("SELECT COUNT(*) FROM predictions WHERE rowid > ?", (last_pred,)).fetchone()[0] == logged
     assert c.get("/api/accuracy/live").status_code == 200 and c.get("/api/accuracy/live?days=0").status_code == 400
+    # Platform clash: T1 leaves 10:05, T2 arrives 10:08 (inside the 5 min gap); T3 at 10:30 is clear.
+    con.executemany("INSERT INTO platforms VALUES (?,?,?,?,?,?)", [
+        ("T1", "d", "ZZZ", "1", "2099-01-01T10:00:00", "2099-01-01T10:05:00"),
+        ("T2", "d", "ZZZ", "1", "2099-01-01T10:08:00", "2099-01-01T10:10:00"),
+        ("T3", "d", "ZZZ", "1", "2099-01-01T10:30:00", "2099-01-01T10:32:00")])
+    assert [[t["train"] for t in c["trains"]] for c in platform_clashes("ZZZ")] == [["T1", "T2"]]
+    con.execute("DELETE FROM platforms WHERE station='ZZZ'")
     print("all API checks passed")
 finally:
     con.execute("DELETE FROM positions")

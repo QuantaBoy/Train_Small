@@ -16,7 +16,7 @@ from flask import Flask, abort, redirect, render_template, request, url_for
 
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "model"))
-from api import NAMES, CORRIDORS, station_board, train_view, DELAYED_MIN, DISRUPTED_MIN, SECTION_DAYS, STATIONS, TRAINS, api, con, sections, control_rows, running, live_scores, report_file  # noqa: E402
+from api import NAMES, CORRIDORS, platform_clashes, station_board, train_view, DELAYED_MIN, DISRUPTED_MIN, SECTION_DAYS, STATIONS, TRAINS, api, con, sections, control_rows, running, live_scores, report_file  # noqa: E402
 from eta import FEATURES, IST, history, pairs, timing, K, MIN_RUNS, RECENT_DAYS, REFRESH_S, eta, minute_of, model, predict, route, traffic  # noqa: E402
 from train import DROP_RECENT  # noqa: E402
 sys.path.insert(0, str(ROOT / "live"))
@@ -190,6 +190,7 @@ def station(code=None):
         if hit:
             return redirect(url_for("station", code=hit))
     return render_template("station.html", code=code, name=STATIONS.get(code, code),
+                           clashes=platform_clashes(code) if code else [],
                            board=station_board(code) if code else [], stations=STATIONS,
                            now=datetime.now(IST).strftime("%H:%M"))
 

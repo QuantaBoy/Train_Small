@@ -108,6 +108,23 @@ def log_rival(con, no: str, day, made_at: str, data: dict | None = None) -> int:
     return len(rows)
 
 
+def log_platforms(con, no: str, day, data: dict) -> int:
+    """Save the platform and expected arrival and departure at each halt still ahead (for platform clashes)."""
+    if data.get("startDate") != day.isoformat():
+        return 0
+    rows = []
+    for s in data.get("route", []):
+        if s.get("isHalt") and s.get("status") in ("upcoming", "at-station") and s.get("platform"):
+            arr = s.get("actualArrival") or s.get("scheduledArrival")
+            dep = s.get("actualDeparture") or s.get("scheduledDeparture") or arr
+            if arr:
+                rows.append((no, day.isoformat(), s["stationCode"], str(s["platform"]), arr[:19], (dep or arr)[:19]))
+    con.execute("DELETE FROM platforms WHERE train_no=? AND date=?", (no, day.isoformat()))
+    con.executemany("INSERT OR REPLACE INTO platforms VALUES (?,?,?,?,?,?)", rows)
+    con.commit()
+    return len(rows)
+
+
 def fetch_backup(con, no: str, day, data: dict | None = None) -> list[dict]:
     """railradar.in reports, in fetch()'s format. It knows only the current run, and numbers stops
     differently, so stops are matched to our numbering by station code."""
@@ -260,6 +277,8 @@ def live_train(base: str, no: str):
                   f"{post(base, no, station, delay, day.isoformat(), at)}")
             try:
                 log_rival(con, no, day, at, rr)
+                if rr:
+                    log_platforms(con, no, day, rr)
             except Exception as e:  # the comparison is a bonus; never let it stop the feed
                 print(f"  {no}: no RailRadar forecast ({e})")
         elif saved:

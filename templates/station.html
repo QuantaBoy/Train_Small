@@ -20,11 +20,12 @@
     <div class="led-head"><b>{{ name }} ({{ code }})</b><span>{{ now }}</span></div>
     {% if board %}
     <table>
-      <thead><tr><th>Train</th><th>Now at</th><th>Sched</th><th>Expected<small>P50</small></th><th>Likely between<small>earliest P10 to latest P90</small></th><th>Late</th></tr></thead>
+      <thead><tr><th>Train</th><th>Pf</th><th>Now at</th><th>Sched</th><th>Expected<small>P50</small></th><th>Likely between<small>earliest P10 to latest P90</small></th><th>Late</th></tr></thead>
       <tbody>
       {% for a in board %}
       <tr class="led-row">
         <td><a href="{{ url_for('train', number=a.train) }}">{{ a.train }}</a><small>{{ a.name }}</small></td>
+        <td>{{ a.platform or '–' }}</td>
         <td>{{ stn(a.now_at) }}</td>
         <td>{{ a.scheduled[11:16] }}</td>
         <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ a.p50[11:16] }}{% set dd = a.p50[:10] %}{% if dd != a.scheduled[:10] %}<small>{{ dd }}</small>{% endif %}</td>
@@ -39,7 +40,12 @@
       joins the board from its next run.</p>
     {% endif %}
   </div>
-  <p class="note">Same data for display screens: <code>/api/stations/{{ code }}/arrivals</code></p>
+  {% for c in clashes %}
+  <p class="panel alert">Platform {{ c.platform }}: {{ c.trains[0].train }} {{ c.trains[0].name }} (due {{ c.trains[0].arr[11:16] }},
+    leaves {{ c.trains[0].dep[11:16] }}) and {{ c.trains[1].train }} {{ c.trains[1].name }} (due {{ c.trains[1].arr[11:16] }})
+    are expected within 5 minutes of each other. One will be held outside or moved to another platform.</p>
+  {% endfor %}
+  <p class="note">Platform (Pf) as RailRadar expects it. Same data for display screens: <code>/api/stations/{{ code }}/arrivals</code></p>
   {% endif %}
 </section>
 {% endblock %}
