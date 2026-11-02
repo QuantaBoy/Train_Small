@@ -21,6 +21,7 @@ ponytail: POST has no auth; add a shared token before this is reachable from the
 import json
 import sqlite3
 import sys
+import time
 from datetime import date as Date, datetime, timedelta, timezone
 from pathlib import Path
 from statistics import median, quantiles
@@ -255,6 +256,7 @@ def report(no):
     seen = reported_arg(body.get("reported_at"))
     before = con.execute("SELECT date, station, delay FROM positions WHERE train_no=?", (no,)).fetchone()
     con.execute("INSERT OR REPLACE INTO positions VALUES (?,?,?,?,?,?)", (no, run_date, station.upper(), seq, delay, seen))
+    _control[0] = 0.0  # a train moved: rebuild the overview on its next view
     view = train_view(no, con.execute("SELECT * FROM positions WHERE train_no=?", (no,)).fetchone())
     # Log the forecast once per new position (the feed re-sends unchanged ones every 5 min).
     if before is None or tuple(before) != (run_date, station.upper(), delay):
@@ -348,8 +350,17 @@ def status(delay_now: float, delay_end: float | None) -> str:
 SEVERITY = {"disrupted": 0, "delayed": 1, "normal": 2}
 
 
+CONTROL_TTL_S = 60  # the overview predicts every running train; one minute old is fresh enough
+
+
+_control: list = [0.0, []]
+
+
 def control_rows() -> list[dict]:
-    """Every running train, worst status first."""
+    """Every running train, worst status first. Reused for CONTROL_TTL_S: the home page, map and
+    control screen all show it, and the feed only moves trains every 5 minutes."""
+    if time.monotonic() - _control[0] < CONTROL_TTL_S:
+        return _control[1]
     out = []
     for pos in running():
         if pos["train_no"] not in NAMES:
@@ -361,7 +372,9 @@ def control_rows() -> list[dict]:
             "trend": None if not last else "recovering" if last["change_min"] <= -3 else
                      "losing" if last["change_min"] >= 3 else "steady",
             "status": status(v["delay_min"], last and last["delay_min"])})
-    return sorted(out, key=lambda t: SEVERITY[t["status"]])
+    out = sorted(out, key=lambda t: SEVERITY[t["status"]])
+    _control[:] = [time.monotonic(), out]
+    return out
 
 
 @api.get("/control")
