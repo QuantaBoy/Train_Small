@@ -17,10 +17,12 @@
       <span><i class="k-dot normal"></i>On time</span>
       <span><i class="k-dot delayed"></i>Delayed</span>
       <span><i class="k-dot disrupted"></i>Disrupted</span>
+      <span><i class="k-done"></i>Covered on this run</span>
+      <span><i class="k-ahead"></i>Still ahead</span>
     </div>
   </div>
-  <p class="note">Track geometry: India railway network open data, carried over from our first prototype. Click a train for
-    its arrival times.</p>
+  <p class="note">Track geometry: India railway network open data, carried over from our first prototype. Click a train to see
+    the stretch it has covered and what is still ahead.</p>
 </section>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -41,11 +43,26 @@
   });
   const colour = { normal: "#0d7a45", delayed: "#e0a100", disrupted: "#b3261e" };
   const fmt = m => Math.round(m) === 0 ? "on time" : (m < 0 ? "early " : "late ") + (Math.abs(m) >= 60 ? Math.floor(Math.abs(m) / 60) + " h " + String(Math.abs(Math.round(m)) % 60).padStart(2, "0") + " min" : Math.abs(Math.round(m)) + " min");
+  // Click a train: the stretch it has covered on this run (solid) and the halts still ahead (dashed).
+  let shown = null;
+  const showPath = t => {
+    if (shown) shown.remove();
+    shown = L.layerGroup([
+      L.polyline(t.done, { color: colour[t.status], weight: 6, opacity: .9 }),
+      L.polyline(t.ahead, { color: "#15203a", weight: 3, opacity: .7, dashArray: "6 8" }),
+    ]).addTo(map);
+    markers.forEach(m => m.bringToFront());
+    const all = t.done.concat(t.ahead);
+    if (all.length > 1) map.fitBounds(all, { padding: [40, 40], maxZoom: 9 });
+  };
   const markers = trains.map(t => L.circleMarker([t.lat, t.lng], {
       radius: 7, color: "#fff", weight: 2, fillColor: colour[t.status], fillOpacity: 1 })
+    .on("click", () => showPath(t))
     .bindPopup(`<b>${t.train} ${t.name}</b><br>At ${t.at_name}, ${fmt(t.delay_min)}` +
                (t.held ? "<br><b style='color:#b3261e'>Possibly held</b>" : "") +
                `<br><a href="/train/${t.train}">Arrival times</a>`)
     .addTo(map));
+  const pick = trains.findIndex(t => "#" + t.train === location.hash);  // /map#12616 opens on that train
+  if (pick >= 0) { showPath(trains[pick]); markers[pick].openPopup(); }
 </script>
 {% endblock %}

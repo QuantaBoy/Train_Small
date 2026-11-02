@@ -224,8 +224,19 @@ def network_map():
     """Every operational line in India (single vs double), with the live trains on it."""
     where = dict((s, (lat, lng)) for s, lat, lng in con.execute(
         "SELECT station, AVG(lat), AVG(lng) FROM runs WHERE lat IS NOT NULL GROUP BY station"))
-    trains = [{**t, "lat": where[t["at"]][0], "lng": where[t["at"]][1], "at_name": STATIONS.get(t["at"], t["at"])}
-              for t in control_rows() if t["at"] in where]
+    runs = {p["train_no"]: p for p in running()}
+
+    def path(no: str) -> dict:
+        """Stretch covered on this run (every station it reported at) and the halts still ahead."""
+        pos = runs[no]
+        done = [[lat, lng] for lat, lng in con.execute(
+            """SELECT lat, lng FROM runs WHERE train_no=? AND date=? AND seq<=? AND lat IS NOT NULL
+               AND COALESCE(act_arr, act_dep) IS NOT NULL ORDER BY seq""", (no, pos["date"], pos["seq"]))]
+        ahead = [list(where[c]) for s, c, *_ in route(no) if s >= pos["seq"] and c in where]
+        return {"done": done, "ahead": ahead}
+
+    trains = [{**t, "lat": where[t["at"]][0], "lng": where[t["at"]][1], "at_name": STATIONS.get(t["at"], t["at"]),
+               **path(t["train"])} for t in control_rows() if t["at"] in where and t["train"] in runs]
     return render_template("map.html", trains=trains)
 
 

@@ -11,7 +11,8 @@
     <h1 class="train-title"><span class="tno">{{ no }}</span> {{ name }}</h1>
     {% if live %}
     <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at {{ stn(live.station) }},
-      {{ behind(live.delay) }}, reported {{ live.updated_at[11:16] }} (run that left {{ live.date }})</p>
+      {{ behind(live.delay) }}, reported {{ live.updated_at[11:16] }} (run that left {{ live.date }}).
+      <a href="{{ url_for('network_map', _anchor=no) }}">See the stretch it has covered on the map</a></p>
     {% endif %}
     <div class="mini-track wide" style="--at: {{ (idx / (stops | length - 1) * 100) | round(1) }}%">
       <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco"></span></span>
@@ -210,7 +211,7 @@
   <div class="panel">
     <h3 class="rec-title">Stretches where it recovers most</h3>
     <ul class="rec-list">
-      {% set top = [recovery.stretches | map(attribute='real') | max, 1] | max %}
+      {% set top = [recovery.stretches | map(attribute='real') | max, recovery.stretches | map(attribute='predicted') | max, 1] | max %}
       {% for s in recovery.stretches if s.real > 0 %}
       <li>
         <span class="rec-name"><b class="board">{{ stn(s.from) }}</b> to <b class="board">{{ stn(s.to) }}</b></span>
