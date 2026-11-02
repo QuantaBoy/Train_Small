@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Page not found · Track Pulse{% endblock %}
+{% block body %}
+<section class="block">
+  <h1>No train on this line</h1>
+  <p>That page doesn’t exist. Pick a train from the <a href="{{ url_for('index') }}#trains">list of trains</a>,
+    or read <a href="{{ url_for('docs') }}">how Track Pulse works</a>.</p>
+</section>
+{% endblock %}

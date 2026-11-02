@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ name or 'Stations' }} · Track Pulse{% endblock %}
+{% block page %}station-page{% endblock %}
+{% block body %}
+{% if code %}<meta http-equiv="refresh" content="60">{% endif %}
+<section class="block">
+  <h1>{{ name if code else 'Station arrivals' }}</h1>
+  <p class="lede">Every running train still to come here, with when it is expected (P50) and the range 8 in 10 such
+    trains arrive in (P10 to P90). The board refreshes every minute.</p>
+  <form class="station-pick" action="{{ url_for('station') }}" method="get">
+    <label class="sr" for="code">Station name or code</label>
+    <input id="code" name="code" list="station-list" placeholder="Station name or code, e.g. Katpadi or NDLS"
+           value="{{ code }}" autocomplete="off" required>
+    <datalist id="station-list">{% for c, n in stations | dictsort %}<option value="{{ c }}">{{ n }}</option>{% endfor %}</datalist>
+    <button class="button">Show board</button>
+  </form>
+
+  {% if code %}
+  <div class="led" role="region" aria-label="Arrivals board for {{ name }}">
+    <div class="led-head"><b>{{ name }} ({{ code }})</b><span>{{ now }}</span></div>
+    {% if board %}
+    <table>
+      <thead><tr><th>Train</th><th>Now at</th><th>Sched</th><th>Expected<small>P50</small></th><th>Likely between<small>earliest P10 to latest P90</small></th><th>Late</th></tr></thead>
+      <tbody>
+      {% for a in board %}
+      <tr class="led-row">
+        <td><a href="{{ url_for('train', number=a.train) }}">{{ a.train }}</a><small>{{ a.name }}</small></td>
+        <td>{{ stn(a.now_at) }}</td>
+        <td>{{ a.scheduled[11:16] }}</td>
+        <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ a.p50[11:16] }}{% set dd = a.p50[:10] %}{% if dd != a.scheduled[:10] %}<small>{{ dd }}</small>{% endif %}</td>
+        <td>{% if a.p10 %}{{ a.p10[11:16] }} to {{ a.p90[11:16] }}{% else %}<small>not enough history</small>{% endif %}</td>
+        <td class="{{ 'late' if a.delay_min > 5 else 'ok' }}">{{ late(a.delay_min) }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="led-empty">No train we follow is on its way to {{ name }} right now. Open any train that stops here and it
+      joins the board from its next run.</p>
+    {% endif %}
+  </div>
+  <p class="note">Same data for display screens: <code>/api/stations/{{ code }}/arrivals</code></p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block page %}home{% endblock %}
+{% block top %}
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <h1>Late now doesn’t mean late there.</h1>
+      <p class="lede">Track Pulse knows the stretches where a late train wins time back, and the trains around it that
+        hold it up. Any of {{ "{:,}".format(all_count) }} trains across India, learnt from real running.</p>
+    </div>
+    <form id="search" class="ticket-form" action="{{ url_for('find') }}" method="get" role="search">
+      <div class="ticket-main">
+        <label for="q">Which train are you waiting for?</label>
+        <input id="q" name="q" list="train-list" placeholder="Number or name, e.g. 12951 or Kaveri" autocomplete="off"
+               required value="{{ q }}">
+        <datalist id="train-list">
+          {% for corridor, trains in corridors.items() %}{% for t in trains %}<option value="{{ t.no }} {{ t.name }}">{% endfor %}{% endfor %}
+        </datalist>
+        {% if q and not hits %}<p class="form-error">No train matches “{{ q }}”. Try the 5-digit number.</p>{% endif %}
+        <button class="button">Show arrival times</button>
+        {% if hits %}
+        <ul class="hits" aria-label="Matching trains">
+          {% for n, name in hits %}<li><a href="{{ url_for('train', number=n) }}"><span class="tno">{{ n }}</span> {{ name }}</a></li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% if hero %}
+      <a class="ticket-stub" href="{{ url_for('train', number='16021', at=43, delay=30) }}">
+        <span class="stub-train">16021 Kaveri Express</span>
+        <span class="stub-line"><b>{{ hero.delay_now }} min</b> late leaving {{ stn(hero.at) }}</span>
+        <span class="stub-line"><b class="gain-text">{{ hero.delay_then }} min</b> late at {{ stn(hero.to) }}</span>
+        <span class="stub-note">It wins back {{ span(hero.delay_now - hero.delay_then) }} in the timetable’s spare time. See how</span>
+      </a>
+      {% endif %}
+    </form>
+  </div>
+  <div class="train-strip" aria-hidden="true">{% include "_train.svg.html" %}</div>
+</section>
+{% endblock %}
+{% block body %}
+<section id="live" class="block">
+  <div class="block-head">
+    <h2><span class="pulse" aria-hidden="true"></span>Running now</h2>
+    <span class="muted">{{ live | length }} trains reporting</span>
+  </div>
+  {% if live %}
+  <ul class="runs">
+    {% for t in live %}
+    <li><a class="run {{ t.status }}" href="{{ url_for('train', number=t.train) }}">
+      <div class="run-top">
+        <span><span class="tno">{{ t.train }}</span> <span class="tname">{{ t.name }}</span></span>
+        <span>{% if t.held %}<span class="chip held">Possibly held</span> {% endif %}<span class="chip status {{ t.status }}">{{ t.status }}</span></span>
+      </div>
+      <div class="mini-track" style="--at: {{ (t.progress * 100) | round(1) }}%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="{{ stn(t.at) }}"></span></span>
+        <span class="mt-ends"><span>{{ stn(t.from) }}</span><span>{{ stn(t.to) }}</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>{{ stn(t.at) }}</b>
+          <span class="num {{ 'loss-text' if t.delay_min > 5 else 'gain-text' }}">{{ late(t.delay_min) }}</span></div>
+        {% if t.last_station %}
+        <div class="end"><small>Expected at {{ stn(t.last_station) }}</small>
+          <span class="num big-ish {{ 'loss-text' if t.delay_there_min > 5 else 'gain-text' }}">{{ late(t.delay_there_min) }}</span></div>
+        {% endif %}
+      </div>
+      <div class="run-foot">
+        {% if t.held %}<span class="loss-text">Held between {{ stn(t.held.between[0]) }} and {{ stn(t.held.between[1]) }}?</span>
+        {% elif t.trend == 'recovering' %}<span class="gain-text">Winning back {{ span(t.delay_min - t.delay_there_min) }} on the way</span>
+        {% elif t.trend == 'losing' %}<span class="loss-text">Losing {{ span(t.delay_there_min - t.delay_min) }} more on the way</span>
+        {% else %}<span class="muted">Holding its delay</span>{% endif %}
+        <span class="{{ 'loss-text' if t.stale else 'muted' }}">updated {{ span(t.minutes_since_update) }} ago</span>
+      </div>
+    </a></li>
+    {% endfor %}
+  </ul>
+  <p class="note">Status uses the worse of the delay now and the predicted delay further ahead.
+    <a href="{{ url_for('docs') }}#status">What the labels mean</a></p>
+  {% else %}
+  <p class="panel empty">No train is reporting right now. Start the feed with <code>python live/feed.py live</code>,
+    or replay a past day with <code>python live/feed.py replay 2026-08-30</code>.</p>
+  {% endif %}
+</section>
+
+<section class="block proof">
+  <h2>Checked on runs it never saw</h2>
+  <div class="proof-row">
+    <p><b>{{ acc.all.ours | round(1) }}</b> min average error for Track Pulse</p>
+    <p><b>{{ acc.all.naive | round(1) }}</b> min if today’s delay is simply carried forward</p>
+    <p><b>{{ acc.all.timetable | round(1) }}</b> min for the printed timetable</p>
+  </div>
+  {% if rivals.scored %}
+  <div class="panel versus">
+    <h3>Live, last {{ rivals.days }} days: the same moments, three estimates</h3>
+    <div class="vs-bars">
+      {% set worst = [rivals.ours, rivals.railradar, rivals.carried] | max %}
+      {% for label, v, cls in [("Track Pulse", rivals.ours, "us"), ("RailRadar", rivals.railradar, "them"), ("Delay carried forward", rivals.carried, "them")] %}
+      <div class="vs-row"><span>{{ label }}</span><span class="vs-bar"><i class="{{ cls }}" style="width: {{ (v / worst * 100) | round(1) }}%"></i></span><b>{{ v | round(1) }} min</b></div>
+      {% endfor %}
+    </div>
+    <p class="note">Average error on {{ rivals.scored }} arrivals checked against the real time. Track Pulse was closer than
+      RailRadar {{ (rivals.ours_closer * 100) | round | int }}% of the time.</p>
+  </div>
+  {% else %}
+  <p class="note">Live comparison with RailRadar’s own forecast is collecting now; it appears here once those trains arrive.</p>
+  {% endif %}
+  {% if acc.recovery %}
+  <div class="panel recovery-table">
+    <h3>Spotting time recovery, train by train</h3>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Train</th><th>Recoveries tested</th><th>Predicted by us</th><th class="hide-sm">Average real vs predicted</th></tr></thead>
+      <tbody>
+      {% for no, r in (acc.recovery.items() | selectattr('1.recoveries') | sort(attribute='1.recoveries', reverse=True) | list)[:12] %}
+      <tr>
+        <td><a href="{{ url_for('train', number=no, _anchor='recovery') }}"><span class="tno">{{ no }}</span> {{ names.get(no, '') }}</a></td>
+        <td class="num">{{ r.recoveries }}</td>
+        <td><span class="rate"><i style="width: {{ (r.caught * 100) | round(1) }}%"></i></span> <b class="num">{{ (r.caught * 100) | round | int }}%</b></td>
+        <td class="num hide-sm">{{ span(r.real_avg) }} vs {{ span(r.predicted_avg) }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <p class="note">A recovery: the train won back 5 or more minutes between two stations. Carrying the delay forward predicts none of them.</p>
+  </div>
+  {% endif %}
+  {% if self_check.inside_range is not none %}
+  <p class="note">Confidence range: {{ (self_check.inside_range * 100) | round | int }}% of live arrivals in the last
+    {{ self_check.days }} days landed between P10 and P90 (target 80%).</p>
+  {% endif %}
+  <p class="note">{{ (acc['0-30 min ahead'].within_5_min * 100) | round | int }}% of arrivals in the next 30 minutes are
+    predicted within 5 minutes. Measured on {{ acc._meta.tested_on }}. <a href="{{ url_for('docs') }}#testing">How we test</a></p>
+</section>
+
+<section id="trains" class="block">
+  <h2>Trains covered</h2>
+  <p class="note">Grouped by the track they share: a slow train on a corridor shows up in the arrival times of the others.</p>
+  {% for corridor, trains in corridors.items() if trains %}
+  <details class="panel corridor" {{ 'open' if loop.first }}>
+    <summary><span>{{ corridor }}</span><span class="muted">{{ trains | length }} trains</span></summary>
+    <ul class="trains">
+      {% for t in trains %}
+      <li><a href="{{ url_for('train', number=t.no) }}">
+        <span class="tno">{{ t.no }}</span>
+        <span class="name">{{ t.name }}</span>
+        <span class="route">{{ stn(t.route[0][1]) }} to {{ stn(t.route[-1][1]) }}</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>{% block title %}Track Pulse{% endblock %}</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% block page %}{% endblock %}">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="{{ url_for('index') }}"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="{{ url_for('index') }}#live" {% if request.endpoint == 'index' %}aria-current="page"{% endif %}>Live</a>
+        <a href="{{ url_for('index') }}#trains" {% if request.endpoint == 'train' %}aria-current="page"{% endif %}>Trains</a>
+        <a href="{{ url_for('network_map') }}" {% if request.endpoint == 'network_map' %}aria-current="page"{% endif %}>Map</a>
+        <a href="{{ url_for('station') }}" {% if request.endpoint == 'station' %}aria-current="page"{% endif %}>Stations</a>
+        <a href="{{ url_for('docs') }}" {% if request.endpoint == 'docs' %}aria-current="page"{% endif %}>How it works</a>
+        <a href="{{ url_for('docs') }}#api">API</a>
+      </nav>
+    </div>
+  </header>
+  {% block top %}{% endblock %}
+  <main id="main" class="wrap">{% block body %}{% endblock %}</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Network map · Track Pulse{% endblock %}
+{% block page %}map-page{% endblock %}
+{% block body %}
+<section class="block">
+  <div class="block-head">
+    <h1>The network, live</h1>
+    <span class="muted">{{ trains | length }} trains reporting</span>
+  </div>
+  <p class="lede">Every operational line in India, and where the trains we follow are now. Single lines (thin) carry
+    traffic both ways on one track, so trains wait for each other to cross: delay spreads fastest there.</p>
+  <div class="map-wrap panel">
+    <div id="map" role="img" aria-label="Map of the Indian railway network with live train positions"></div>
+    <div class="map-key">
+      <span><i class="k-double"></i>Double or more lines</span>
+      <span><i class="k-single"></i>Single line</span>
+      <span><i class="k-dot normal"></i>On time</span>
+      <span><i class="k-dot delayed"></i>Delayed</span>
+      <span><i class="k-dot disrupted"></i>Disrupted</span>
+    </div>
+  </div>
+  <p class="note">Track geometry: India railway network open data, carried over from our first prototype. Click a train for
+    its arrival times.</p>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  const trains = {{ trains | tojson }};
+  const map = L.map("map", { preferCanvas: true, zoomSnap: 0.5 }).setView([22.5, 80], 5);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 12, attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+  }).addTo(map);
+  fetch("{{ url_for('static', filename='network.json') }}").then(r => r.json()).then(lines => {
+    for (const [double, flat] of lines) {
+      const pts = [];
+      for (let i = 0; i < flat.length; i += 2) pts.push([flat[i], flat[i + 1]]);
+      L.polyline(pts, { color: double ? "#1f3f8f" : "#7d8aa6", weight: double ? 2.6 : 1.2, opacity: .85, interactive: false }).addTo(map);
+    }
+    markers.forEach(m => m.bringToFront());
+  });
+  const colour = { normal: "#0d7a45", delayed: "#e0a100", disrupted: "#b3261e" };
+  const fmt = m => (m < 0 ? "-" : "+") + (Math.abs(m) >= 60 ? Math.floor(Math.abs(m) / 60) + " h " + String(Math.abs(Math.round(m)) % 60).padStart(2, "0") + " min" : Math.abs(Math.round(m)) + " min");
+  const markers = trains.map(t => L.circleMarker([t.lat, t.lng], {
+      radius: 7, color: "#fff", weight: 2, fillColor: colour[t.status], fillOpacity: 1 })
+    .bindPopup(`<b>${t.train} ${t.name}</b><br>At ${t.at_name}, ${fmt(t.delay_min)}` +
+               (t.held ? "<br><b style='color:#b3261e'>Possibly held</b>" : "") +
+               `<br><a href="/train/${t.train}">Arrival times</a>`)
+    .addTo(map));
+</script>
+{% endblock %}
