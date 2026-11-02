@@ -29,6 +29,10 @@
       </nav>
     </div>
   </header>
+  {% if feed_down %}
+  <p class="feed-down" role="status">Live updates paused{% if feed_down.last %} since {{ feed_down.last[11:16] }}{% endif %}:
+    the live sources are not answering. Showing each train's last known position and the arrival times worked out from it.</p>
+  {% endif %}
   {% block top %}{% endblock %}
   <main id="main" class="wrap">{% block body %}{% endblock %}</main>
   <footer class="wrap site-foot">

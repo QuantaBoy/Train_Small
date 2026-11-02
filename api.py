@@ -125,6 +125,9 @@ con.execute("""CREATE TABLE IF NOT EXISTS rivals (
     PRIMARY KEY (train_no, date, made_at, station, source))""")
 # Where each running train is expected to stand at the halts ahead (RailRadar's platform and times),
 # kept up to date by live/feed.py, to spot two trains due at one platform at once.
+# The feed's heartbeat: when its last pass finished. If it stops (both sources down, laptop asleep),
+# the site keeps showing last-known positions and ETAs, and says so.
+con.execute("CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT)")
 con.execute("""CREATE TABLE IF NOT EXISTS platforms (
     train_no TEXT, date TEXT, station TEXT, platform TEXT, arr TEXT, dep TEXT,
     PRIMARY KEY (train_no, date, station))""")
@@ -342,6 +345,17 @@ def station_board(code: str) -> list[dict]:
 @api.get("/stations/<code>/arrivals")
 def arrivals(code):
     return jsonify(station=code.upper(), name=STATIONS.get(code.upper(), code.upper()), arrivals=station_board(code))
+
+
+FEED_LATE_MIN = 15  # no feed pass for this long: the live data is last-known, not live
+
+
+def feed_status() -> dict | None:
+    """None while the feed is running; otherwise when it last finished a pass."""
+    row = con.execute("SELECT value FROM meta WHERE key='feed_pass'").fetchone()
+    if row and (now() - datetime.fromisoformat(row[0])).total_seconds() / 60 < FEED_LATE_MIN:
+        return None
+    return {"last": row[0] if row else None}
 
 
 CLASH_GAP_MIN = 5  # trains due at one platform closer than this apart (after the first leaves) clash

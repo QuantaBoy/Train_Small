@@ -210,6 +210,10 @@ def followed() -> list[str]:
 def live_pass(base: str):
     with ThreadPoolExecutor(THREADS) as pool:
         list(pool.map(lambda no: live_train(base, no), followed()))
+    con = sqlite3.connect(DB, timeout=60)  # heartbeat: the website shows "last known" if this goes quiet
+    con.execute("INSERT OR REPLACE INTO meta VALUES ('feed_pass', ?)", (datetime.now(IST).isoformat(timespec="seconds"),))
+    con.commit()
+    con.close()
 
 
 ADOPT_DAYS = 90  # enough for a weekly train to reach route()'s 10 runs

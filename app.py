@@ -16,7 +16,7 @@ from flask import Flask, abort, redirect, render_template, request, url_for
 
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT / "model"))
-from api import NAMES, CORRIDORS, platform_clashes, station_board, train_view, DELAYED_MIN, DISRUPTED_MIN, SECTION_DAYS, STATIONS, TRAINS, api, con, sections, control_rows, running, live_scores, report_file  # noqa: E402
+from api import NAMES, CORRIDORS, feed_status, platform_clashes, station_board, train_view, DELAYED_MIN, DISRUPTED_MIN, SECTION_DAYS, STATIONS, TRAINS, api, con, sections, control_rows, running, live_scores, report_file  # noqa: E402
 from eta import FEATURES, IST, history, pairs, timing, K, MIN_RUNS, RECENT_DAYS, REFRESH_S, eta, minute_of, model, predict, route, traffic  # noqa: E402
 from train import DROP_RECENT  # noqa: E402
 sys.path.insert(0, str(ROOT / "live"))
@@ -56,6 +56,7 @@ def on_day(sch: str, delay: float, day: int = 0, run_date: str | None = None) ->
 @app.context_processor
 def helpers():
     return {"stn": lambda code: STATIONS.get(code, code), "methods": METHODS, "eta": eta, "late": late, "span": span, "on_day": on_day,
+            "feed_down": feed_status(),
             "nice": lambda name: name.removeprefix("blend_").replace("+", " + ").replace("_", " ")}
 
 
