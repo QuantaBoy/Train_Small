@@ -27,8 +27,9 @@
 <script>
   const trains = {{ trains | tojson }};
   const map = L.map("map", { preferCanvas: true, zoomSnap: 0.5 }).setView([22.5, 80], 5);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    maxZoom: 12, attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+  // OpenStreetMap's own tiles: a real map (cities, roads, rivers), no API key needed on any host.
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 14, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   fetch("{{ url_for('static', filename='network.json') }}").then(r => r.json()).then(lines => {
     for (const [double, flat] of lines) {
