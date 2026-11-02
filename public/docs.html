@@ -29,7 +29,7 @@
       </nav>
     </div>
   </header>
-  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 14:09 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
   
   
   <main id="main" class="wrap">
@@ -43,10 +43,8 @@
   <ol>
     <li><a href="#overview">What it does</a></li>
     <li><a href="#data">The data</a></li>
-    <li><a href="#inputs">What the models see</a></li>
-    <li><a href="#models">The models we tried</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#winner">Why this model wins</a></li>
+    <li><a href="#inputs">What the model sees</a></li>
+    <li><a href="#models">The model</a></li>
     <li><a href="#testing">How we test</a></li>
     <li><a href="#routing">Which method answers when</a></li>
     <li><a href="#range">P10, P50 and P90</a></li>
@@ -105,190 +103,33 @@
 </section>
 
 <section id="inputs">
-  <h2>What the models see</h2>
+  <h2>What the model sees</h2>
   <p>Every training example is one question: the train is at station A, this late, on this date. How much will the
-    delay change by station B? The models get 21 inputs for it:</p>
-  <dl class="inputs">
-    <div><dt><code>delay_now</code></dt><dd>How late the train is now, in minutes.</dd></div><div><dt><code>knn_change</code></dt><dd>What similar past runs did from here to that station (median delay change).</dd></div><div><dt><code>knn_lo</code></dt><dd>The optimistic end: 10th percentile of those runs’ change.</dd></div><div><dt><code>knn_hi</code></dt><dd>The pessimistic end: 90th percentile.</dd></div><div><dt><code>knn_n</code></dt><dd>How many similar runs there were, so the model knows how far to trust them.</dd></div><div><dt><code>mins_ahead</code></dt><dd>Scheduled minutes between here and that station.</dd></div><div><dt><code>km_ahead</code></dt><dd>Kilometres between here and that station.</dd></div><div><dt><code>hops_ahead</code></dt><dd>Number of timetabled halts in between.</dd></div><div><dt><code>target_hour</code></dt><dd>Scheduled hour of arrival there (night running, peak suburban traffic).</dd></div><div><dt><code>weekday</code></dt><dd>Day of the week the run started.</dd></div><div><dt><code>month</code></dt><dd>Month: fog in winter, monsoon in summer.</dd></div><div><dt><code>train</code></dt><dd>Which train it is.</dd></div><div><dt><code>at_seq</code></dt><dd>Where along the route the train is now.</dd></div><div><dt><code>seq</code></dt><dd>Where along the route the station is.</dd></div><div><dt><code>recent_change</code></dt><dd>How this train’s delay changed over the same stretch in the last 14 days: speed restrictions, maintenance blocks, weather.</dd></div><div><dt><code>recent_n</code></dt><dd>How many recent runs that is based on.</dd></div><div><dt><code>traffic_n</code></dt><dd>Congestion: how many reports other trains made at the stations in the next 200 km during the last 2 hours.</dd></div><div><dt><code>traffic_delay</code></dt><dd>How late those other trains were. Late trains ahead hold up the line.</dd></div><div><dt><code>traffic_gain</code></dt><dd>Whether those trains were losing or winning time on their last stretch: a blocked or slowed section shows here first.</dd></div><div><dt><code>rain_mm</code></dt><dd>Rain forecast or recorded at that station that day (Open-Meteo).</dd></div><div><dt><code>tmin</code></dt><dd>Coldest temperature there that day: a stand-in for fog, which slows trains in the north in winter.</dd></div>
-  </dl>
+    delay change by station B? The model looks at:</p>
+  
+  <ul>
+    <li>How late the train is now, where it is, and how far and how long it still has to go.</li>
+    <li>Time of day, day of the week and season.</li>
+    <li>How similar past runs of this train behaved from here, and how this stretch has run in the last
+      14 days.</li>
+    <li>Congestion: other trains on the line ahead in the last two hours, how late they are and whether they are
+      losing time.</li>
+    <li>Weather where the train is heading: rain, and cold that brings fog.</li>
+  </ul>
+  
   <p>The similar-past-runs answer is itself an input. The models start from it and learn when to trust it and when to
     correct it: at night, in the monsoon, when this week’s runs have been slower than usual.</p>
 </section>
 
+
 <section id="models">
-  <h2>The models we tried</h2>
-  <p>We tried two baselines and six machine-learning models that make very different assumptions. If one kind of
-    model suits this data best, a line-up like this shows it, instead of us guessing in advance.</p>
-  
-  <div class="model ">
-    <h3>Current delay carried</h3>
-    <p>The train stays exactly as late as it is now. This is what a “running 20 min late” display implies, so it is the line every model has to beat.</p>
-  </div>
-  
-  <div class="model ">
-    <h3>Similar past runs</h3>
-    <p>Finds the 50 past runs of the same train that were about as late at the same station, and takes the median of how their delay changed by each later station. It is recovery-aware by construction: late trains in the history found the slack, on-time trains could not. It knows nothing about time of day, season or this week’s conditions.</p>
-  </div>
-  
-  <div class="model ">
-    <h3>Ridge regression</h3>
-    <p>A straight-line weighted sum of the inputs. It is in the line-up to show how much of the problem is simple: if it matched the tree models there would be no reason to run anything heavier. It cannot capture interactions such as “recovery only happens when the train is already late”.</p>
-  </div>
-  
-  <div class="model ">
-    <h3>Random forest</h3>
-    <p>Hundreds of decision trees, each trained on a random sample of runs, averaged together. Stable and hard to overfit. Its trees split on squared error, so a few trains running hours late pull its answers towards the mean.</p>
-  </div>
-  
-  <div class="model ">
-    <h3>Extra trees</h3>
-    <p>A random forest whose split points are also chosen at random. Even lower variance, slightly coarser fit. Included to see whether more randomness helps on this data.</p>
-  </div>
-  
-  <div class="model in-winner">
-    <h3>Histogram gradient boosting (scikit-learn)</h3>
-    <p>Trees built one after another, each correcting the errors of the ones before. Fitted on absolute error, which aims at the median rather than the mean, so the odd 10-hour delay does not drag predictions. Treats the train number as a category natively.</p>
-  </div>
-  
-  <div class="model in-winner">
-    <h3>LightGBM</h3>
-    <p>Gradient boosting that grows each tree leaf by leaf, wherever the error is largest, and fits each tree on a random 80% of rows and inputs. Fitted on absolute error. The IEEE Access study in our references found it the most accurate for rail delay prediction.</p>
-  </div>
-  
-  <div class="model in-winner">
-    <h3>XGBoost</h3>
-    <p>Gradient boosting that grows trees level by level to a fixed depth, fitted on absolute error. A strong general-purpose model; here its fixed-depth trees fitted the learning months more closely than they carried over.</p>
-  </div>
-  
-  <div class="model">
-    <h3>Blends</h3>
-    <p>The average of the best two, and of the best three, learned models. Models that err in different ways partly
-      cancel each other out when averaged. A blend only wins if that cancelling beats the best single model.</p>
-  </div>
-</section>
-
-
-
-<section id="results">
-  <h2>Results</h2>
-  <p>Average error in minutes, lower is better. In the latest retraining each model learnt from
-    2025-06-01 to 2026-04-30 (1,030,256 examples),
-    was compared on the validation months, 2026-04-30 to 2026-07-29, and was
-    then scored once on the test months from 2026-07-29.</p>
-  
-  
-  <div class="chart" role="table" aria-label="Average error by model">
-    <div class="chart-key" aria-hidden="true"><span class="key val">Validation</span><span class="key test">Test</span></div>
-    
-    <div class="chart-row winner" role="row">
-      <span class="chart-name" role="rowheader">Blend: LightGBM + Histogram gradient boosting + XGBoost <em class="win">won validation</em> <em class="win">in use</em></span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 61.92492522767752%"><i>18.43</i></span>
-        <span class="b test" style="width: 58.75928352992573%"><i>17.48</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Blend: LightGBM + Histogram gradient boosting</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 61.97533353496656%"><i>18.44</i></span>
-        <span class="b test" style="width: 58.61814026951642%"><i>17.44</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">LightGBM</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 62.14000067211076%"><i>18.49</i></span>
-        <span class="b test" style="width: 58.974358974358964%"><i>17.55</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Histogram gradient boosting (scikit-learn)</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 62.334912793628384%"><i>18.55</i></span>
-        <span class="b test" style="width: 58.866821252142344%"><i>17.52</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">XGBoost</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 62.40884497765232%"><i>18.57</i></span>
-        <span class="b test" style="width: 59.63638807675504%"><i>17.75</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Random forest</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 64.52263332997278%"><i>19.2</i></span>
-        <span class="b test" style="width: 59.7842524448029%"><i>17.79</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Extra trees</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 65.44006452263332%"><i>19.47</i></span>
-        <span class="b test" style="width: 60.10014450381422%"><i>17.88</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Ridge regression</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 68.84430554155325%"><i>20.49</i></span>
-        <span class="b test" style="width: 63.18513290990355%"><i>18.8</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Similar past runs</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 70.97825721678932%"><i>21.12</i></span>
-        <span class="b test" style="width: 67.1136203246295%"><i>19.97</i></span>
-      </span>
-    </div>
-    
-    <div class="chart-row " role="row">
-      <span class="chart-name" role="rowheader">Current delay carried</span>
-      <span class="chart-bars" role="cell">
-        <span class="b val" style="width: 95.9673354168767%"><i>28.56</i></span>
-        <span class="b test" style="width: 100.0%"><i>29.76</i></span>
-      </span>
-    </div>
-    
-  </div>
-  <p class="note">The two periods cover different seasons, so their errors are not comparable with each other; compare
-    models within the same period. In both periods every learned model beats both baselines.</p>
-</section>
-
-<section id="winner">
-  <h2>Why this model is in use</h2>
-  <p>The model answering today is <b>Blend: LightGBM + Histogram gradient boosting + XGBoost</b>. On the newest test months it averages
-    <b>17.1 min</b> error, against 20.0 for
-    similar past runs and 29.8 for carrying the delay forward. For arrivals in the next
-    30 minutes the error is 3.0 min.</p>
-  
-  <h3>Why machine learning beats similar past runs</h3>
-  <p>Similar past runs answer one question well: what happens to a train this late at this station. They can’t see
-    the hour, the season, or that this week a speed restriction is slowing everyone between two stations. The learned
-    models get the similar-runs answer as a starting point and learn corrections from those extra inputs. The largest
-    single gain came from the recent-runs input: adding it cut test error by roughly one to two minutes for every learned model.</p>
-  
-  <h3>Why a blend</h3>
-  <p>Models that make different assumptions make different mistakes, and averaging them cancels part of those
-    mistakes. A blend is only chosen when that beats the best single model on validation.</p>
-  
-  <h3>What we did not cherry-pick</h3>
-  
-  <p>On the test months alone, Blend: LightGBM + Histogram gradient boosting scored best (17.44 min). Choosing
-    a model by its test score would mean the test no longer measures anything, so it was not picked for that. The rule
-    is fixed in advance: the validation months decide, the test months only report, and the model in use is replaced
-    only by one that beats it on months neither has seen.</p>
-  
+  <h2>The model</h2>
+  <p>Track Pulse runs our own machine-learning model, trained on years of real running. We tried several kinds of model
+    against two baselines, delay carried forward and similar past runs, and keep the one that is most accurate on months
+    it never saw. Every night it is retrained, and a new version replaces the one in use only if it is more accurate.</p>
+  <p>On runs it never saw: <b>19.1 min</b> average error, against
+    33.8 min for carrying the delay forward and 60.9 min for the
+    timetable.</p>
 </section>
 
 
@@ -382,8 +223,8 @@
   <h2>Against other estimates</h2>
   <p>Each time the feed records a train's position, it also saves RailRadar's own forecast made from the same moment.
     When the train arrives, both are scored against the real time, along with carrying the delay forward, on exactly
-    the same arrivals. Last 7 days: Track Pulse 10.05 min average
-    error, RailRadar 11.25 min, delay carried forward 14.48 min, on 453
+    the same arrivals. Last 7 days: Track Pulse 10.92 min average
+    error, RailRadar 12.28 min, delay carried forward 15.86 min, on 540
     arrivals. Whereismytrain's public data only repeats the timetable for stations ahead, so there is no
     forecast of theirs to score.</p>
 </section>
@@ -410,8 +251,7 @@
     time of day, day and season, and the train and section itself.</p>
   <p>Example: "last 14 days on this stretch +6" means trains have been losing time here lately
     (a speed restriction or works, say), and that alone adds about 6 minutes to this prediction.</p>
-  <p>The reasons come from the LightGBM half of the model in use, which LightGBM can explain exactly.
-    They are shown for ML predictions only; the similar-runs and carried methods explain themselves.</p>
+  <p>Reasons are shown for ML predictions only; the similar-runs and carried methods explain themselves.</p>
 </section>
 
 <section id="status">
@@ -438,9 +278,9 @@
     numbers. The new winner replaces the model in use only if it is at least as accurate on the newest test months, so
     one bad day of data can’t make arrival times worse.</p>
   
-  <p>Live, last 7 days: 1,441 arrival times checked against the
-    real arrival, average error 10.15 min against 15.26 min for carrying the delay
-    forward; 47% within 5 minutes.</p>
+  <p>Live, last 7 days: 1,570 arrival times checked against the
+    real arrival, average error 11.01 min against 16.32 min for carrying the delay
+    forward; 46% within 5 minutes.</p>
   
 </section>
 
@@ -485,7 +325,7 @@
       <tr><td><code>GET /api/stations/KPN/arrivals</code></td><td>Station displays</td><td>Every reporting train still heading to that station, soonest first</td></tr>
       <tr><td><code>GET /api/control</code></td><td>Control office</td><td>Every reporting train: position, delay, expected delay further ahead, trend, status, stale flag, possible unscheduled halt</td></tr>
       <tr><td><code>GET /api/platforms/clashes</code></td><td>Control office, stations</td><td>Two trains due at one platform within 5 minutes; <code>?station=NDLS</code> for one station</td></tr>
-      <tr><td><code>GET /api/models</code></td><td>Anyone</td><td>The full model comparison on this page</td></tr>
+      
       <tr><td><code>GET /api/accuracy</code></td><td>Anyone</td><td>Test-month accuracy, overall, by train and by how far ahead</td></tr>
       <tr><td><code>GET /api/accuracy/live?days=7</code></td><td>Anyone</td><td>Live arrival times scored against real arrivals</td></tr>
     </tbody>
@@ -502,6 +342,6 @@
     <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
       whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
   </footer>
-<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 14:09 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "ET", "FDB", "NZM", "BPQ", "WL", "BZA", "JL", "BSL", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "SEG", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "KKDE", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA", "CTO"]};</script><script src="/static/snapshot.js"></script>
 </body>
 </html>

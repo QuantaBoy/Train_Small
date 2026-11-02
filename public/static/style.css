@@ -163,6 +163,8 @@ input[type=number] { width: 5.5em; }
 .run-now small { color: var(--muted); font-size: .8rem; }
 .run-now b { color: var(--ink); }
 .big-ish { font: 700 1.5rem var(--display); }
+.run-now small.cap { display: block; font-size: .8rem; font-weight: 600; }
+.day-tag.inline { display: inline; font-size: .75rem; }
 .run-foot { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 10px; font-size: .88rem; }
 
 /* Accuracy: three numbers in a row, no boxes */
@@ -444,4 +446,9 @@ table.api td:first-child { white-space: nowrap; }
 
 /* Static snapshot banner (snapshot.py) */
 .snapshot { margin: 0; padding: 9px 28px; background: var(--brand-soft); color: var(--brand-ink); text-align: center; font-size: .9rem; border-bottom: 1px solid var(--line); }
-.snap-msg { flex-basis: 100%; }
+.snap-msg { flex-basis: auto; width: 100%; }
+.whatif-out:empty { display: none; }
+.whatif-out h3 { margin-top: 0; font-size: 1.15rem; }
+.whatif-list { list-style: none; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; }
+.whatif-list li { display: grid; grid-template-columns: 1fr auto; gap: 0 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: .92rem; }
+.whatif-list small { grid-column: 1 / -1; color: var(--muted); font-size: .78rem; }
