@@ -22,7 +22,7 @@ Open a disrupted train from Running now (or search one, e.g. 12616).
   That window comes from how far off we really were on 90 days of runs the model never saw."
 * Green / red track between stations: where it wins back or loses time. "Others" line: RailRadar's forecast and the
   delay carried forward, for comparison.
-* Small grey text: the **reasons** (SHAP), e.g. "last 14 days on this stretch +10 min".
+* Small grey text: the **reasons**, e.g. "last 14 days on this stretch +10 min".
 * **Where it wins back time**: recoveries spotted on unseen runs (e.g. 90% for Paschim Express), and the stretches with
   real vs predicted minutes. Carrying the delay forward spots 0%.
 * **Trains on the line ahead / trains this delay can hold up**: one train's delay reaching others.
@@ -39,7 +39,7 @@ Open a disrupted train from Running now (or search one, e.g. 12616).
 * Home, **Checked on runs it never saw**: 19.1 min average error vs 33.8 carrying the delay forward vs 60.9 timetable;
   3.3 min for the next 30 minutes.
 * Spotting time recovery, train by train; live head-to-head with RailRadar once trains have arrived.
-* **How it works**: data, models tried, why the blend wins, P10/P50/P90, limits, API.
+* **How it works**: data, what the model looks at, testing, P10/P50/P90, limits, API.
 
 ## If asked
 
@@ -48,5 +48,7 @@ Open a disrupted train from Running now (or search one, e.g. 12616).
 * *Any train?* Search any of ~4,700 trains or a special's number; first open fetches its last 90 days.
 * *Does it keep learning?* Every live ETA is scored on arrival; the model retrains every night at 03:00 and is only
   replaced by a more accurate one.
+* *Which model?* "Our own model, trained on years of real running; the details stay with the team." Show the
+  accuracy against the baselines instead.
 * *Not built yet:* graph neural network for delay spread (we use congestion inputs and route overlap instead), and
   the production stack (Kafka, TimescaleDB, Redis, MLflow) from the PPT.

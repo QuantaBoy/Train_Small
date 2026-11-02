@@ -8,3 +8,4 @@ data/trackpulse.db*
 data/model.joblib
 data/raw/
 runs.db
+data/models.json

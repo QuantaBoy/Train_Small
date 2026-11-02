@@ -7,6 +7,7 @@
 
     python app.py     # http://127.0.0.1:5000
 """
+import os
 import sys
 from pathlib import Path
 
@@ -25,6 +26,10 @@ from score import rival_scores  # noqa: E402
 
 app = Flask(__name__)
 app.register_blueprint(api)
+
+# The model itself (which algorithms, their scores, the exact inputs) is the team's own work: public pages describe
+# what it does, not how it is built. Set TRACKPULSE_SHOW_MODEL=1 to see the full model pages locally.
+SHOW_MODEL = os.environ.get("TRACKPULSE_SHOW_MODEL") == "1"
 
 METHODS = {"model": "ML model", "similar_runs": "Similar past runs", "carried": "Current delay carried"}
 
@@ -56,7 +61,7 @@ def on_day(sch: str, delay: float, day: int = 0, run_date: str | None = None) ->
 @app.context_processor
 def helpers():
     return {"stn": lambda code: STATIONS.get(code, code), "methods": METHODS, "eta": eta, "late": late, "span": span, "on_day": on_day,
-            "feed_down": feed_status(),
+            "feed_down": feed_status(), "show_model": SHOW_MODEL,
             "nice": lambda name: name.removeprefix("blend_").replace("+", " + ").replace("_", " ")}
 
 

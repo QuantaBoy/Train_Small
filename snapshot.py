@@ -2,9 +2,13 @@
 
 Renders every page from the running app into public/: home, control, map, How it works, the train page of every
 followed or running train, the busiest station boards, and the JSON a display would read. Search and the station
-picker work on the snapshot (static/snapshot.js); the what-if form needs the live server and says so.
+picker work on the snapshot (static/snapshot.js), and so does the what-if form (below).
 
-    python snapshot.py        # then commit public/ and push; Vercel serves it
+    python snapshot.py            # then commit public/ and push; Vercel serves it
+    python snapshot.py --whatif   # also re-work the what-if answers (~20 min; after a retrain)
+
+What-if on the snapshot: the model's answer for every train, every station and WHATIF_DELAYS minutes late is
+worked out here and saved in public/whatif/<train>.json; the page interpolates between the two nearest delays.
 """
 import json
 import re
@@ -19,9 +23,23 @@ OUT = ROOT / "public"
 STATION_PAGES = 80  # the busiest stations on running trains' routes ahead
 
 sys.path.insert(0, str(ROOT / "model"))
-from api import IST, NAMES, TRAINS, running  # noqa: E402
+from api import IST, NAMES, STATIONS, TRAINS, running  # noqa: E402
 from app import app  # noqa: E402
-from eta import route  # noqa: E402
+from eta import eta, predict, route  # noqa: E402
+
+WHATIF_DELAYS = [0, 15, 30, 60, 120, 240]
+
+
+def whatif(no: str) -> dict:
+    """{stops: [[seq, code, sch, day]], names, delays, grid: {seq: {delay: [[stop index, p50, p10, p90]]}}}."""
+    stops = route(no)
+    index = {seq: i for i, (seq, *_) in enumerate(stops)}
+    grid = {}
+    for seq, *_ in stops[:-1]:
+        grid[seq] = {d: [[index[p["seq"]], p["delay"], p["lo"], p["hi"]] for p in predict(no, seq, d, explain=False)]
+                     for d in WHATIF_DELAYS}
+    return {"stops": [list(s) for s in stops], "names": {code: STATIONS.get(code, code) for _, code, *_ in stops},
+            "delays": WHATIF_DELAYS, "grid": grid}
 
 
 def write(path: str, body: bytes):
@@ -31,8 +49,12 @@ def write(path: str, body: bytes):
 
 
 def main():
+    keep = OUT / "whatif"
+    saved = {f.name: f.read_bytes() for f in keep.glob("*.json")} if keep.exists() else {}
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(ROOT / "static", OUT / "static")
+    for name, body in saved.items():  # what-if answers only change when the model does
+        write(f"whatif/{name}", body)
     c = app.test_client()
     taken = datetime.now(IST)
     live = [p["train_no"] for p in running()]
@@ -71,6 +93,10 @@ def main():
         if r.status_code == 200:
             write(path, r.get_data())
     write("snapshot.json", json.dumps(index, indent=1).encode())
+    if "--whatif" in sys.argv:
+        for i, no in enumerate(trains, 1):
+            write(f"whatif/{no}.json", json.dumps(whatif(no), separators=(",", ":")).encode())
+            print(f"  what-if {i}/{len(trains)} {no}", flush=True)
     print(f"{ok} pages, {len(trains)} trains, {len(stations)} stations, taken {index['taken']} -> {OUT}")
 
 

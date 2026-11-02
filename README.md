@@ -36,7 +36,7 @@ for every train, and tells passengers, station displays and control offices thro
 | Delay recovery | Where each train wins back time, and how well we predict it on unseen runs | Train page, home |
 | Cascading delays | Trains ahead that can hold this one up; trains behind this one's delay can hold up | Train page, control |
 | Operating regimes | Normal, delayed, disrupted | Home, control |
-| Reasons behind ETA changes | SHAP values: the two inputs that moved each prediction most, in minutes | Train page, API |
+| Reasons behind ETA changes | The two inputs that moved each prediction most, in minutes | Train page, API |
 | Unscheduled halts | "Possibly held" when even a slow run would have reached the next station | Home, train page, control |
 | Platform conflicts | Two trains due at one platform within 5 minutes | Station board, control, API |
 | New, special, diverted trains | Any train number; history fetched on first open; learnt ETAs from the first run | Search |
@@ -93,7 +93,7 @@ and committing it updates the link. The live version, with the 5-minute feed and
  RailRadar ────────────┘        │  merge per station          │
                                 │  (fresher wins)             ▼
                                 ▼                       app.py + api.py (Flask)
-                         runs table (SQLite) ◄──────────  model/eta.py: predict, P10/P90, SHAP, recovery
+                         runs table (SQLite) ◄──────────  model/eta.py: predict, P10/P90, reasons, recovery
                                 │
           03:00 nightly:  live/weather.py → model/train.py → model/backtest.py
                           (weather)          (retrain, champion/challenger)  (accuracy, recovery, P10/P90 bands)
@@ -106,26 +106,26 @@ and committing it updates the link. The live version, with the 5-minute feed and
    platforms, and writes a heartbeat. If the heartbeat stops for 15 minutes the site says live updates are paused and
    shows last-known positions.
 3. **Predict.** For the train's position and delay, `model/eta.py` builds inputs for every station ahead and asks the
-   model in use for the delay there. P10 and P90 come from the model's measured errors; reasons from SHAP.
+   model in use for the delay there. P10 and P90 come from the model's measured errors.
 4. **Check and relearn.** Every ETA from a live position is logged and scored when the train arrives. Every night the
    models are retrained and the test re-run; a new model replaces the old one only if it is at least as accurate.
 
 ## The model
 
-**Inputs (21):** delay now, the train and section, distance and scheduled time to go, time of day, day and season,
-similar past runs (the 50 runs that were about as late here, and how their delay changed), the last 14 days on this
-stretch, congestion (other trains' reports on the next 200 km in the last 2 hours: how many, how late, whether losing
-time), and weather where the train is heading (rain, coldest temperature as a fog proxy).
+**Inputs:** how late the train is now and where, distance and time to go, time of day, day and season, how
+similar past runs behaved from here, how this stretch ran in the last 14 days, congestion on the line ahead, and
+weather where the train is heading.
 
-**Models tried:** ridge regression, random forest, extra trees, histogram gradient boosting, LightGBM, XGBoost, and
-blends of the best. **In use:** a blend of LightGBM, HistGradientBoosting and XGBoost, chosen on a validation window
-and reported once on a later test window. The split is always by date, never random.
+**The model** is our own machine-learning model. Several kinds of model were tried against two baselines (delay
+carried forward, similar past runs); the most accurate on a validation window is used, and its accuracy is reported
+once on a later test window. The split is always by date, never random. Model details are kept within the team.
 
 **P10 / P50 / P90:** P50 is the prediction. P10 and P90 are the 10th and 90th percentile of the model's real errors
 on unseen runs, per train and per horizon (next hour, 1 to 3 h, 3 to 8 h, 8 to 24 h, more than a day), so 8 in 10
 arrivals land inside.
 
-**Reasons:** LightGBM's exact SHAP values, grouped into plain reasons ("last 14 days on this stretch +10 min").
+**Reasons:** each input's exact share of the prediction, grouped into plain reasons ("last 14 days on this stretch
++10 min").
 
 **Cold start:** a train with fewer than 10 runs uses its latest timetable, and the model answers from how all trains
 behave on comparable stretches until its own history builds up.
@@ -144,7 +144,7 @@ All JSON, times ISO 8601 in IST.
 | `GET /api/stations/NDLS/arrivals` | Station displays | Trains on their way, with platform, P10/P50/P90 |
 | `GET /api/control` | Control office | Every running train: position, delay, delay ahead, trend, status, possible halt |
 | `GET /api/platforms/clashes` | Control office | Two trains due at one platform within 5 minutes |
-| `GET /api/accuracy`, `/api/accuracy/live`, `/api/models` | Anyone | Test accuracy, recovery, live scores, model comparison |
+| `GET /api/accuracy`, `/api/accuracy/live` | Anyone | Test accuracy, recovery, live scores |
 
 Each station ahead carries `scheduled`, `eta`, `p10`, `p50`, `p90`, `delay_min`, `change_min` (negative = time won
 back), `method`, `similar_runs` and `why`.
@@ -174,7 +174,7 @@ The run database (over 100 MB) and the trained model are built locally and not s
 | `app.py` | Website routes: home, train, control, stations, map, how it works |
 | `api.py` | JSON API, live positions, control rows, platform clashes, station boards |
 | `model/eta.py` | Inputs, similar runs, prediction, P10/P90 bands, reasons |
-| `model/train.py` | Train all models, pick the best, champion / challenger |
+| `model/train.py` | Train, pick the best, champion / challenger |
 | `model/backtest.py` | Accuracy, recovery spotting and P10/P90 calibration on unseen runs |
 | `model/score.py` | Live scoring, head-to-head with RailRadar |
 | `live/feed.py` | Live feed, backfill, adopting new trains, nightly relearn |

@@ -19,6 +19,7 @@ ETAs are logged to `predictions` so they can be scored once the train arrives (L
 ponytail: POST has no auth; add a shared token before this is reachable from the internet.
 """
 import json
+import os
 import sqlite3
 import sys
 import time
@@ -442,7 +443,9 @@ def accuracy_live():
     return jsonify(live_scores(con, days))
 
 
-@api.get("/models")
+@api.get("/models")  # the full model comparison: only with TRACKPULSE_SHOW_MODEL=1 (see app.py)
 def models():
     """Every model trained in Level 9, its validation and test error, and which one is live."""
+    if os.environ.get("TRACKPULSE_SHOW_MODEL") != "1":
+        abort(404)
     return jsonify(report_file("models") or {"error": "no models trained yet: python model/train.py"})

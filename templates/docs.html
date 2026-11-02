@@ -45,10 +45,10 @@
   <ol>
     <li><a href="#overview">What it does</a></li>
     <li><a href="#data">The data</a></li>
-    <li><a href="#inputs">What the models see</a></li>
-    <li><a href="#models">The models we tried</a></li>
+    <li><a href="#inputs">What the model sees</a></li>
+    {% if show_model %}<li><a href="#models">The models we tried</a></li>
     <li><a href="#results">Results</a></li>
-    <li><a href="#winner">Why this model wins</a></li>
+    <li><a href="#winner">Why this model wins</a></li>{% else %}<li><a href="#models">The model</a></li>{% endif %}
     <li><a href="#testing">How we test</a></li>
     <li><a href="#routing">Which method answers when</a></li>
     <li><a href="#range">P10, P50 and P90</a></li>
@@ -107,16 +107,29 @@
 </section>
 
 <section id="inputs">
-  <h2>What the models see</h2>
+  <h2>What the model sees</h2>
   <p>Every training example is one question: the train is at station A, this late, on this date. How much will the
-    delay change by station B? The models get {{ features | length }} inputs for it:</p>
+    delay change by station B? The model looks at:</p>
+  {% if show_model %}
   <dl class="inputs">
     {% for f in features %}<div><dt><code>{{ f }}</code></dt><dd>{{ inputs.get(f, "") }}</dd></div>{% endfor %}
   </dl>
+  {% else %}
+  <ul>
+    <li>How late the train is now, where it is, and how far and how long it still has to go.</li>
+    <li>Time of day, day of the week and season.</li>
+    <li>How similar past runs of this train behaved from here, and how this stretch has run in the last
+      {{ recent_days }} days.</li>
+    <li>Congestion: other trains on the line ahead in the last two hours, how late they are and whether they are
+      losing time.</li>
+    <li>Weather where the train is heading: rain, and cold that brings fog.</li>
+  </ul>
+  {% endif %}
   <p>The similar-past-runs answer is itself an input. The models start from it and learn when to trust it and when to
     correct it: at night, in the monsoon, when this week’s runs have been slower than usual.</p>
 </section>
 
+{% if show_model %}
 <section id="models">
   <h2>The models we tried</h2>
   <p>We tried two baselines and six machine-learning models that make very different assumptions. If one kind of
@@ -207,6 +220,18 @@
   <p>The test months agree with validation: {{ label(models.challenger) }} also scored best there. The rule is fixed in
     advance either way: the validation months decide, and the test months only report.</p>
   {% endif %}
+</section>
+{% endif %}
+
+{% else %}
+<section id="models">
+  <h2>The model</h2>
+  <p>Track Pulse runs our own machine-learning model, trained on years of real running. We tried several kinds of model
+    against two baselines, delay carried forward and similar past runs, and keep the one that is most accurate on months
+    it never saw. Every night it is retrained, and a new version replaces the one in use only if it is more accurate.</p>
+  {% if acc %}<p>On runs it never saw: <b>{{ acc.all.ours | round(1) }} min</b> average error, against
+    {{ acc.all.naive | round(1) }} min for carrying the delay forward and {{ acc.all.timetable | round(1) }} min for the
+    timetable.</p>{% endif %}
 </section>
 {% endif %}
 
@@ -328,8 +353,7 @@
     time of day, day and season, and the train and section itself.</p>
   <p>Example: "last {{ recent_days }} days on this stretch +6" means trains have been losing time here lately
     (a speed restriction or works, say), and that alone adds about 6 minutes to this prediction.</p>
-  <p>The reasons come from the LightGBM half of the model in use, which LightGBM can explain exactly.
-    They are shown for ML predictions only; the similar-runs and carried methods explain themselves.</p>
+  <p>Reasons are shown for ML predictions only; the similar-runs and carried methods explain themselves.</p>
 </section>
 
 <section id="status">
@@ -403,7 +427,7 @@
       <tr><td><code>GET /api/stations/KPN/arrivals</code></td><td>Station displays</td><td>Every reporting train still heading to that station, soonest first</td></tr>
       <tr><td><code>GET /api/control</code></td><td>Control office</td><td>Every reporting train: position, delay, expected delay further ahead, trend, status, stale flag, possible unscheduled halt</td></tr>
       <tr><td><code>GET /api/platforms/clashes</code></td><td>Control office, stations</td><td>Two trains due at one platform within 5 minutes; <code>?station=NDLS</code> for one station</td></tr>
-      <tr><td><code>GET /api/models</code></td><td>Anyone</td><td>The full model comparison on this page</td></tr>
+      {% if show_model %}<tr><td><code>GET /api/models</code></td><td>Team</td><td>The full model comparison</td></tr>{% endif %}
       <tr><td><code>GET /api/accuracy</code></td><td>Anyone</td><td>Test-month accuracy, overall, by train and by how far ahead</td></tr>
       <tr><td><code>GET /api/accuracy/live?days=7</code></td><td>Anyone</td><td>Live arrival times scored against real arrivals</td></tr>
     </tbody>
