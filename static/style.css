@@ -271,6 +271,13 @@ a.board:hover { box-shadow: inset 0 0 0 2px #000; }
 .leg .t-body { padding: 3px 0; min-height: 34px; font-size: .9rem; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; }
 .leg .t-body small { font-size: .82rem; }
 .here { background: var(--brand-soft); border-radius: 10px; }
+/* Stations the train runs through between stops: small, on the same track */
+.pass .t-time { font: 500 .8rem/1.25 var(--display); padding-top: 4px; color: var(--muted); flex-direction: row; gap: 6px; justify-content: flex-end; }
+.pass .t-body { padding: 3px 0; font-size: .86rem; color: var(--text); }
+.pass .t-rail i { top: 9px; width: 8px; height: 8px; margin-left: -4px; border-width: 2px; border-color: #9aa3b2; }
+.pass.gone .t-rail i { background: var(--brand); border-color: var(--brand); }
+.pass.gone .t-body { color: var(--muted); }
+.stop.through .t-body b { font-weight: 400; }
 .day-tag { display: block; font: 600 .74rem/1.3 var(--body); color: var(--brand); white-space: nowrap; }
 .summary .day-tag { font-size: .85rem; }
 

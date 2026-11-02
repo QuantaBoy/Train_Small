@@ -9,6 +9,7 @@
 """
 import os
 import sys
+import time
 from pathlib import Path
 
 from datetime import date, datetime, timedelta
@@ -21,7 +22,7 @@ from api import NAMES, CORRIDORS, feed_status, platform_clashes, station_board, 
 from eta import FEATURES, IST, history, pairs, timing, K, MIN_RUNS, RECENT_DAYS, REFRESH_S, eta, minute_of, model, predict, route, traffic  # noqa: E402
 from train import DROP_RECENT  # noqa: E402
 sys.path.insert(0, str(ROOT / "live"))
-from feed import adopt, source_name  # noqa: E402
+from feed import adopt, railradar, source_name  # noqa: E402
 from score import rival_scores  # noqa: E402
 
 app = Flask(__name__)
@@ -151,6 +152,78 @@ def on_my_line(number: str, ahead: list[str], passed: list[str]) -> list[dict]:
     return sorted(out, key=lambda t: (["ahead", "behind", "crossing"].index(t["role"]), -t["delay"]))
 
 
+FULL_ROUTE_S = 300
+_full_route: dict = {}
+
+
+def full_route(no: str) -> dict | None:
+    """Every station on the route, stops and the ones it runs through, from RailRadar (the whereismytrain cache
+    lists stops only): timetable times, distance, and for the current run which ones it has passed and when.
+    Kept for FULL_ROUTE_S, like the feed's own cycle; None if RailRadar is not answering."""
+    t, data = _full_route.get(no, (0.0, None))
+    if time.monotonic() - t > FULL_ROUTE_S:
+        try:
+            data = railradar(no)
+        except Exception:
+            data = None
+        _full_route[no] = (time.monotonic(), data)
+    return data
+
+
+def add_passes(rows: list[dict], here: str, delay: float, full: dict | None, live_date: str | None) -> list[dict]:
+    """Fill each row's "passes": the stations between the previous stop and this one, with the timetable time and
+    an expected time worked out between the two stops' predicted delays, by distance. Returns the stations the
+    train has already gone through on this run (live only), with actual times."""
+    for r in rows:
+        r["passes"] = []
+    if not full or not full.get("route"):
+        return []
+    route_all = full["route"]
+    idx = {s["stationCode"]: i for i, s in enumerate(route_all)}
+    this_run = live_date is not None and full.get("startDate") == live_date
+    hhmm = lambda s: (s.get("scheduledArrival") or s.get("scheduledDeparture") or "")[11:16]  # noqa: E731
+    seen = lambda s: (s.get("actualDeparture") if s.get("status") == "departed" else None) or s.get("actualArrival")  # noqa: E731
+    prev, prev_delay = here, delay
+    for r in rows:
+        a, b = idx.get(prev), idx.get(r["station"])
+        if a is not None and b is not None and b > a + 1:
+            ka, kb = route_all[a].get("distance") or 0, route_all[b].get("distance") or 0
+            for s in route_all[a + 1:b]:
+                f = ((s.get("distance") or ka) - ka) / (kb - ka) if kb > ka else 0
+                d = prev_delay + (r["delay"] - prev_delay) * min(max(f, 0), 1)
+                sch = hhmm(s)
+                done = this_run and s.get("status") in ("departed", "at-station")
+                r["passes"].append({"code": s["stationCode"], "name": s.get("stationName") or s["stationCode"],
+                                    "sch": sch, "eta": eta(sch, d) if sch else "", "delay": round(d), "halt": s.get("isHalt"),
+                                    "done": done, "seen": (seen(s) or "")[11:16] if done else None})
+        prev, prev_delay = r["station"], r["delay"]
+    if not this_run or here not in idx:
+        return []
+    gone = [s for s in route_all[:idx[here] + 1] if s.get("status") in ("departed", "at-station")]
+    # RailRadar times only some of the stations passed; the rest get the delay worked out between the nearest
+    # timed ones on either side, by distance, and are marked as estimates.
+    timed = [(s.get("distance") or 0, s.get("delayDeparture") if s.get("delayDeparture") is not None else s.get("delayArrival"))
+             for s in gone if seen(s)]
+    timed = [(km, d) for km, d in timed if d is not None]
+    out = []
+    for s in gone[:-1]:
+        km, sch = s.get("distance") or 0, hhmm(s)
+        if seen(s):
+            d = s.get("delayDeparture") if s.get("delayDeparture") is not None else s.get("delayArrival")
+            out.append({"code": s["stationCode"], "name": s.get("stationName") or s["stationCode"], "sch": sch,
+                        "seen": seen(s)[11:16], "delay": d, "halt": s.get("isHalt"), "estimate": False})
+            continue
+        before = [t for t in timed if t[0] <= km][-1:] or timed[:1]
+        after = [t for t in timed if t[0] >= km][:1] or timed[-1:]
+        if not before or not sch:
+            continue
+        (k1, d1), (k2, d2) = before[0], after[0]
+        d = d1 + (d2 - d1) * ((km - k1) / (k2 - k1) if k2 > k1 else 0)
+        out.append({"code": s["stationCode"], "name": s.get("stationName") or s["stationCode"], "sch": sch,
+                    "seen": eta(sch, d), "delay": round(d), "halt": s.get("isHalt"), "estimate": True})
+    return out
+
+
 @app.get("/train/<number>")
 def train(number):
     if number not in NAMES:
@@ -188,9 +261,10 @@ def train(number):
                              (number, pos["date"], pos["updated_at"])).fetchall()) if live else {}
     report = report_file("accuracy") or {}
     halt = train_view(number, pos, explain=False)["held"] if live else None
+    crossed = add_passes(rows, here[1], delay, full_route(number), pos["date"] if live else None)
     known_runs = con.execute("SELECT COUNT(DISTINCT date) FROM runs WHERE train_no=?", (number,)).fetchone()[0]
     secs = sections(number)
-    return render_template("train.html", no=number, here=here, passed=[s for s in stops if s[0] < at],
+    return render_template("train.html", no=number, here=here, passed=[s for s in stops if s[0] < at], crossed=crossed,
                            line=on_my_line(number, ahead, [s[1] for s in stops if s[0] <= at]), delay_at={r["station"]: r["delay"] for r in rows}, traffic={"n": n, "delay": line_delay, "gain": line_gain},
                            slack={(s["from"], s["to"]): s for s in secs}, name=NAMES[number], stops=stops, at=at, delay=delay,
                            live=pos if live else None, rows=rows, acc=report.get(number), rival=rival, known_runs=known_runs, halt=halt,

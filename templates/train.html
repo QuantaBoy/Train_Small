@@ -144,7 +144,18 @@
       The window is set from how far off the model really was on past runs, so it is wider the further ahead the station is.</p>
   </div>
   <div class="panel timeline-card">
-    {% if passed %}
+    {% if crossed %}
+    <details class="passed">
+      <summary>{{ crossed | length }} stations passed on this run, with the time it went through (~ estimated)</summary>
+      <ol class="timeline">
+        {% for s in crossed %}
+        <li class="stop done{{ '' if s.halt else ' through' }}"><div class="t-time"><span>{{ s.sch }}</span>{% if s.seen %}<span class="{{ 'loss-text' if (s.delay or 0) > 5 else 'gain-text' }}" {% if s.estimate %}title="Estimated from the nearest reported stations"{% endif %}>{{ '~' if s.estimate }}{{ s.seen }}</span>{% endif %}</div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>{{ s.name }}</b> <small class="muted">{{ s.code }}{{ '' if s.halt else ', runs through' }}</small>
+            {% if s.delay is not none %}<small class="{{ 'loss-text' if s.delay > 5 else 'gain-text' }}">{{ behind(s.delay) }}</small>{% endif %}</div></li>
+        {% endfor %}
+      </ol>
+    </details>
+    {% elif passed %}
     <details class="passed">
       <summary>{{ passed | length }} stations passed</summary>
       <ol class="timeline">
@@ -173,6 +184,13 @@
           {% if s %}<small class="muted">timetable {{ s.scheduled_min }} min, usually {{ s.typical_min }}{% if s.slack_min >= 3 %}: {{ s.slack_min }} min spare{% elif s.slack_min <= -3 %}: {{ -s.slack_min }} min tight{% endif %}</small>{% endif %}
         </div>
       </li>
+      {% for p in r.passes %}
+      <li class="pass{{ ' gone' if p.done }}">
+        <div class="t-time"><span>{{ p.sch }}</span>{% if p.done and p.seen %}<span class="muted">{{ p.seen }}</span>{% elif p.eta %}<span class="{{ 'loss-text' if p.delay > 5 else 'gain-text' }}">{{ p.eta }}</span>{% endif %}</div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">{{ p.name }} <small class="muted">{{ p.code }}{{ ', stops' if p.halt else '' }}{{ ', passed' if p.done else '' }}</small></div>
+      </li>
+      {% endfor %}
       <li class="stop{{ ' end' if loop.last }}">
         <div class="t-time"><span>{{ r.sch }}</span><span class="{{ 'loss-text' if r.delay > 5 else 'gain-text' }}">{{ r.eta }}</span>{% set dd = on_day(r.sch, r.delay, r.day, live.date if live) %}{% if dd %}<small class="day-tag">{{ dd }}</small>{% endif %}</div>
         <div class="t-rail"><i></i></div>
