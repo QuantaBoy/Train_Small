@@ -57,6 +57,7 @@
     <li><a href="#halts">Unscheduled halts</a></li>
     <li><a href="#others">Against other estimates</a></li>
     <li><a href="#screens">Station boards, map, control room</a></li>
+    <li><a href="#live">Live data and when it pauses</a></li>
     <li><a href="#why">Why it's late</a></li>
     <li><a href="#status">Train status</a></li>
     <li><a href="#self-check">Checking itself</a></li>
@@ -230,17 +231,21 @@
   <ol class="steps route">
     <li><b>Load the latest history and model.</b> Every {{ refresh_min }} minutes the server reloads, so newly saved
       runs and a newly retrained model take effect without a restart.</li>
-    <li><b>Find similar past runs</b> for each station ahead: the {{ k }} runs that were about as late here, how
-      their delay changed by that station, and its 10th and 90th percentile. This always runs, because it feeds both
-      the model and the range.</li>
+    <li><b>Find similar past runs</b> for each station ahead: the {{ k }} runs that were about as late here and how
+      their delay changed by that station. This always runs, because it is one of the model's inputs.</li>
     <li><b>ML model</b> (<code>model</code>), when a trained model exists and the train is at a timetabled halt. This
       is the normal case. If there are no runs from the last {{ recent_days }} days, the model still answers:
       {{ (drop_recent * 100) | round | int }}% of its training examples had the recent-runs input deliberately blanked, so it learnt to do without.</li>
     <li><b>Similar past runs</b> (<code>similar_runs</code>), when there is no trained model, or the train is at a
       station that is not a timetabled halt. The median of the similar runs is used directly.</li>
-    <li><b>Current delay carried</b> (<code>carried</code>), when fewer than {{ min_runs }} comparable runs exist: a
-      new, special or diverted train, or a station that rarely reports. The prediction is marked “thin history” and has no range.</li>
+    <li><b>Current delay carried</b> (<code>carried</code>), only when there is no trained model and fewer than
+      {{ min_runs }} comparable runs. The prediction is marked “thin history”.</li>
   </ol>
+  <p><b>New, special and diverted trains</b> get learnt arrival times from their first run. Until a train has
+    {{ min_runs }} runs, its stations come from its latest timetable and the model answers from how all trains behave
+    on comparable stretches (its own-history inputs are simply blank, as the model was trained to handle). The train
+    page says how many runs it has so far.</p>
+  <p><b>The range</b> (P10 to P90) comes from the model's measured errors, not from the similar runs; see below.</p>
 </section>
 
 <section id="range">
@@ -308,8 +313,9 @@
       refreshed every minute. The same data is in <code>/api/stations/&lt;code&gt;/arrivals</code> for real screens.</li>
     <li><b>Map</b>: every operational line in India, single and double track, with the live trains coloured by status.
       Single lines are where trains wait to cross, so delay spreads fastest there.</li>
-    <li><b>Control</b>: every running train on one screen, worst first, with held trains, trains at risk of holding
-      others up and platform clashes.</li>
+    <li><b>Control</b>: every running train on one screen, worst first, with held trains, late trains with others
+      following on the same line, and platform clashes: two trains expected at one platform within 5 minutes, from the
+      platform and times RailRadar expects.</li>
   </ul>
 </section>
 
@@ -345,9 +351,26 @@
   <h2>Checking itself</h2>
   <p>Every arrival time handed out for a live position is logged. When the train actually reaches that station, the
     feed saves the real time and the two are compared. The home page and <code>/api/accuracy/live</code> show the result.</p>
-  <p>Every night at 03:00 all models are retrained on the newest runs and compared again. The new winner replaces the
-    model in use only if it is at least as accurate on the newest test months, so one bad day of data can’t make
-    arrival times worse.</p>
+  <p>Every night at 03:00 the feed fetches the latest weather, retrains every model on the newest runs (including
+    trains opened that day), and re-runs the test on unseen runs, which also recalibrates P10 and P90 and the recovery
+    numbers. The new winner replaces the model in use only if it is at least as accurate on the newest test months, so
+    one bad day of data can’t make arrival times worse.</p>
+  {% if self_check.scored %}
+  <p>Live, last {{ self_check.days }} days: {{ "{:,}".format(self_check.scored) }} arrival times checked against the
+    real arrival, average error {{ self_check.mae }} min against {{ self_check.naive_mae }} min for carrying the delay
+    forward; {{ (self_check.within_5_min * 100) | round | int }}% within 5 minutes.</p>
+  {% endif %}
+</section>
+
+<section id="live">
+  <h2>Live data and when it pauses</h2>
+  <p>Every 5 minutes the feed asks two public sources about every train it follows: the whereismytrain.in cache and
+    RailRadar. For each station it keeps whichever saw the train later, so one source lagging or failing does not hold
+    the site back. It records the position, saves every observed stop for learning, logs RailRadar's forecast for the
+    head-to-head, and saves expected platforms for the clash check.</p>
+  <p>After each full pass the feed writes a heartbeat. If none arrives for 15 minutes, every page says live updates are
+    paused and that it is showing each train's last known position, with arrival times worked out from it. Trains that
+    have not reported for 3 hours leave the live views.</p>
 </section>
 
 <section id="limits">
@@ -379,6 +402,7 @@
       <tr><td><code>GET /api/trains/16021/sections</code></td><td>Planners</td><td>Running time between stations: timetable, usual and slow days</td></tr>
       <tr><td><code>GET /api/stations/KPN/arrivals</code></td><td>Station displays</td><td>Every reporting train still heading to that station, soonest first</td></tr>
       <tr><td><code>GET /api/control</code></td><td>Control office</td><td>Every reporting train: position, delay, expected delay further ahead, trend, status, stale flag, possible unscheduled halt</td></tr>
+      <tr><td><code>GET /api/platforms/clashes</code></td><td>Control office, stations</td><td>Two trains due at one platform within 5 minutes; <code>?station=NDLS</code> for one station</td></tr>
       <tr><td><code>GET /api/models</code></td><td>Anyone</td><td>The full model comparison on this page</td></tr>
       <tr><td><code>GET /api/accuracy</code></td><td>Anyone</td><td>Test-month accuracy, overall, by train and by how far ahead</td></tr>
       <tr><td><code>GET /api/accuracy/live?days=7</code></td><td>Anyone</td><td>Live arrival times scored against real arrivals</td></tr>
