@@ -23,6 +23,7 @@
         <a href="{{ url_for('index') }}#trains" {% if request.endpoint == 'train' %}aria-current="page"{% endif %}>Trains</a>
         <a href="{{ url_for('network_map') }}" {% if request.endpoint == 'network_map' %}aria-current="page"{% endif %}>Map</a>
         <a href="{{ url_for('station') }}" {% if request.endpoint == 'station' %}aria-current="page"{% endif %}>Stations</a>
+        <a href="{{ url_for('control_room') }}" {% if request.endpoint == 'control_room' %}aria-current="page"{% endif %}>Control</a>
         <a href="{{ url_for('docs') }}" {% if request.endpoint == 'docs' %}aria-current="page"{% endif %}>How it works</a>
         <a href="{{ url_for('docs') }}#api">API</a>
       </nav>

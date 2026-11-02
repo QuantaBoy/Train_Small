@@ -205,6 +205,28 @@ def network_map():
     return render_template("map.html", trains=trains)
 
 
+@app.get("/control")
+def control_room():
+    """The control office screen: flags first (held trains, platform clashes, late trains with others
+    following), then every running train, worst first."""
+    rows = control_rows()
+    spread = []
+    for t in rows:
+        if t["delay_min"] < DELAYED_MIN:
+            continue
+        pos = next(iter(running(t["train"])), None)
+        stops = route(t["train"])
+        if not pos or not stops:
+            continue
+        behind = [o for o in on_my_line(t["train"], [c for s, c, *_ in stops if s > pos["seq"]],
+                                         [c for s, c, *_ in stops if s <= pos["seq"]]) if o["role"] == "behind"]
+        if behind:
+            spread.append({"train": t["train"], "name": t["name"], "delay": t["delay_min"], "behind": behind})
+    counts = {k: sum(t["status"] == k for t in rows) for k in ("normal", "delayed", "disrupted")}
+    return render_template("control.html", rows=rows, counts=counts, held=[t for t in rows if t["held"]],
+                           clashes=platform_clashes(), spread=spread, now=datetime.now(IST).strftime("%H:%M"))
+
+
 @app.get("/docs")
 def docs():
     m = model()
