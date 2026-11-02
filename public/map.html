@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>Network map · Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="map-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" >Live</a>
+        <a href="/#trains" >Trains</a>
+        <a href="/map" aria-current="page">Map</a>
+        <a href="/station/" >Stations</a>
+        <a href="/control" >Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+  <main id="main" class="wrap">
+<section class="block">
+  <div class="block-head">
+    <h1>The network, live</h1>
+    <span class="muted">28 trains reporting</span>
+  </div>
+  <p class="lede">Every operational line in India, and where the trains we follow are now. Single lines (thin) carry
+    traffic both ways on one track, so trains wait for each other to cross: delay spreads fastest there.</p>
+  <div class="map-wrap panel">
+    <div id="map" role="img" aria-label="Map of the Indian railway network with live train positions"></div>
+    <div class="map-key">
+      <span><i class="k-double"></i>Double or more lines</span>
+      <span><i class="k-single"></i>Single line</span>
+      <span><i class="k-dot normal"></i>On time</span>
+      <span><i class="k-dot delayed"></i>Delayed</span>
+      <span><i class="k-dot disrupted"></i>Disrupted</span>
+    </div>
+  </div>
+  <p class="note">Track geometry: India railway network open data, carried over from our first prototype. Click a train for
+    its arrival times.</p>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+  const trains = [{"at": "PHD", "at_name": "Phaphund", "delay_min": 67.0, "delay_there_min": 26, "from": "KLK", "held": null, "last_station": "HWH", "lat": 26.632317290391903, "lng": 79.55428587948563, "minutes_since_update": 37, "name": "Netaji Express", "progress": 0.5238095238095238, "stale": false, "status": "disrupted", "to": "HWH", "train": "12312", "trend": "recovering"}, {"at": "ASN", "at_name": "Asansol Jn", "delay_min": 284.0, "delay_there_min": 287, "from": "NDLS", "held": {"between": ["ASN", "DGR"], "minutes_over": 88}, "last_station": "DGR", "lat": 23.69133206663326, "lng": 86.97533758503249, "minutes_since_update": 124, "name": "Sealdah Rajdhani", "progress": 0.8333333333333334, "stale": true, "status": "disrupted", "to": "DGR", "train": "12314", "trend": "losing"}, {"at": "HGT", "at_name": "Hinganghat", "delay_min": 83.0, "delay_there_min": 8, "from": "NDLS", "held": null, "last_station": "GDR", "lat": 20.54179326912553, "lng": 78.8328444842436, "minutes_since_update": 43, "name": "Grand Trunk Express", "progress": 0.6111111111111112, "stale": false, "status": "disrupted", "to": "GDR", "train": "12616", "trend": "recovering"}, {"at": "QLN", "at_name": "Kollam Jn", "delay_min": 10.0, "delay_there_min": 66, "from": "TVC", "held": null, "last_station": "NZM", "lat": 8.886518380601263, "lng": 76.59824688969375, "minutes_since_update": 23, "name": "Kerala Express", "progress": 0.047619047619047616, "stale": false, "status": "disrupted", "to": "NZM", "train": "12625", "trend": "losing"}, {"at": "BAP", "at_name": "Belapur", "delay_min": 30.0, "delay_there_min": 87, "from": "SBC", "held": null, "last_station": "MTJ", "lat": 19.62023787781339, "lng": 74.66046523428344, "minutes_since_update": 41, "name": "Karnataka Express", "progress": 0.59375, "stale": false, "status": "disrupted", "to": "MTJ", "train": "12627", "trend": "losing"}, {"at": "BAU", "at_name": "Burhanpur", "delay_min": 76.0, "delay_there_min": 62, "from": "NDLS", "held": null, "last_station": "YNK", "lat": 21.33487930357927, "lng": 76.19948912089241, "minutes_since_update": 35, "name": "Karnataka Express", "progress": 0.2903225806451613, "stale": false, "status": "disrupted", "to": "YNK", "train": "12628", "trend": "recovering"}, {"at": "CD", "at_name": "Chandrapur", "delay_min": 62.0, "delay_there_min": 51, "from": "HYB", "held": null, "last_station": "BVH", "lat": 19.959683287617114, "lng": 79.29945433959328, "minutes_since_update": 32, "name": "Telangana Express", "progress": 0.5333333333333333, "stale": false, "status": "disrupted", "to": "BVH", "train": "12723", "trend": "recovering"}, {"at": "NN", "at_name": "Nandura", "delay_min": 463.0, "delay_there_min": 721, "from": "CSMT", "held": {"between": ["NN", "JM"], "minutes_over": 18}, "last_station": "KGP", "lat": 20.8390866494035, "lng": 76.46027977697904, "minutes_since_update": 53, "name": "Howrah Mail via Nagpur", "progress": 0.30952380952380953, "stale": false, "status": "disrupted", "to": "KGP", "train": "12809", "trend": "losing"}, {"at": "DURG", "at_name": "Durg", "delay_min": 254.0, "delay_there_min": 454, "from": "HWH", "held": null, "last_station": "KYN", "lat": 21.1997201820427, "lng": 81.29162592801006, "minutes_since_update": 2, "name": "Howrah Mail via Nagpur", "progress": 0.375, "stale": false, "status": "disrupted", "to": "KYN", "train": "12810", "trend": "losing"}, {"at": "JL", "at_name": "Jalgaon Jn", "delay_min": 80.0, "delay_there_min": 351, "from": "CSMT", "held": null, "last_station": "SRC", "lat": 21.01713079004274, "lng": 75.5635738040682, "minutes_since_update": 31, "name": "Gitanjali Express", "progress": 0.19230769230769232, "stale": false, "status": "disrupted", "to": "SRC", "train": "12859", "trend": "losing"}, {"at": "HWH", "at_name": "Howrah Jn", "delay_min": 0.0, "delay_there_min": 224, "from": "HWH", "held": null, "last_station": "DR", "lat": 22.584356616901758, "lng": 88.34109480376996, "minutes_since_update": 11, "name": "Gitanjali Express", "progress": 0.0, "stale": false, "status": "disrupted", "to": "DR", "train": "12860", "trend": "losing"}, {"at": "BWT", "at_name": "Bangarapet Jn", "delay_min": 95.0, "delay_there_min": 104, "from": "MAS", "held": null, "last_station": "KJM", "lat": 12.983114163991894, "lng": 78.17839360949415, "minutes_since_update": 46, "name": "Double Decker Express", "progress": 0.8888888888888888, "stale": false, "status": "disrupted", "to": "KJM", "train": "22625", "trend": "losing"}, {"at": "RU", "at_name": "Renigunta Jn", "delay_min": 34.0, "delay_there_min": 43, "from": "LTT", "held": null, "last_station": "AJJ", "lat": 13.63700349870478, "lng": 79.50648225297218, "minutes_since_update": 22, "name": "Chennai Express", "progress": 0.8695652173913043, "stale": false, "status": "delayed", "to": "AJJ", "train": "12163", "trend": "losing"}, {"at": "LNL", "at_name": "Lonavala", "delay_min": 21.0, "delay_there_min": 42, "from": "MAS", "held": null, "last_station": "TNA", "lat": 18.749146104924403, "lng": 73.40802109603347, "minutes_since_update": 48, "name": "Chennai Express", "progress": 0.9130434782608695, "stale": false, "status": "delayed", "to": "TNA", "train": "12164", "trend": "losing"}, {"at": "FTP", "at_name": "Fatehpur", "delay_min": 37.0, "delay_there_min": 59, "from": "HWH", "held": null, "last_station": "CNDM", "lat": 25.91729705367586, "lng": 80.8018451608477, "minutes_since_update": 62, "name": "Netaji Express", "progress": 0.4358974358974359, "stale": true, "status": "delayed", "to": "CNDM", "train": "12311", "trend": "losing"}, {"at": "NJP", "at_name": "New Jalpaiguri", "delay_min": 9.0, "delay_there_min": 16, "from": "DBRG", "held": null, "last_station": "CNB", "lat": 26.681631278714807, "lng": 88.44337443009343, "minutes_since_update": 27, "name": "Dibrugarh Rajdhani", "progress": 0.5652173913043478, "stale": false, "status": "delayed", "to": "CNB", "train": "12423", "trend": "losing"}, {"at": "NJP", "at_name": "New Jalpaiguri", "delay_min": 56.0, "delay_there_min": 51, "from": "NDLS", "held": null, "last_station": "NTSK", "lat": 26.681631278714807, "lng": 88.44337443009343, "minutes_since_update": 15, "name": "Dibrugarh Rajdhani", "progress": 0.4782608695652174, "stale": false, "status": "delayed", "to": "NTSK", "train": "12424", "trend": "recovering"}, {"at": "PAR", "at_name": "Pandhurna", "delay_min": 28.0, "delay_there_min": 17, "from": "MAS", "held": null, "last_station": "NZM", "lat": 21.589757582601706, "lng": 78.52465346029311, "minutes_since_update": 33, "name": "Grand Trunk Express", "progress": 0.4864864864864865, "stale": false, "status": "delayed", "to": "NZM", "train": "12615", "trend": "recovering"}, {"at": "BPQ", "at_name": "Balharshah", "delay_min": 42.0, "delay_there_min": 41, "from": "MAS", "held": null, "last_station": "AGC", "lat": 19.84989664004026, "lng": 79.34791990682612, "minutes_since_update": 154, "name": "Tamil Nadu Express", "progress": 0.4, "stale": true, "status": "delayed", "to": "AGC", "train": "12621", "trend": "steady"}, {"at": "NGP", "at_name": "Nagpur", "delay_min": 31.0, "delay_there_min": 34, "from": "NDLS", "held": null, "last_station": "BZA", "lat": 21.15203470965009, "lng": 79.0887158794836, "minutes_since_update": 15, "name": "Tamil Nadu Express", "progress": 0.6, "stale": false, "status": "delayed", "to": "BZA", "train": "12622", "trend": "losing"}, {"at": "SEGM", "at_name": "Sevagram", "delay_min": 49.0, "delay_there_min": 32, "from": "NDLS", "held": null, "last_station": "VAK", "lat": 20.738308938251663, "lng": 78.61989118182319, "minutes_since_update": 17, "name": "Kerala Express", "progress": 0.225, "stale": false, "status": "delayed", "to": "VAK", "train": "12626", "trend": "recovering"}, {"at": "BWT", "at_name": "Bangarapet Jn", "delay_min": 22.0, "delay_there_min": 30, "from": "MAS", "held": {"between": ["BWT", "KJM"], "minutes_over": 28}, "last_station": "KJM", "lat": 12.983114163991894, "lng": 78.17839360949415, "minutes_since_update": 84, "name": "Brindavan SF Express", "progress": 0.9, "stale": true, "status": "delayed", "to": "KJM", "train": "12639", "trend": "losing"}, {"at": "RDM", "at_name": "Ramgundam", "delay_min": 34.0, "delay_there_min": 29, "from": "NDLS", "held": null, "last_station": "KZJ", "lat": 18.76359363855197, "lng": 79.43417327400381, "minutes_since_update": 46, "name": "Telangana Express", "progress": 0.9230769230769231, "stale": false, "status": "delayed", "to": "KZJ", "train": "12724", "trend": "recovering"}, {"at": "MTJ", "at_name": "Mathura Jn", "delay_min": 50.0, "delay_there_min": 45, "from": "BDTS", "held": null, "last_station": "BEAS", "lat": 27.47941327028897, "lng": 77.67341984836182, "minutes_since_update": 76, "name": "Golden Temple Mail", "progress": 0.5757575757575758, "stale": true, "status": "delayed", "to": "BEAS", "train": "12903", "trend": "recovering"}, {"at": "NAD", "at_name": "Nagda Jn", "delay_min": 4.0, "delay_there_min": 21, "from": "ASR", "held": null, "last_station": "BVI", "lat": 23.457299571983302, "lng": 75.41210388072494, "minutes_since_update": 7, "name": "Golden Temple Mail", "progress": 0.7878787878787878, "stale": false, "status": "delayed", "to": "BVI", "train": "12904", "trend": "losing"}, {"at": "DRD", "at_name": "Dahanu Road", "delay_min": 40.0, "delay_there_min": 3, "from": "BDTS", "held": null, "last_station": "ASR", "lat": 19.990972406291537, "lng": 72.7437964766221, "minutes_since_update": 3, "name": "Paschim Express", "progress": 0.04878048780487805, "stale": false, "status": "delayed", "to": "ASR", "train": "12925", "trend": "recovering"}, {"at": "UMB", "at_name": "Ambala Cant Jn", "delay_min": 21.0, "delay_there_min": -9, "from": "ASR", "held": null, "last_station": "BDTS", "lat": 30.337414282145414, "lng": 76.82837847795955, "minutes_since_update": 20, "name": "Paschim Express", "progress": 0.2, "stale": false, "status": "delayed", "to": "BDTS", "train": "12926", "trend": "recovering"}, {"at": "SBC", "at_name": "KSR Bengaluru", "delay_min": 10.0, "delay_there_min": 17, "from": "SBC", "held": null, "last_station": "TRL", "lat": 12.978663255726614, "lng": 77.57046537625743, "minutes_since_update": 11, "name": "Double Decker Express", "progress": 0.0, "stale": false, "status": "delayed", "to": "TRL", "train": "22626", "trend": "losing"}];
+  const map = L.map("map", { preferCanvas: true, zoomSnap: 0.5 }).setView([22.5, 80], 5);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 12, attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+  }).addTo(map);
+  fetch("/static/network.json").then(r => r.json()).then(lines => {
+    for (const [double, flat] of lines) {
+      const pts = [];
+      for (let i = 0; i < flat.length; i += 2) pts.push([flat[i], flat[i + 1]]);
+      L.polyline(pts, { color: double ? "#1f3f8f" : "#7d8aa6", weight: double ? 2.6 : 1.2, opacity: .85, interactive: false }).addTo(map);
+    }
+    markers.forEach(m => m.bringToFront());
+  });
+  const colour = { normal: "#0d7a45", delayed: "#e0a100", disrupted: "#b3261e" };
+  const fmt = m => (m < 0 ? "-" : "+") + (Math.abs(m) >= 60 ? Math.floor(Math.abs(m) / 60) + " h " + String(Math.abs(Math.round(m)) % 60).padStart(2, "0") + " min" : Math.abs(Math.round(m)) + " min");
+  const markers = trains.map(t => L.circleMarker([t.lat, t.lng], {
+      radius: 7, color: "#fff", weight: 2, fillColor: colour[t.status], fillOpacity: 1 })
+    .bindPopup(`<b>${t.train} ${t.name}</b><br>At ${t.at_name}, ${fmt(t.delay_min)}` +
+               (t.held ? "<br><b style='color:#b3261e'>Possibly held</b>" : "") +
+               `<br><a href="/train/${t.train}">Arrival times</a>`)
+    .addTo(map));
+</script>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>

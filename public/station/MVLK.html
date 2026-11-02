@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>Mavelikara · Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="station-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" >Live</a>
+        <a href="/#trains" >Trains</a>
+        <a href="/map" >Map</a>
+        <a href="/station/" aria-current="page">Stations</a>
+        <a href="/control" >Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+  <main id="main" class="wrap">
+
+<section class="block">
+  <h1>Mavelikara</h1>
+  <p class="lede">Every running train still to come here, with when it is expected (P50) and the range 8 in 10 such
+    trains arrive in (P10 to P90). The board refreshes every minute.</p>
+  <form class="station-pick" action="/station/" method="get">
+    <label class="sr" for="code">Station name or code</label>
+    <input id="code" name="code" list="station-list" placeholder="Station name or code, e.g. Katpadi or NDLS"
+           value="MVLK" autocomplete="off" required>
+    <datalist id="station-list"><option value="AB">Ambur</option><option value="AD">Adoni</option><option value="AGC">Agra Cantt</option><option value="AJJ">Arakkonam Jn</option><option value="AK">Akola Jn</option><option value="ALJN">Aligarh Jn</option><option value="AMLA">Amla Jn</option><option value="ANDI">Adarsh Nagar Delhi</option><option value="ANG">Ahmadnagar</option><option value="AP">Ashokapuram</option><option value="ASN">Asansol Jn</option><option value="ASR">Amritsar Jn</option><option value="ATP">Anantapur</option><option value="AUBR">Anugraha Narayan Road</option><option value="AVN">Anavardikhanpettai</option><option value="AWY">Aluva</option><option value="BAM">Brahmapur</option><option value="BAP">Belapur</option><option value="BAQ">Ganj Basoda</option><option value="BAU">Burhanpur</option><option value="BBS">Bhubaneswar</option><option value="BBU">Bhabua Road</option><option value="BD">Badnera Jn</option><option value="BDMJ">Bhodwal Majri</option><option value="BDTS">Mumbai Bandra Terminus</option><option value="BEAS">Beas</option><option value="BFP">Bilochpura Agra</option><option value="BH">Bharuch Jn</option><option value="BHS">Vidisha</option><option value="BID">Bidadi</option><option value="BINA">Bina Jn</option><option value="BJU">Barauni Jn</option><option value="BL">Valsad</option><option value="BNC">Bengaluru Cantt</option><option value="BNCE">Bengaluru East</option><option value="BPA">Belampalli</option><option value="BPH">Belpahar</option><option value="BPL">Bhopal Jn</option><option value="BPQ">Balharshah</option><option value="BRC">Vadodara Jn</option><option value="BRD">Bhandara Road</option><option value="BRJN">Brajrajnagar</option><option value="BSL">Bhusaval Jn</option><option value="BSP">Bilaspur Jn</option><option value="BTE">Bharatpur Jn</option><option value="BVH">Ballabgarh</option><option value="BVI">Borivali</option><option value="BWM">Bhawani Mandi</option><option value="BWN">Barddhaman Jn</option><option value="BWT">Bangarapet Jn</option><option value="BXN">Bayana Jn</option><option value="BYT">Bhatapara</option><option value="BZA">Vijayawada Jn</option><option value="BZU">Betul</option><option value="CBE">Coimbatore Jn</option><option value="CD">Chandrapur</option><option value="CDG">Chandigarh</option><option value="CGY">Changanaseri</option><option value="CHE">Srikakulam Road</option><option value="CKP">Chakradharpur</option><option value="CLX">Chirala</option><option value="CNB">Kanpur Central</option><option value="CNDM">Chandi Mandir</option><option value="CNGR">Chengannur</option><option value="CPH">Champa</option><option value="CPK">Chaparmukh Jn</option><option value="CPT">Channapatna</option><option value="CSMT">Mumbai CSMT</option><option value="CSN">Chalisgaon Jn</option><option value="CTO">Chittoor</option><option value="CYI">Chhayapuri</option><option value="DBRG">Dibrugarh</option><option value="DD">Daund Jn</option><option value="DDU">Pt. Deen Dayal Upadhyaya Jn</option><option value="DGG">Dongargarh</option><option value="DGR">Durgapur</option><option value="DHD">Dahod</option><option value="DHN">Dhanbad Jn</option><option value="DHNE">Dhone</option><option value="DHO">Dhaulpur</option><option value="DLI">Old Delhi</option><option value="DMM">Dharmavaram Jn</option><option value="DMN">Dhamangaon</option><option value="DMV">Dimapur</option><option value="DNR">Danapur</option><option value="DOS">Dehri On Sone</option><option value="DPU">Diphu</option><option value="DR">Mumbai Dadar Central</option><option value="DRD">Dahanu Road</option><option value="DURG">Durg</option><option value="DVD">Duvvada</option><option value="DVL">Devlali</option><option value="ED">Erode Jn</option><option value="ERN">Ernakulam Town</option><option value="ET">Itarsi Jn</option><option value="ETW">Etawah</option><option value="FDB">Faridabad</option><option value="FKG">Furkating Jn</option><option value="FTP">Fatehpur</option><option value="FZD">Firozabad</option><option value="G">Gondia Jn</option><option value="GAYA">Gaya Jn</option><option value="GDA">Godhra Jn</option><option value="GDR">Gudur Jn</option><option value="GDYA">Ghoradongri</option><option value="GGC">Gangapur City</option><option value="GHY">Guwahati</option><option value="GID">Giddalur</option><option value="GMO">Gomoh Jn</option><option value="GNT">Guntur Jn</option><option value="GNU">Ganaur</option><option value="GTL">Guntakal Jn</option><option value="GTS">Ghatsila</option><option value="GWL">Gwalior Jn</option><option value="GY">Gooty Jn</option><option value="GZB">Ghaziabad</option><option value="HAN">Hindaun City</option><option value="HGT">Hinganghat</option><option value="HRS">Hathras Jn</option><option value="HUP">Hindupur</option><option value="HWH">Howrah Jn</option><option value="HX">Cuddapah</option><option value="HYB">Hyderabad Deccan</option><option value="HZD">Hazaribagh Road</option><option value="IGP">Igatpuri</option><option value="JL">Jalgaon Jn</option><option value="JM">Jalamb Jn</option><option value="JRC">Jalandhar Cant</option><option value="JSG">Jharsuguda Jn</option><option value="JTJ">Jolarpettai Jn</option><option value="JUC">Jalandhar City</option><option value="KGI">Kengeri</option><option value="KGP">Kharagpur Jn</option><option value="KHS">Kharsia</option><option value="KIR">Katihar Jn</option><option value="KJM">Krishnarajapuram</option><option value="KKDE">Kurukshetra Jn</option><option value="KLBG">Kalaburagi</option><option value="KLK">Kalka</option><option value="KMT">Khammam</option><option value="KNE">Kishanganj</option><option value="KNW">Khandwa</option><option value="KOJ">Kokrajhar</option><option value="KOTA">Kota Jn</option><option value="KOU">Koduru</option><option value="KPD">Katpadi Jn</option><option value="KPG">Kopargaon</option><option value="KPN">Kuppam</option><option value="KQR">Koderma</option><option value="KRJ">Khurja Jn</option><option value="KSRA">Kasara</option><option value="KTV">Kottavalasa</option><option value="KTYM">Kottayam</option><option value="KUH">Khachrod</option><option value="KUN">Karnal</option><option value="KUR">Khurda Road Jn</option><option value="KWV">Kurduvadi</option><option value="KYJ">Kayankulam Jn</option><option value="KYN">Kalyan Jn</option><option value="KZJ">Kazipet Jn</option><option value="LDH">Ludhiana Jn</option><option value="LMG">Lumding Jn</option><option value="LNL">Lonavala</option><option value="LTT">Lokmanya Tilak Term</option><option value="MAD">Maddur</option><option value="MALM">Manthralayam Rd</option><option value="MAR">Mulanur</option><option value="MAS">Chennai Central</option><option value="MCI">Manchiryal</option><option value="MGN">Meghnagar</option><option value="MKU">Malkapur</option><option value="MMCT">Mumbai Central</option><option value="MMR">Manmad Jn</option><option value="MNE">Mansi Jn</option><option value="MOZ">Muzaffarnagar</option><option value="MRA">Morena</option><option value="MRK">Markapur Road</option><option value="MS">Chennai Egmore</option><option value="MTC">Meerut City</option><option value="MTJ">Mathura Jn</option><option value="MUT">Meerut Cant</option><option value="MVLK">Mavelikara</option><option value="MXN">Mariani Jn</option><option value="MYA">Mandya</option><option value="MYS">Mysuru Jn</option><option value="MZP">Mirzapur</option><option value="MZR">Murtajapur</option><option value="NAD">Nagda Jn</option><option value="NBQ">New Bongaigaon</option><option value="NCB">New Cooch Behar</option><option value="NDL">Nandyal</option><option value="NDLS">New Delhi</option><option value="NDPM">NDPM</option><option value="NGP">Nagpur</option><option value="NJP">New Jalpaiguri</option><option value="NK">Nasik Road</option><option value="NLR">Nellore</option><option value="NN">Nandura</option><option value="NNA">Naugachia</option><option value="NRKR">Narkher</option><option value="NRT">Narasaraopet</option><option value="NTSK">New Tinsukia Jn</option><option value="NVS">Navsari</option><option value="NZM">Delhi H Nizamuddin</option><option value="OGL">Ongole</option><option value="OTP">Ottappalam</option><option value="PANP">Pandavapura</option><option value="PAR">Pandhurna</option><option value="PER">Perambur</option><option value="PGT">Palakkad</option><option value="PGW">Phagwara Jn</option><option value="PHD">Phaphund</option><option value="PKD">Penukonda</option><option value="PLO">Pulgaon Jn</option><option value="PNME">Parasnath</option><option value="PNP">Panipat Jn</option><option value="PPTA">Patliputra</option><option value="PRYJ">Prayagraj Jn</option><option value="PSA">Palasa</option><option value="PUNE">Pune Jn</option><option value="PUT">Puttur</option><option value="QLN">Kollam Jn</option><option value="R">Raipur Jn</option><option value="RC">Raichur</option><option value="RDM">Ramgundam</option><option value="RIG">Raigarh</option><option value="RJN">Raj Nandgaon</option><option value="RJP">Razampeta</option><option value="RJY">Rajamundry</option><option value="RKM">Raja Ki Mandi</option><option value="RKMP">Rani Kamlapati</option><option value="RMA">Ramganj Mandi</option><option value="RMGM">Ramanagaram</option><option value="RNY">Rangiya Jn</option><option value="ROU">Rourkela</option><option value="RTM">Ratlam Jn</option><option value="RU">Renigunta Jn</option><option value="SA">Salem Jn</option><option value="SADP">Saidapur</option><option value="SASN">Sas Nagar Mohali</option><option value="SBC">KSR Bengaluru</option><option value="SC">Secunderabad Jn</option><option value="SDAH">Kolkata Sealdah</option><option value="SEG">Shegaon</option><option value="SEGM">Sevagram</option><option value="SFG">Subedarganj</option><option value="SGZ">Shamgarh</option><option value="SHU">Sholinghur</option><option value="SKB">Shikohabad Jn</option><option value="SKF">Sakhoti Tanda</option><option value="SKT">Sakti</option><option value="SKZR">Sirpur Kagaznagar</option><option value="SLO">Samalkot Jn</option><option value="SMK">Samalkha</option><option value="SMVJ">SMVJ</option><option value="SNP">Sonipat</option><option value="SRC">Santragachi Jn</option><option value="SRE">Saharanpur</option><option value="SSM">Sasaram</option><option value="SSPN">Satya Sai P Nilayam</option><option value="SSW">Sarsawa</option><option value="ST">Surat</option><option value="SUR">Solapur Jn</option><option value="SWM">Sawai Madhopur</option><option value="SZM">Subzi Mandi</option><option value="TATA">Tatanagar Jn</option><option value="TCR">Thrisur</option><option value="TDL">Tundla Jn</option><option value="TEL">Tenali Jn</option><option value="TMR">Tumsar Road</option><option value="TNA">Thane</option><option value="TPTY">Tirupati Main</option><option value="TRL">Tiruvallur</option><option value="TRT">Tiruttani</option><option value="TRVL">Tiruvalla</option><option value="TU">Tadipatri</option><option value="TUP">Tiruppur</option><option value="TVC">Trivandrum Central</option><option value="TVP">Trivandrum Pettai</option><option value="UMB">Ambala Cant Jn</option><option value="VAK">Varkala</option><option value="VAPI">Vapi</option><option value="VARD">Vaikam Road</option><option value="VGLJ">Virangana Lakshmibai Jhansi Jn</option><option value="VN">Vaniyambadi</option><option value="VZM">Vizianagram Jn</option><option value="WADI">Wadi</option><option value="WFD">Whitefield</option><option value="WJR">Walajah Road</option><option value="WL">Warangal</option><option value="WR">Wardha Jn</option><option value="YA">Yerraguntla</option><option value="YG">Yadgir</option><option value="YJUD">Yamunanagar Jagadhari</option><option value="YNK">Yelhanka Jn</option></datalist>
+    <button class="button">Show board</button>
+  </form>
+
+  
+  <div class="led" role="region" aria-label="Arrivals board for Mavelikara">
+    <div class="led-head"><b>Mavelikara (MVLK)</b><span>13:51</span></div>
+    
+    <table>
+      <thead><tr><th>Train</th><th>Pf</th><th>Now at</th><th>Sched</th><th>Expected<small>P50</small></th><th>Likely between<small>earliest P10 to latest P90</small></th><th>Late</th></tr></thead>
+      <tbody>
+      
+      <tr class="led-row">
+        <td><a href="/train/12625">12625</a><small>Kerala Express</small></td>
+        <td>2</td>
+        <td>Kollam Jn</td>
+        <td>14:02</td>
+        <td class="late">14:16</td>
+        <td>14:12 to 14:21</td>
+        <td class="late">+14 min</td>
+      </tr>
+      
+      <tr class="led-row">
+        <td><a href="/train/12626">12626</a><small>Kerala Express</small></td>
+        <td>–</td>
+        <td>Sevagram</td>
+        <td>18:49</td>
+        <td class="late">19:13</td>
+        <td>19:00 to 19:48</td>
+        <td class="late">+24 min</td>
+      </tr>
+      
+      </tbody>
+    </table>
+    
+  </div>
+  
+  <p class="note">Platform (Pf) as RailRadar expects it. Same data for display screens: <code>/api/stations/MVLK/arrivals</code></p>
+  
+</section>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>

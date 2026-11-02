@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="home">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" aria-current="page">Live</a>
+        <a href="/#trains" >Trains</a>
+        <a href="/map" >Map</a>
+        <a href="/station/" >Stations</a>
+        <a href="/control" >Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <h1>Late now doesn’t mean late there.</h1>
+      <p class="lede">Track Pulse knows the stretches where a late train wins time back, and the trains around it that
+        hold it up. Any of 4,660 trains across India, learnt from real running.</p>
+    </div>
+    <form id="search" class="ticket-form" action="/find" method="get" role="search">
+      <div class="ticket-main">
+        <label for="q">Which train are you waiting for?</label>
+        <input id="q" name="q" list="train-list" placeholder="Number or name, e.g. 12951 or Kaveri" autocomplete="off"
+               required value="">
+        <datalist id="train-list">
+          <option value="12007 Mysuru Shatabdi"><option value="12008 Chennai Shatabdi"><option value="12027 Bengaluru Shatabdi"><option value="12028 Chennai Shatabdi"><option value="12607 Lalbagh SF Express"><option value="12608 Lalbagh SF Express"><option value="12639 Brindavan SF Express"><option value="12640 Brindavan SF Express"><option value="12657 Bengaluru SF Mail"><option value="12658 Chennai SF Mail"><option value="16021 Kaveri Express"><option value="16022 Kaveri Express"><option value="22625 Double Decker Express"><option value="22626 Double Decker Express"><option value="12951 Mumbai Rajdhani"><option value="12952 Mumbai Rajdhani"><option value="12953 August Kranti Rajdhani"><option value="12954 August Kranti Rajdhani"><option value="12903 Golden Temple Mail"><option value="12904 Golden Temple Mail"><option value="12925 Paschim Express"><option value="12926 Paschim Express"><option value="12301 Howrah Rajdhani"><option value="12302 Howrah Rajdhani"><option value="12313 Sealdah Rajdhani"><option value="12314 Sealdah Rajdhani"><option value="12311 Netaji Express"><option value="12312 Netaji Express"><option value="12423 Dibrugarh Rajdhani"><option value="12424 Dibrugarh Rajdhani"><option value="12621 Tamil Nadu Express"><option value="12622 Tamil Nadu Express"><option value="12615 Grand Trunk Express"><option value="12616 Grand Trunk Express"><option value="12625 Kerala Express"><option value="12626 Kerala Express"><option value="12627 Karnataka Express"><option value="12628 Karnataka Express"><option value="12723 Telangana Express"><option value="12724 Telangana Express"><option value="12809 Howrah Mail via Nagpur"><option value="12810 Howrah Mail via Nagpur"><option value="12859 Gitanjali Express"><option value="12860 Gitanjali Express"><option value="12163 Chennai Express"><option value="12164 Chennai Express">
+        </datalist>
+        
+        <button class="button">Show arrival times</button>
+        
+      </div>
+      
+      <a class="ticket-stub" href="/train/16021?at=43&amp;delay=30">
+        <span class="stub-train">16021 Kaveri Express</span>
+        <span class="stub-line"><b>30 min</b> late leaving Katpadi Jn</span>
+        <span class="stub-line"><b class="gain-text">11 min</b> late at KSR Bengaluru</span>
+        <span class="stub-note">It wins back 19 min in the timetable’s spare time. See how</span>
+      </a>
+      
+    </form>
+  </div>
+  <div class="train-strip" aria-hidden="true">
+<svg class="train-art" viewBox="0 0 1240 150" role="img" aria-label="An electric train under the overhead wire">
+  <defs>
+    <pattern id="sleepers" width="18" height="8" patternUnits="userSpaceOnUse"><rect width="9" height="8" rx="1" fill="#8a7a66"/></pattern>
+    <g id="coach">
+      <rect x="0" y="44" width="226" height="62" rx="9" fill="#a8232e"/>
+      <rect x="0" y="52" width="226" height="26" fill="#efe4cf"/>
+      <rect x="0" y="86" width="226" height="3" fill="#efe4cf" opacity=".7"/>
+      <rect x="10" y="48" width="18" height="52" rx="3" fill="#8c1c26"/>
+      <rect x="198" y="48" width="18" height="52" rx="3" fill="#8c1c26"/>
+      <g fill="#28324a"><rect x="40" y="57" width="26" height="16" rx="3"/><rect x="74" y="57" width="26" height="16" rx="3"/><rect x="108" y="57" width="26" height="16" rx="3"/><rect x="142" y="57" width="26" height="16" rx="3"/><rect x="176" y="57" width="14" height="16" rx="3"/></g>
+      <rect x="4" y="38" width="218" height="8" rx="4" fill="#c9ccd3"/>
+      <g fill="#1d2230"><circle cx="34" cy="112" r="10"/><circle cx="60" cy="112" r="10"/><circle cx="166" cy="112" r="10"/><circle cx="192" cy="112" r="10"/></g>
+      <g fill="#9aa1ad"><circle cx="34" cy="112" r="3.5"/><circle cx="60" cy="112" r="3.5"/><circle cx="166" cy="112" r="3.5"/><circle cx="192" cy="112" r="3.5"/></g>
+      <rect x="226" y="66" width="10" height="24" fill="#3b4150"/>
+    </g>
+  </defs>
+  <g class="wire" stroke="#5b6476" stroke-width="2" fill="none">
+    <path d="M0 10 H1240"/><path d="M0 18 Q155 26 310 18 T620 18 T930 18 T1240 18" stroke-width="1.2"/>
+    <g class="masts" stroke="#7d8696" stroke-width="5"><path d="M150 0 V122"/><path d="M770 0 V122"/><path d="M1390 0 V122"/><path d="M2010 0 V122"/></g>
+  </g>
+  <rect class="sleepers" x="0" y="122" width="1300" height="8" fill="url(#sleepers)"/>
+  <rect x="0" y="120" width="1240" height="3" fill="#6b7280"/>
+  <rect x="0" y="130" width="1240" height="14" fill="#c9c2b6"/>
+  <g transform="translate(1240 0) scale(-1 1)"><!-- drawn facing left; mirrored so it runs left to right like the route tracks below --><g class="train"><g class="sway">
+    <!-- WAP-7 style loco, rail blue with a white band -->
+    <path d="M40 120 V70 Q40 46 66 40 L92 36 H262 V106 H40 Z" fill="#1f3f8f"/>
+    <path d="M44 66 Q48 50 70 45 L92 42 V66 Z" fill="#cfe0ff"/>
+    <rect x="40" y="80" width="222" height="8" fill="#ffffff"/>
+    <rect x="40" y="92" width="222" height="3" fill="#f5c400"/>
+    <g fill="#cfe0ff"><rect x="120" y="50" width="20" height="16" rx="3"/><rect x="150" y="50" width="20" height="16" rx="3"/></g>
+    <rect x="196" y="48" width="44" height="24" rx="3" fill="#183274"/>
+    <circle cx="48" cy="98" r="4" fill="#ffe28a"/>
+    <path d="M150 36 L170 22 L190 36 M170 22 L170 18" stroke="#2b3245" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+    <g fill="#1d2230"><circle cx="74" cy="112" r="11"/><circle cx="102" cy="112" r="11"/><circle cx="130" cy="112" r="11"/><circle cx="182" cy="112" r="11"/><circle cx="210" cy="112" r="11"/><circle cx="238" cy="112" r="11"/></g>
+    <g fill="#9aa1ad"><circle cx="74" cy="112" r="4"/><circle cx="102" cy="112" r="4"/><circle cx="130" cy="112" r="4"/><circle cx="182" cy="112" r="4"/><circle cx="210" cy="112" r="4"/><circle cx="238" cy="112" r="4"/></g>
+    <rect x="262" y="66" width="10" height="24" fill="#3b4150"/>
+    <use href="#coach" x="272"/><use href="#coach" x="508"/><use href="#coach" x="744"/><use href="#coach" x="980"/>
+  </g></g></g>
+</svg></div>
+</section>
+
+  <main id="main" class="wrap">
+<section id="live" class="block">
+  <div class="block-head">
+    <h2><span class="pulse" aria-hidden="true"></span>Running now</h2>
+    <span class="muted">28 trains reporting</span>
+  </div>
+  
+  <ul class="runs">
+    
+    <li><a class="run disrupted" href="/train/12312">
+      <div class="run-top">
+        <span><span class="tno">12312</span> <span class="tname">Netaji Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 52.4%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Phaphund"></span></span>
+        <span class="mt-ends"><span>Kalka</span><span>Howrah Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Phaphund</b>
+          <span class="num loss-text">+1 h 07 min</span></div>
+        
+        <div class="end"><small>Expected at Howrah Jn</small>
+          <span class="num big-ish loss-text">+26 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 41 min on the way</span>
+        
+        <span class="muted">updated 37 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12314">
+      <div class="run-top">
+        <span><span class="tno">12314</span> <span class="tname">Sealdah Rajdhani</span></span>
+        <span><span class="chip held">Possibly held</span> <span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 83.3%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Asansol Jn"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Durgapur</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Asansol Jn</b>
+          <span class="num loss-text">+4 h 44 min</span></div>
+        
+        <div class="end"><small>Expected at Durgapur</small>
+          <span class="num big-ish loss-text">+4 h 47 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Held between Asansol Jn and Durgapur?</span>
+        
+        <span class="loss-text">updated 2 h 04 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12616">
+      <div class="run-top">
+        <span><span class="tno">12616</span> <span class="tname">Grand Trunk Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 61.1%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Hinganghat"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Gudur Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Hinganghat</b>
+          <span class="num loss-text">+1 h 23 min</span></div>
+        
+        <div class="end"><small>Expected at Gudur Jn</small>
+          <span class="num big-ish loss-text">+8 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 1 h 15 min on the way</span>
+        
+        <span class="muted">updated 43 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12625">
+      <div class="run-top">
+        <span><span class="tno">12625</span> <span class="tname">Kerala Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 4.8%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Kollam Jn"></span></span>
+        <span class="mt-ends"><span>Trivandrum Central</span><span>Delhi H Nizamuddin</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Kollam Jn</b>
+          <span class="num loss-text">+10 min</span></div>
+        
+        <div class="end"><small>Expected at Delhi H Nizamuddin</small>
+          <span class="num big-ish loss-text">+1 h 06 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 56 min more on the way</span>
+        
+        <span class="muted">updated 23 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12627">
+      <div class="run-top">
+        <span><span class="tno">12627</span> <span class="tname">Karnataka Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 59.4%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Belapur"></span></span>
+        <span class="mt-ends"><span>KSR Bengaluru</span><span>Mathura Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Belapur</b>
+          <span class="num loss-text">+30 min</span></div>
+        
+        <div class="end"><small>Expected at Mathura Jn</small>
+          <span class="num big-ish loss-text">+1 h 27 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 57 min more on the way</span>
+        
+        <span class="muted">updated 41 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12628">
+      <div class="run-top">
+        <span><span class="tno">12628</span> <span class="tname">Karnataka Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 29.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Burhanpur"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Yelhanka Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Burhanpur</b>
+          <span class="num loss-text">+1 h 16 min</span></div>
+        
+        <div class="end"><small>Expected at Yelhanka Jn</small>
+          <span class="num big-ish loss-text">+1 h 02 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 14 min on the way</span>
+        
+        <span class="muted">updated 35 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12723">
+      <div class="run-top">
+        <span><span class="tno">12723</span> <span class="tname">Telangana Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 53.3%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Chandrapur"></span></span>
+        <span class="mt-ends"><span>Hyderabad Deccan</span><span>Ballabgarh</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Chandrapur</b>
+          <span class="num loss-text">+1 h 02 min</span></div>
+        
+        <div class="end"><small>Expected at Ballabgarh</small>
+          <span class="num big-ish loss-text">+51 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 11 min on the way</span>
+        
+        <span class="muted">updated 32 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12809">
+      <div class="run-top">
+        <span><span class="tno">12809</span> <span class="tname">Howrah Mail via Nagpur</span></span>
+        <span><span class="chip held">Possibly held</span> <span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 31.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Nandura"></span></span>
+        <span class="mt-ends"><span>Mumbai CSMT</span><span>Kharagpur Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Nandura</b>
+          <span class="num loss-text">+7 h 43 min</span></div>
+        
+        <div class="end"><small>Expected at Kharagpur Jn</small>
+          <span class="num big-ish loss-text">+12 h 01 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Held between Nandura and Jalamb Jn?</span>
+        
+        <span class="muted">updated 53 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12810">
+      <div class="run-top">
+        <span><span class="tno">12810</span> <span class="tname">Howrah Mail via Nagpur</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 37.5%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Durg"></span></span>
+        <span class="mt-ends"><span>Howrah Jn</span><span>Kalyan Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Durg</b>
+          <span class="num loss-text">+4 h 14 min</span></div>
+        
+        <div class="end"><small>Expected at Kalyan Jn</small>
+          <span class="num big-ish loss-text">+7 h 34 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 3 h 20 min more on the way</span>
+        
+        <span class="muted">updated 2 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12859">
+      <div class="run-top">
+        <span><span class="tno">12859</span> <span class="tname">Gitanjali Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 19.2%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Jalgaon Jn"></span></span>
+        <span class="mt-ends"><span>Mumbai CSMT</span><span>Santragachi Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Jalgaon Jn</b>
+          <span class="num loss-text">+1 h 20 min</span></div>
+        
+        <div class="end"><small>Expected at Santragachi Jn</small>
+          <span class="num big-ish loss-text">+5 h 51 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 4 h 31 min more on the way</span>
+        
+        <span class="muted">updated 31 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/12860">
+      <div class="run-top">
+        <span><span class="tno">12860</span> <span class="tname">Gitanjali Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 0.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Howrah Jn"></span></span>
+        <span class="mt-ends"><span>Howrah Jn</span><span>Mumbai Dadar Central</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Howrah Jn</b>
+          <span class="num gain-text">+0 min</span></div>
+        
+        <div class="end"><small>Expected at Mumbai Dadar Central</small>
+          <span class="num big-ish loss-text">+3 h 44 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 3 h 44 min more on the way</span>
+        
+        <span class="muted">updated 11 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run disrupted" href="/train/22625">
+      <div class="run-top">
+        <span><span class="tno">22625</span> <span class="tname">Double Decker Express</span></span>
+        <span><span class="chip status disrupted">disrupted</span></span>
+      </div>
+      <div class="mini-track" style="--at: 88.9%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Bangarapet Jn"></span></span>
+        <span class="mt-ends"><span>Chennai Central</span><span>Krishnarajapuram</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Bangarapet Jn</b>
+          <span class="num loss-text">+1 h 35 min</span></div>
+        
+        <div class="end"><small>Expected at Krishnarajapuram</small>
+          <span class="num big-ish loss-text">+1 h 44 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 9 min more on the way</span>
+        
+        <span class="muted">updated 46 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12163">
+      <div class="run-top">
+        <span><span class="tno">12163</span> <span class="tname">Chennai Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 87.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Renigunta Jn"></span></span>
+        <span class="mt-ends"><span>Lokmanya Tilak Term</span><span>Arakkonam Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Renigunta Jn</b>
+          <span class="num loss-text">+34 min</span></div>
+        
+        <div class="end"><small>Expected at Arakkonam Jn</small>
+          <span class="num big-ish loss-text">+43 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 9 min more on the way</span>
+        
+        <span class="muted">updated 22 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12164">
+      <div class="run-top">
+        <span><span class="tno">12164</span> <span class="tname">Chennai Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 91.3%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Lonavala"></span></span>
+        <span class="mt-ends"><span>Chennai Central</span><span>Thane</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Lonavala</b>
+          <span class="num loss-text">+21 min</span></div>
+        
+        <div class="end"><small>Expected at Thane</small>
+          <span class="num big-ish loss-text">+42 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 21 min more on the way</span>
+        
+        <span class="muted">updated 48 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12311">
+      <div class="run-top">
+        <span><span class="tno">12311</span> <span class="tname">Netaji Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 43.6%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Fatehpur"></span></span>
+        <span class="mt-ends"><span>Howrah Jn</span><span>Chandi Mandir</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Fatehpur</b>
+          <span class="num loss-text">+37 min</span></div>
+        
+        <div class="end"><small>Expected at Chandi Mandir</small>
+          <span class="num big-ish loss-text">+59 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 22 min more on the way</span>
+        
+        <span class="loss-text">updated 1 h 02 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12423">
+      <div class="run-top">
+        <span><span class="tno">12423</span> <span class="tname">Dibrugarh Rajdhani</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 56.5%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="New Jalpaiguri"></span></span>
+        <span class="mt-ends"><span>Dibrugarh</span><span>Kanpur Central</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>New Jalpaiguri</b>
+          <span class="num loss-text">+9 min</span></div>
+        
+        <div class="end"><small>Expected at Kanpur Central</small>
+          <span class="num big-ish loss-text">+16 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 7 min more on the way</span>
+        
+        <span class="muted">updated 27 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12424">
+      <div class="run-top">
+        <span><span class="tno">12424</span> <span class="tname">Dibrugarh Rajdhani</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 47.8%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="New Jalpaiguri"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>New Tinsukia Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>New Jalpaiguri</b>
+          <span class="num loss-text">+56 min</span></div>
+        
+        <div class="end"><small>Expected at New Tinsukia Jn</small>
+          <span class="num big-ish loss-text">+51 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 5 min on the way</span>
+        
+        <span class="muted">updated 15 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12615">
+      <div class="run-top">
+        <span><span class="tno">12615</span> <span class="tname">Grand Trunk Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 48.6%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Pandhurna"></span></span>
+        <span class="mt-ends"><span>Chennai Central</span><span>Delhi H Nizamuddin</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Pandhurna</b>
+          <span class="num loss-text">+28 min</span></div>
+        
+        <div class="end"><small>Expected at Delhi H Nizamuddin</small>
+          <span class="num big-ish loss-text">+17 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 11 min on the way</span>
+        
+        <span class="muted">updated 33 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12621">
+      <div class="run-top">
+        <span><span class="tno">12621</span> <span class="tname">Tamil Nadu Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 40.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Balharshah"></span></span>
+        <span class="mt-ends"><span>Chennai Central</span><span>Agra Cantt</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Balharshah</b>
+          <span class="num loss-text">+42 min</span></div>
+        
+        <div class="end"><small>Expected at Agra Cantt</small>
+          <span class="num big-ish loss-text">+41 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="muted">Holding its delay</span>
+        <span class="loss-text">updated 2 h 34 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12622">
+      <div class="run-top">
+        <span><span class="tno">12622</span> <span class="tname">Tamil Nadu Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 60.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Nagpur"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Vijayawada Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Nagpur</b>
+          <span class="num loss-text">+31 min</span></div>
+        
+        <div class="end"><small>Expected at Vijayawada Jn</small>
+          <span class="num big-ish loss-text">+34 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 3 min more on the way</span>
+        
+        <span class="muted">updated 15 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12626">
+      <div class="run-top">
+        <span><span class="tno">12626</span> <span class="tname">Kerala Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 22.5%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Sevagram"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Varkala</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Sevagram</b>
+          <span class="num loss-text">+49 min</span></div>
+        
+        <div class="end"><small>Expected at Varkala</small>
+          <span class="num big-ish loss-text">+32 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 17 min on the way</span>
+        
+        <span class="muted">updated 17 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12639">
+      <div class="run-top">
+        <span><span class="tno">12639</span> <span class="tname">Brindavan SF Express</span></span>
+        <span><span class="chip held">Possibly held</span> <span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 90.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Bangarapet Jn"></span></span>
+        <span class="mt-ends"><span>Chennai Central</span><span>Krishnarajapuram</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Bangarapet Jn</b>
+          <span class="num loss-text">+22 min</span></div>
+        
+        <div class="end"><small>Expected at Krishnarajapuram</small>
+          <span class="num big-ish loss-text">+30 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Held between Bangarapet Jn and Krishnarajapuram?</span>
+        
+        <span class="loss-text">updated 1 h 24 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12724">
+      <div class="run-top">
+        <span><span class="tno">12724</span> <span class="tname">Telangana Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 92.3%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Ramgundam"></span></span>
+        <span class="mt-ends"><span>New Delhi</span><span>Kazipet Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Ramgundam</b>
+          <span class="num loss-text">+34 min</span></div>
+        
+        <div class="end"><small>Expected at Kazipet Jn</small>
+          <span class="num big-ish loss-text">+29 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 5 min on the way</span>
+        
+        <span class="muted">updated 46 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12903">
+      <div class="run-top">
+        <span><span class="tno">12903</span> <span class="tname">Golden Temple Mail</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 57.6%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Mathura Jn"></span></span>
+        <span class="mt-ends"><span>Mumbai Bandra Terminus</span><span>Beas</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Mathura Jn</b>
+          <span class="num loss-text">+50 min</span></div>
+        
+        <div class="end"><small>Expected at Beas</small>
+          <span class="num big-ish loss-text">+45 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 5 min on the way</span>
+        
+        <span class="loss-text">updated 1 h 16 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12904">
+      <div class="run-top">
+        <span><span class="tno">12904</span> <span class="tname">Golden Temple Mail</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 78.8%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Nagda Jn"></span></span>
+        <span class="mt-ends"><span>Amritsar Jn</span><span>Borivali</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Nagda Jn</b>
+          <span class="num gain-text">+4 min</span></div>
+        
+        <div class="end"><small>Expected at Borivali</small>
+          <span class="num big-ish loss-text">+21 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 17 min more on the way</span>
+        
+        <span class="muted">updated 7 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12925">
+      <div class="run-top">
+        <span><span class="tno">12925</span> <span class="tname">Paschim Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 4.9%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Dahanu Road"></span></span>
+        <span class="mt-ends"><span>Mumbai Bandra Terminus</span><span>Amritsar Jn</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Dahanu Road</b>
+          <span class="num loss-text">+40 min</span></div>
+        
+        <div class="end"><small>Expected at Amritsar Jn</small>
+          <span class="num big-ish gain-text">+3 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 37 min on the way</span>
+        
+        <span class="muted">updated 3 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/12926">
+      <div class="run-top">
+        <span><span class="tno">12926</span> <span class="tname">Paschim Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 20.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="Ambala Cant Jn"></span></span>
+        <span class="mt-ends"><span>Amritsar Jn</span><span>Mumbai Bandra Terminus</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>Ambala Cant Jn</b>
+          <span class="num loss-text">+21 min</span></div>
+        
+        <div class="end"><small>Expected at Mumbai Bandra Terminus</small>
+          <span class="num big-ish gain-text">-9 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="gain-text">Winning back 30 min on the way</span>
+        
+        <span class="muted">updated 20 min ago</span>
+      </div>
+    </a></li>
+    
+    <li><a class="run delayed" href="/train/22626">
+      <div class="run-top">
+        <span><span class="tno">22626</span> <span class="tname">Double Decker Express</span></span>
+        <span><span class="chip status delayed">delayed</span></span>
+      </div>
+      <div class="mini-track" style="--at: 0.0%">
+        <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco" title="KSR Bengaluru"></span></span>
+        <span class="mt-ends"><span>KSR Bengaluru</span><span>Tiruvallur</span></span>
+      </div>
+      <div class="run-now">
+        <div><small>Now at</small><b>KSR Bengaluru</b>
+          <span class="num loss-text">+10 min</span></div>
+        
+        <div class="end"><small>Expected at Tiruvallur</small>
+          <span class="num big-ish loss-text">+17 min</span></div>
+        
+      </div>
+      <div class="run-foot">
+        <span class="loss-text">Losing 7 min more on the way</span>
+        
+        <span class="muted">updated 11 min ago</span>
+      </div>
+    </a></li>
+    
+  </ul>
+  <p class="note">Status uses the worse of the delay now and the predicted delay further ahead.
+    <a href="/docs#status">What the labels mean</a></p>
+  
+</section>
+
+<section class="block proof">
+  <h2>Checked on runs it never saw</h2>
+  <div class="proof-row">
+    <p><b>19.1</b> min average error for Track Pulse</p>
+    <p><b>33.8</b> min if today’s delay is simply carried forward</p>
+    <p><b>60.9</b> min for the printed timetable</p>
+  </div>
+  
+  <div class="panel versus">
+    <h3>Live, last 7 days: the same moments, three estimates</h3>
+    <div class="vs-bars">
+      
+      
+      <div class="vs-row"><span>Track Pulse</span><span class="vs-bar"><i class="us" style="width: 69.4%"></i></span><b>10.1 min</b></div>
+      
+      <div class="vs-row"><span>RailRadar</span><span class="vs-bar"><i class="them" style="width: 77.7%"></i></span><b>11.2 min</b></div>
+      
+      <div class="vs-row"><span>Delay carried forward</span><span class="vs-bar"><i class="them" style="width: 100.0%"></i></span><b>14.5 min</b></div>
+      
+    </div>
+    <p class="note">Average error on 453 arrivals checked against the real time. Track Pulse was closer than
+      RailRadar 51% of the time.</p>
+  </div>
+  
+  
+  <div class="panel recovery-table">
+    <h3>Spotting time recovery, train by train</h3>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Train</th><th>Recoveries tested</th><th>Predicted by us</th><th class="hide-sm">Average real vs predicted</th></tr></thead>
+      <tbody>
+      
+      <tr>
+        <td><a href="/train/12925#recovery"><span class="tno">12925</span> Paschim Express</a></td>
+        <td class="num">1363</td>
+        <td><span class="rate"><i style="width: 90.5%"></i></span> <b class="num">90%</b></td>
+        <td class="num hide-sm">18 min vs 16 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12616#recovery"><span class="tno">12616</span> Grand Trunk Express</a></td>
+        <td class="num">1269</td>
+        <td><span class="rate"><i style="width: 91.5%"></i></span> <b class="num">92%</b></td>
+        <td class="num hide-sm">19 min vs 18 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12312#recovery"><span class="tno">12312</span> Netaji Express</a></td>
+        <td class="num">1267</td>
+        <td><span class="rate"><i style="width: 90.4%"></i></span> <b class="num">90%</b></td>
+        <td class="num hide-sm">18 min vs 17 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12626#recovery"><span class="tno">12626</span> Kerala Express</a></td>
+        <td class="num">1257</td>
+        <td><span class="rate"><i style="width: 83.5%"></i></span> <b class="num">84%</b></td>
+        <td class="num hide-sm">17 min vs 15 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12625#recovery"><span class="tno">12625</span> Kerala Express</a></td>
+        <td class="num">1182</td>
+        <td><span class="rate"><i style="width: 72.7%"></i></span> <b class="num">73%</b></td>
+        <td class="num hide-sm">16 min vs 14 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12615#recovery"><span class="tno">12615</span> Grand Trunk Express</a></td>
+        <td class="num">1146</td>
+        <td><span class="rate"><i style="width: 74.1%"></i></span> <b class="num">74%</b></td>
+        <td class="num hide-sm">15 min vs 12 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12926#recovery"><span class="tno">12926</span> Paschim Express</a></td>
+        <td class="num">1101</td>
+        <td><span class="rate"><i style="width: 84.0%"></i></span> <b class="num">84%</b></td>
+        <td class="num hide-sm">19 min vs 18 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12628#recovery"><span class="tno">12628</span> Karnataka Express</a></td>
+        <td class="num">1090</td>
+        <td><span class="rate"><i style="width: 84.4%"></i></span> <b class="num">84%</b></td>
+        <td class="num hide-sm">18 min vs 15 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12627#recovery"><span class="tno">12627</span> Karnataka Express</a></td>
+        <td class="num">1071</td>
+        <td><span class="rate"><i style="width: 76.9%"></i></span> <b class="num">77%</b></td>
+        <td class="num hide-sm">14 min vs 10 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12903#recovery"><span class="tno">12903</span> Golden Temple Mail</a></td>
+        <td class="num">1006</td>
+        <td><span class="rate"><i style="width: 84.5%"></i></span> <b class="num">84%</b></td>
+        <td class="num hide-sm">14 min vs 12 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12904#recovery"><span class="tno">12904</span> Golden Temple Mail</a></td>
+        <td class="num">901</td>
+        <td><span class="rate"><i style="width: 80.7%"></i></span> <b class="num">81%</b></td>
+        <td class="num hide-sm">15 min vs 14 min</td>
+      </tr>
+      
+      <tr>
+        <td><a href="/train/12311#recovery"><span class="tno">12311</span> Netaji Express</a></td>
+        <td class="num">850</td>
+        <td><span class="rate"><i style="width: 81.4%"></i></span> <b class="num">81%</b></td>
+        <td class="num hide-sm">18 min vs 16 min</td>
+      </tr>
+      
+      </tbody>
+    </table>
+    </div>
+    <p class="note">A recovery: the train won back 5 or more minutes between two stations. Carrying the delay forward predicts none of them.</p>
+  </div>
+  
+  
+  <p class="note">Confidence range: 64% of live arrivals in the last
+    7 days landed between P10 and P90 (target 80%).</p>
+  
+  <p class="note">86% of arrivals in the next 30 minutes are
+    predicted within 5 minutes. Measured on 3832 runs from 2026-08-04. <a href="/docs#testing">How we test</a></p>
+</section>
+
+<section id="trains" class="block">
+  <h2>Trains covered</h2>
+  <p class="note">Grouped by the track they share: a slow train on a corridor shows up in the arrival times of the others.</p>
+  
+  <details class="panel corridor" open>
+    <summary><span>Chennai, Bengaluru and Mysuru</span><span class="muted">14 trains</span></summary>
+    <ul class="trains">
+      
+      <li><a href="/train/12007">
+        <span class="tno">12007</span>
+        <span class="name">Mysuru Shatabdi</span>
+        <span class="route">Chennai Central to KSR Bengaluru</span>
+      </a></li>
+      
+      <li><a href="/train/12008">
+        <span class="tno">12008</span>
+        <span class="name">Chennai Shatabdi</span>
+        <span class="route">Mysuru Jn to Katpadi Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12027">
+        <span class="tno">12027</span>
+        <span class="name">Bengaluru Shatabdi</span>
+        <span class="route">Chennai Central to Jolarpettai Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12028">
+        <span class="tno">12028</span>
+        <span class="name">Chennai Shatabdi</span>
+        <span class="route">KSR Bengaluru to Katpadi Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12607">
+        <span class="tno">12607</span>
+        <span class="name">Lalbagh SF Express</span>
+        <span class="route">Chennai Central to Krishnarajapuram</span>
+      </a></li>
+      
+      <li><a href="/train/12608">
+        <span class="tno">12608</span>
+        <span class="name">Lalbagh SF Express</span>
+        <span class="route">KSR Bengaluru to Arakkonam Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12639">
+        <span class="tno">12639</span>
+        <span class="name">Brindavan SF Express</span>
+        <span class="route">Chennai Central to Krishnarajapuram</span>
+      </a></li>
+      
+      <li><a href="/train/12640">
+        <span class="tno">12640</span>
+        <span class="name">Brindavan SF Express</span>
+        <span class="route">KSR Bengaluru to Arakkonam Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12657">
+        <span class="tno">12657</span>
+        <span class="name">Bengaluru SF Mail</span>
+        <span class="route">Chennai Central to Bangarapet Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12658">
+        <span class="tno">12658</span>
+        <span class="name">Chennai SF Mail</span>
+        <span class="route">KSR Bengaluru to Arakkonam Jn</span>
+      </a></li>
+      
+      <li><a href="/train/16021">
+        <span class="tno">16021</span>
+        <span class="name">Kaveri Express</span>
+        <span class="route">Chennai Central to Pandavapura</span>
+      </a></li>
+      
+      <li><a href="/train/16022">
+        <span class="tno">16022</span>
+        <span class="name">Kaveri Express</span>
+        <span class="route">Ashokapuram to Tiruvallur</span>
+      </a></li>
+      
+      <li><a href="/train/22625">
+        <span class="tno">22625</span>
+        <span class="name">Double Decker Express</span>
+        <span class="route">Chennai Central to Krishnarajapuram</span>
+      </a></li>
+      
+      <li><a href="/train/22626">
+        <span class="tno">22626</span>
+        <span class="name">Double Decker Express</span>
+        <span class="route">KSR Bengaluru to Tiruvallur</span>
+      </a></li>
+      
+    </ul>
+  </details>
+  
+  <details class="panel corridor" >
+    <summary><span>Delhi to Mumbai and Amritsar</span><span class="muted">8 trains</span></summary>
+    <ul class="trains">
+      
+      <li><a href="/train/12951">
+        <span class="tno">12951</span>
+        <span class="name">Mumbai Rajdhani</span>
+        <span class="route">Mumbai Central to Kota Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12952">
+        <span class="tno">12952</span>
+        <span class="name">Mumbai Rajdhani</span>
+        <span class="route">New Delhi to Borivali</span>
+      </a></li>
+      
+      <li><a href="/train/12953">
+        <span class="tno">12953</span>
+        <span class="name">August Kranti Rajdhani</span>
+        <span class="route">Mumbai Central to Mathura Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12954">
+        <span class="tno">12954</span>
+        <span class="name">August Kranti Rajdhani</span>
+        <span class="route">Delhi H Nizamuddin to Borivali</span>
+      </a></li>
+      
+      <li><a href="/train/12903">
+        <span class="tno">12903</span>
+        <span class="name">Golden Temple Mail</span>
+        <span class="route">Mumbai Bandra Terminus to Beas</span>
+      </a></li>
+      
+      <li><a href="/train/12904">
+        <span class="tno">12904</span>
+        <span class="name">Golden Temple Mail</span>
+        <span class="route">Amritsar Jn to Borivali</span>
+      </a></li>
+      
+      <li><a href="/train/12925">
+        <span class="tno">12925</span>
+        <span class="name">Paschim Express</span>
+        <span class="route">Mumbai Bandra Terminus to Amritsar Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12926">
+        <span class="tno">12926</span>
+        <span class="name">Paschim Express</span>
+        <span class="route">Amritsar Jn to Mumbai Bandra Terminus</span>
+      </a></li>
+      
+    </ul>
+  </details>
+  
+  <details class="panel corridor" >
+    <summary><span>Delhi to Howrah, Sealdah and Assam</span><span class="muted">8 trains</span></summary>
+    <ul class="trains">
+      
+      <li><a href="/train/12301">
+        <span class="tno">12301</span>
+        <span class="name">Howrah Rajdhani</span>
+        <span class="route">Howrah Jn to Kanpur Central</span>
+      </a></li>
+      
+      <li><a href="/train/12302">
+        <span class="tno">12302</span>
+        <span class="name">Howrah Rajdhani</span>
+        <span class="route">New Delhi to Asansol Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12313">
+        <span class="tno">12313</span>
+        <span class="name">Sealdah Rajdhani</span>
+        <span class="route">Kolkata Sealdah to Kanpur Central</span>
+      </a></li>
+      
+      <li><a href="/train/12314">
+        <span class="tno">12314</span>
+        <span class="name">Sealdah Rajdhani</span>
+        <span class="route">New Delhi to Durgapur</span>
+      </a></li>
+      
+      <li><a href="/train/12311">
+        <span class="tno">12311</span>
+        <span class="name">Netaji Express</span>
+        <span class="route">Howrah Jn to Chandi Mandir</span>
+      </a></li>
+      
+      <li><a href="/train/12312">
+        <span class="tno">12312</span>
+        <span class="name">Netaji Express</span>
+        <span class="route">Kalka to Howrah Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12423">
+        <span class="tno">12423</span>
+        <span class="name">Dibrugarh Rajdhani</span>
+        <span class="route">Dibrugarh to Kanpur Central</span>
+      </a></li>
+      
+      <li><a href="/train/12424">
+        <span class="tno">12424</span>
+        <span class="name">Dibrugarh Rajdhani</span>
+        <span class="route">New Delhi to New Tinsukia Jn</span>
+      </a></li>
+      
+    </ul>
+  </details>
+  
+  <details class="panel corridor" >
+    <summary><span>Delhi to the South, over two days or more</span><span class="muted">10 trains</span></summary>
+    <ul class="trains">
+      
+      <li><a href="/train/12621">
+        <span class="tno">12621</span>
+        <span class="name">Tamil Nadu Express</span>
+        <span class="route">Chennai Central to Agra Cantt</span>
+      </a></li>
+      
+      <li><a href="/train/12622">
+        <span class="tno">12622</span>
+        <span class="name">Tamil Nadu Express</span>
+        <span class="route">New Delhi to Vijayawada Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12615">
+        <span class="tno">12615</span>
+        <span class="name">Grand Trunk Express</span>
+        <span class="route">Chennai Central to Delhi H Nizamuddin</span>
+      </a></li>
+      
+      <li><a href="/train/12616">
+        <span class="tno">12616</span>
+        <span class="name">Grand Trunk Express</span>
+        <span class="route">New Delhi to Gudur Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12625">
+        <span class="tno">12625</span>
+        <span class="name">Kerala Express</span>
+        <span class="route">Trivandrum Central to Delhi H Nizamuddin</span>
+      </a></li>
+      
+      <li><a href="/train/12626">
+        <span class="tno">12626</span>
+        <span class="name">Kerala Express</span>
+        <span class="route">New Delhi to Varkala</span>
+      </a></li>
+      
+      <li><a href="/train/12627">
+        <span class="tno">12627</span>
+        <span class="name">Karnataka Express</span>
+        <span class="route">KSR Bengaluru to Mathura Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12628">
+        <span class="tno">12628</span>
+        <span class="name">Karnataka Express</span>
+        <span class="route">New Delhi to Yelhanka Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12723">
+        <span class="tno">12723</span>
+        <span class="name">Telangana Express</span>
+        <span class="route">Hyderabad Deccan to Ballabgarh</span>
+      </a></li>
+      
+      <li><a href="/train/12724">
+        <span class="tno">12724</span>
+        <span class="name">Telangana Express</span>
+        <span class="route">New Delhi to Kazipet Jn</span>
+      </a></li>
+      
+    </ul>
+  </details>
+  
+  <details class="panel corridor" >
+    <summary><span>Mumbai to Howrah and Chennai</span><span class="muted">6 trains</span></summary>
+    <ul class="trains">
+      
+      <li><a href="/train/12809">
+        <span class="tno">12809</span>
+        <span class="name">Howrah Mail via Nagpur</span>
+        <span class="route">Mumbai CSMT to Kharagpur Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12810">
+        <span class="tno">12810</span>
+        <span class="name">Howrah Mail via Nagpur</span>
+        <span class="route">Howrah Jn to Kalyan Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12859">
+        <span class="tno">12859</span>
+        <span class="name">Gitanjali Express</span>
+        <span class="route">Mumbai CSMT to Santragachi Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12860">
+        <span class="tno">12860</span>
+        <span class="name">Gitanjali Express</span>
+        <span class="route">Howrah Jn to Mumbai Dadar Central</span>
+      </a></li>
+      
+      <li><a href="/train/12163">
+        <span class="tno">12163</span>
+        <span class="name">Chennai Express</span>
+        <span class="route">Lokmanya Tilak Term to Arakkonam Jn</span>
+      </a></li>
+      
+      <li><a href="/train/12164">
+        <span class="tno">12164</span>
+        <span class="name">Chennai Express</span>
+        <span class="route">Chennai Central to Thane</span>
+      </a></li>
+      
+    </ul>
+  </details>
+  
+</section>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>

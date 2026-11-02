@@ -1,0 +1,4 @@
+# Vercel serves only the static snapshot in public/ (see snapshot.py); the Python app runs on our server.
+/*
+!public
+!vercel.json

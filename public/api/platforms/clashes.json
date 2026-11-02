@@ -1,0 +1,1 @@
+{"clashes":[{"name":"Rourkela","platform":"4","station":"ROU","trains":[{"arr":"2026-11-03T07:30:00","dep":"2026-11-03T07:38:00","name":"Howrah Mail via Nagpur","train":"12809"},{"arr":"2026-11-03T07:20:00","dep":"2026-11-03T07:28:00","name":"Gitanjali Express","train":"12859"}]}],"gap_min":5}

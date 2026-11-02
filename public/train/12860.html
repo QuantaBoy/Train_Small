@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>12860 Gitanjali Express · Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="train-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" >Live</a>
+        <a href="/#trains" aria-current="page">Trains</a>
+        <a href="/map" >Map</a>
+        <a href="/station/" >Stations</a>
+        <a href="/control" >Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+
+<section class="hero train-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#trains">All trains</a></p>
+    <h1 class="train-title"><span class="tno">12860</span> Gitanjali Express</h1>
+    
+    <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at Howrah Jn,
+      +0 min, reported 13:40 (run that left 2026-11-02)</p>
+    
+    <div class="mini-track wide" style="--at: 0.0%">
+      <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco"></span></span>
+      <span class="mt-ends"><span>Howrah Jn</span>
+        <span>Mumbai Dadar Central, day 2</span></span>
+    </div>
+  </div>
+</section>
+
+  <main id="main" class="wrap">
+<div class="train-layout">
+<aside class="side" aria-label="Summary, what if, and trains around it">
+
+
+<div class="panel summary">
+  <div>
+    <small>Expected at Mumbai Dadar Central</small>
+    <b class="big">00:31</b>
+    <span class="day-tag">Wed 4 Nov</span>
+    <span class="muted">timetable 20:47, day 2</span>
+  </div>
+  <div>
+    <small>Late there</small>
+    <b class="big loss-text">+3 h 44 min</b>
+    <span class="muted">now +0 min</span>
+  </div>
+  <div class="recover loss">
+    <b>Loses 3 h 44 min more</b><span>on the way: the stretches marked red are tighter than the timetable</span>
+    
+  </div>
+</div>
+
+<form class="panel where" method="get">
+  <label>Train is at
+    <select name="at">
+      
+      <option value="0" selected>Howrah Jn (HWH)</option>
+      
+      <option value="37" >Kharagpur Jn (KGP)</option>
+      
+      <option value="52" >Ghatsila (GTS)</option>
+      
+      <option value="58" >Tatanagar Jn (TATA)</option>
+      
+      <option value="67" >Chakradharpur (CKP)</option>
+      
+      <option value="83" >Rourkela (ROU)</option>
+      
+      <option value="99" >Jharsuguda Jn (JSG)</option>
+      
+      <option value="109" >Raigarh (RIG)</option>
+      
+      <option value="128" >Bilaspur Jn (BSP)</option>
+      
+      <option value="148" >Raipur Jn (R)</option>
+      
+      <option value="166" >Durg (DURG)</option>
+      
+      <option value="170" >Raj Nandgaon (RJN)</option>
+      
+      <option value="182" >Gondia Jn (G)</option>
+      
+      <option value="190" >Bhandara Road (BRD)</option>
+      
+      <option value="199" >Nagpur (NGP)</option>
+      
+      <option value="214" >Wardha Jn (WR)</option>
+      
+      <option value="226" >Badnera Jn (BD)</option>
+      
+      <option value="238" >Akola Jn (AK)</option>
+      
+      <option value="242" >Shegaon (SEG)</option>
+      
+      <option value="250" >Malkapur (MKU)</option>
+      
+      <option value="259" >Bhusaval Jn (BSL)</option>
+      
+      <option value="262" >Jalgaon Jn (JL)</option>
+      
+      <option value="291" >Nasik Road (NK)</option>
+      
+      <option value="298" >Igatpuri (IGP)</option>
+      
+      <option value="313" >Kalyan Jn (KYN)</option>
+      
+    </select>
+  </label>
+  <label>running
+    <input type="number" name="delay" value="0" min="-60" max="600" step="1" inputmode="numeric"> min late
+  </label>
+  <button class="button">Update</button>
+</form>
+
+<section class="block" id="network">
+  <h2>Trains on the line ahead</h2>
+  <p class="note">A late train ahead holds the line for the trains behind it. These are the inputs the model sees.</p>
+  <div class="panel line-ahead">
+    
+    <p class="muted">No other train we follow reported on the next 200 km in the last 2 hours: the line ahead looks clear.</p>
+    
+    
+    
+    
+    <h3 class="line-title">In front, same direction: can hold this train up</h3>
+    <ul class="line-list">
+      
+      <li>
+        <a href="/train/12810"><b class="tno">12810</b> Howrah Mail via Nagpur</a>
+        <span class="chip loss">+4 h 14 min</span>
+        <small class="muted line">At Durg now. Shares 15 stations
+          with this train: Durg, Raj Nandgaon, Gondia Jn and more</small>
+      </li>
+      
+      <li>
+        <a href="/train/12628"><b class="tno">12628</b> Karnataka Express</a>
+        <span class="chip loss">+1 h 16 min</span>
+        <small class="muted line">At Burhanpur now. Shares 2 stations
+          with this train: Bhusaval Jn, Jalgaon Jn</small>
+      </li>
+      
+      <li>
+        <a href="/train/12723"><b class="tno">12723</b> Telangana Express</a>
+        <span class="chip loss">+1 h 02 min</span>
+        <small class="muted line">At Chandrapur now. Shares 1 station
+          with this train: Nagpur</small>
+      </li>
+      
+      <li>
+        <a href="/train/12621"><b class="tno">12621</b> Tamil Nadu Express</a>
+        <span class="chip loss">+42 min</span>
+        <small class="muted line">At Balharshah now. Shares 1 station
+          with this train: Nagpur</small>
+      </li>
+      
+      <li>
+        <a href="/train/12622"><b class="tno">12622</b> Tamil Nadu Express</a>
+        <span class="chip loss">+31 min</span>
+        <small class="muted line">At Nagpur now. Shares 1 station
+          with this train: Nagpur</small>
+      </li>
+      
+      <li>
+        <a href="/train/12164"><b class="tno">12164</b> Chennai Express</a>
+        <span class="chip loss">+21 min</span>
+        <small class="muted line">At Lonavala now. Shares 1 station
+          with this train: Kalyan Jn</small>
+      </li>
+      
+      <li>
+        <a href="/train/12625"><b class="tno">12625</b> Kerala Express</a>
+        <span class="chip loss">+10 min</span>
+        <small class="muted line">At Kollam Jn now. Shares 1 station
+          with this train: Nagpur</small>
+      </li>
+      
+    </ul>
+    
+    
+    
+    
+    <h3 class="line-title">Coming the other way: shares stations and platforms</h3>
+    <ul class="line-list">
+      
+      <li>
+        <a href="/train/12809"><b class="tno">12809</b> Howrah Mail via Nagpur</a>
+        <span class="chip loss">+7 h 43 min</span>
+        <small class="muted line">At Nandura now. Shares 17 stations
+          with this train: Shegaon, Akola Jn, Badnera Jn and more</small>
+      </li>
+      
+      <li>
+        <a href="/train/12859"><b class="tno">12859</b> Gitanjali Express</a>
+        <span class="chip loss">+1 h 20 min</span>
+        <small class="muted line">At Jalgaon Jn now. Shares 21 stations
+          with this train: Jalgaon Jn, Bhusaval Jn, Malkapur and more</small>
+      </li>
+      
+      <li>
+        <a href="/train/12627"><b class="tno">12627</b> Karnataka Express</a>
+        <span class="chip loss">+30 min</span>
+        <small class="muted line">At Belapur now. Shares 2 stations
+          with this train: Jalgaon Jn, Bhusaval Jn</small>
+      </li>
+      
+    </ul>
+    
+    
+  </div>
+</section>
+
+
+<section class="block" id="impact">
+  <h2>Trains this delay can hold up</h2>
+  <p class="note">Same direction, behind this train: they still have to pass the stretch it is on. If this train runs late
+    through a shared station, the train behind can be held at a signal or kept off the platform.</p>
+  <div class="panel line-ahead">
+    
+    <p class="muted">No train we follow is running behind this one on its route right now, so its delay is not passed on.</p>
+    
+  </div>
+</section>
+
+
+<p class="note">For this train, on 22483 predictions in recent runs the model never saw: average error
+  <b>42.11 min</b>, against 98.62 min when the delay is carried forward and 245.98 min for the timetable.</p>
+
+</aside>
+<div class="main-col">
+<section class="block">
+  <div class="block-head">
+    <h2>Journey</h2>
+    
+    <span class="muted">by ml model</span>
+  </div>
+  <div class="legend" aria-label="How to read the arrival range">
+    <div class="legend-bar" aria-hidden="true"><span class="lg-out">1 in 10<br>earlier</span><span class="lg-in"><i></i>8 in 10 trains arrive in here</span><span class="lg-out">1 in 10<br>later</span></div>
+    <p><b>Expected (P50)</b> is our best estimate: half of trains in this situation arrive before it, half after.
+      <b>Earliest (P10)</b> and <b>Latest (P90)</b> bound the likely window: 8 in 10 trains arrive between them.
+      The window is set from how far off the model really was on past runs, so it is wider the further ahead the station is.</p>
+  </div>
+  <div class="panel timeline-card">
+    
+    <ol class="timeline">
+      <li class="stop here">
+        <div class="t-time"><span>13:40</span><span class="gain-text">13:40</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i class="train" aria-hidden="true"></i></div>
+        <div class="t-body"><b class="board">Howrah Jn</b> <small class="muted">HWH</small>
+          <span class="chip gain">+0 min</span>
+          <small class="muted line">Last reported here</small></div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 21 min</span>
+          
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>15:15</span><span class="loss-text">15:36</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/KGP">Kharagpur Jn</a> <small class="muted">KGP</small>
+          <span class="chip loss">+21 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 32.7%"></i></span>
+            <span class="range-labels"><span>Earliest 15:19 <em>P10</em></span><span class="p50">Expected 15:36 <em>P50</em></span><span>Latest 16:11 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +6 min, this train and section +5 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 22 min</span>
+          <small class="muted">timetable 71 min, usually 72</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>16:31</span><span class="loss-text">17:14</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/GTS">Ghatsila</a> <small class="muted">GTS</small>
+          <span class="chip loss">+43 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 32.7%"></i></span>
+            <span class="range-labels"><span>Earliest 16:57 <em>P10</em></span><span class="p50">Expected 17:14 <em>P50</em></span><span>Latest 17:49 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +18 min, similar past runs +11 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 9 min</span>
+          <small class="muted">timetable 31 min, usually 37: 6 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>17:03</span><span class="loss-text">17:55</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/TATA">Tatanagar Jn</a> <small class="muted">TATA</small>
+          <span class="chip loss">+52 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 32.6%"></i></span>
+            <span class="range-labels"><span>Earliest 17:26 <em>P10</em></span><span class="p50">Expected 17:55 <em>P50</em></span><span>Latest 18:55 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +29 min, similar past runs +10 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 19 min</span>
+          <small class="muted">timetable 53 min, usually 70: 17 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>18:03</span><span class="loss-text">19:14</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/CKP">Chakradharpur</a> <small class="muted">CKP</small>
+          <span class="chip loss">+1 h 11 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 32.6%"></i></span>
+            <span class="range-labels"><span>Earliest 18:45 <em>P10</em></span><span class="p50">Expected 19:14 <em>P50</em></span><span>Latest 20:14 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +33 min, similar past runs +22 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 21 min</span>
+          <small class="muted">timetable 87 min, usually 104: 16 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>19:32</span><span class="loss-text">21:04</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/ROU">Rourkela</a> <small class="muted">ROU</small>
+          <span class="chip loss">+1 h 32 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 32.6%"></i></span>
+            <span class="range-labels"><span>Earliest 20:35 <em>P10</em></span><span class="p50">Expected 21:04 <em>P50</em></span><span>Latest 22:04 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">similar past runs +37 min, last 14 days on this stretch +35 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 15 min</span>
+          <small class="muted">timetable 128 min, usually 149: 21 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>21:48</span><span class="loss-text">23:35</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/JSG">Jharsuguda Jn</a> <small class="muted">JSG</small>
+          <span class="chip loss">+1 h 47 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 22:54 <em>P10</em></span><span class="p50">Expected 23:35 <em>P50</em></span><span>Latest 01:35 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +48 min, similar past runs +34 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 56 min</span>
+          <small class="muted">timetable 58 min, usually 73: 15 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>22:48</span><span class="loss-text">01:31</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/RIG">Raigarh</a> <small class="muted">RIG</small>
+          <span class="chip loss">+2 h 43 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 00:50 <em>P10</em></span><span class="p50">Expected 01:31 <em>P50</em></span><span>Latest 03:31 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +1 h 37 min, similar past runs +42 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 3 min</span>
+          <small class="muted">timetable 130 min, usually 120: 10 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>01:00</span><span class="loss-text">03:46</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/BSP">Bilaspur Jn</a> <small class="muted">BSP, day 2</small>
+          <span class="chip loss">+2 h 46 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 03:05 <em>P10</em></span><span class="p50">Expected 03:46 <em>P50</em></span><span>Latest 05:46 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +1 h 47 min, similar past runs +36 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 44 min</span>
+          <small class="muted">timetable 90 min, usually 119: 29 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>02:40</span><span class="loss-text">06:10</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/R">Raipur Jn</a> <small class="muted">R, day 2</small>
+          <span class="chip loss">+3 h 30 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 05:29 <em>P10</em></span><span class="p50">Expected 06:10 <em>P50</em></span><span>Latest 08:10 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 21 min, similar past runs +44 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 3 min</span>
+          
+          <small class="muted">timetable 55 min, usually 45: 10 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>03:40</span><span class="loss-text">07:07</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/DURG">Durg</a> <small class="muted">DURG, day 2</small>
+          <span class="chip loss">+3 h 27 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 06:26 <em>P10</em></span><span class="p50">Expected 07:07 <em>P50</em></span><span>Latest 09:07 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 11 min, similar past runs +43 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 5 min</span>
+          <small class="muted">timetable 21 min, usually 31: 10 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>04:06</span><span class="loss-text">07:38</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/RJN">Raj Nandgaon</a> <small class="muted">RJN, day 2</small>
+          <span class="chip loss">+3 h 32 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 06:57 <em>P10</em></span><span class="p50">Expected 07:38 <em>P50</em></span><span>Latest 09:38 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 21 min, similar past runs +44 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 8 min</span>
+          <small class="muted">timetable 85 min, usually 102: 17 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>05:33</span><span class="loss-text">09:13</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/G">Gondia Jn</a> <small class="muted">G, day 2</small>
+          <span class="chip loss">+3 h 40 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 08:32 <em>P10</em></span><span class="p50">Expected 09:13 <em>P50</em></span><span>Latest 11:13 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 29 min, similar past runs +51 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 10 min</span>
+          <small class="muted">timetable 45 min, usually 48: 3 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>06:20</span><span class="loss-text">10:10</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/BRD">Bhandara Road</a> <small class="muted">BRD, day 2</small>
+          <span class="chip loss">+3 h 50 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 09:29 <em>P10</em></span><span class="p50">Expected 10:10 <em>P50</em></span><span>Latest 12:10 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 35 min, similar past runs +55 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 78 min, usually 56: 22 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>07:40</span><span class="loss-text">11:29</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/NGP">Nagpur</a> <small class="muted">NGP, day 2</small>
+          <span class="chip loss">+3 h 49 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 10:48 <em>P10</em></span><span class="p50">Expected 11:29 <em>P50</em></span><span>Latest 13:29 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 48 min, similar past runs +42 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 8 min</span>
+          
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>08:48</span><span class="loss-text">12:45</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/WR">Wardha Jn</a> <small class="muted">WR, day 2</small>
+          <span class="chip loss">+3 h 57 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 12:04 <em>P10</em></span><span class="p50">Expected 12:45 <em>P50</em></span><span>Latest 14:45 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 53 min, similar past runs +49 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 97 min, usually 82: 14 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>10:27</span><span class="loss-text">14:24</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/BD">Badnera Jn</a> <small class="muted">BD, day 2</small>
+          <span class="chip loss">+3 h 57 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 13:43 <em>P10</em></span><span class="p50">Expected 14:24 <em>P50</em></span><span>Latest 16:24 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 56 min, similar past runs +41 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 4 min</span>
+          
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>11:25</span><span class="loss-text">15:26</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/AK">Akola Jn</a> <small class="muted">AK, day 2</small>
+          <span class="chip loss">+4 h 01 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 14:45 <em>P10</em></span><span class="p50">Expected 15:26 <em>P50</em></span><span>Latest 17:26 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 00 min, similar past runs +44 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 28 min, usually 27</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>11:58</span><span class="loss-text">15:59</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/SEG">Shegaon</a> <small class="muted">SEG, day 2</small>
+          <span class="chip loss">+4 h 01 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 15:18 <em>P10</em></span><span class="p50">Expected 15:59 <em>P50</em></span><span>Latest 17:59 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 58 min, similar past runs +46 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 38 min, usually 42: 4 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>12:38</span><span class="loss-text">16:39</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/MKU">Malkapur</a> <small class="muted">MKU, day 2</small>
+          <span class="chip loss">+4 h 01 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 15:58 <em>P10</em></span><span class="p50">Expected 16:39 <em>P50</em></span><span>Latest 18:39 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +2 h 58 min, similar past runs +47 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 6 min</span>
+          
+          <small class="muted">timetable 60 min, usually 51: 9 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>13:40</span><span class="loss-text">17:35</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/BSL">Bhusaval Jn</a> <small class="muted">BSL, day 2</small>
+          <span class="chip loss">+3 h 55 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 25.5%"></i></span>
+            <span class="range-labels"><span>Earliest 16:54 <em>P10</em></span><span class="p50">Expected 17:35 <em>P50</em></span><span>Latest 19:35 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 05 min, similar past runs +39 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 12 min</span>
+          <small class="muted">timetable 25 min, usually 24</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>14:10</span><span class="loss-text">18:17</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/JL">Jalgaon Jn</a> <small class="muted">JL, day 2</small>
+          <span class="chip loss">+4 h 07 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 18.5%"></i></span>
+            <span class="range-labels"><span>Earliest 17:28 <em>P10</em></span><span class="p50">Expected 18:17 <em>P50</em></span><span>Latest 21:53 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 15 min, similar past runs +44 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 173 min, usually 174</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>17:05</span><span class="loss-text">21:13</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/NK">Nasik Road</a> <small class="muted">NK, day 2</small>
+          <span class="chip loss">+4 h 08 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 18.5%"></i></span>
+            <span class="range-labels"><span>Earliest 20:24 <em>P10</em></span><span class="p50">Expected 21:13 <em>P50</em></span><span>Latest 00:49 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 15 min, similar past runs +36 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 11 min</span>
+          
+          <small class="muted">timetable 60 min, usually 48: 12 min spare</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>18:10</span><span class="loss-text">22:07</span><small class="day-tag">Tue 3 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/IGP">Igatpuri</a> <small class="muted">IGP, day 2</small>
+          <span class="chip loss">+3 h 57 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 18.5%"></i></span>
+            <span class="range-labels"><span>Earliest 21:18 <em>P10</em></span><span class="p50">Expected 22:07 <em>P50</em></span><span>Latest 01:43 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 06 min, similar past runs +36 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 17 min</span>
+          <small class="muted">timetable 107 min, usually 111: 4 min tight</small>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="t-time"><span>20:02</span><span class="loss-text">00:16</span><small class="day-tag">Wed 4 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/KYN">Kalyan Jn</a> <small class="muted">KYN, day 2</small>
+          <span class="chip loss">+4 h 14 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 18.5%"></i></span>
+            <span class="range-labels"><span>Earliest 23:27 <em>P10</em></span><span class="p50">Expected 00:16 <em>P50</em></span><span>Latest 03:52 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">last 14 days on this stretch +3 h 08 min, similar past runs +37 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 30 min</span>
+          
+          
+        </div>
+      </li>
+      <li class="stop end">
+        <div class="t-time"><span>20:47</span><span class="loss-text">00:31</span><small class="day-tag">Wed 4 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/DR">Mumbai Dadar Central</a> <small class="muted">DR, day 2</small>
+          <span class="chip loss">+3 h 44 min</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 18.5%"></i></span>
+            <span class="range-labels"><span>Earliest 23:42 <em>P10</em></span><span class="p50">Expected 00:31 <em>P50</em></span><span>Latest 04:07 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: delay carried forward +0 min</small>
+          
+          <small class="why muted">similar past runs +1 h 30 min, this train and section +58 min</small>
+        </div>
+      </li>
+      
+    </ol>
+  </div>
+  <p class="note">Green and red between stations: minutes the train is predicted to win back or lose on that stretch.
+    Small text under a delay: what moved that prediction most (SHAP). <a href="/docs#why">How reasons are worked out</a></p>
+</section>
+
+
+<section class="block" id="recovery">
+  <h2>Where Gitanjali Express wins back time</h2>
+  <p class="note">In the last 90 days of runs the model never learnt from, this train won back 5 or more minutes between
+    two stations 438 times.</p>
+  <div class="rec-stats">
+    <p><b>82%</b> of those recoveries predicted by Track Pulse</p>
+    <p><b>73%</b> of predicted recoveries that really happened</p>
+    <p><b>0%</b> predicted by carrying the delay forward, which assumes a late train never catches up</p>
+  </div>
+  
+  <div class="panel">
+    <h3 class="rec-title">Stretches where it recovers most</h3>
+    <ul class="rec-list">
+      
+      
+      <li>
+        <span class="rec-name"><b class="board">Bhandara Road</b> to <b class="board">Nagpur</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 100.0%"></i>
+          <i class="pred" style="width: 137.3%"></i>
+        </span>
+        <span class="rec-num">wins back <b>15 min</b> on average, we predict <b>21 min</b>
+          <small class="muted">(77 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Nasik Road</b> to <b class="board">Igatpuri</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 75.8%"></i>
+          <i class="pred" style="width: 89.5%"></i>
+        </span>
+        <span class="rec-num">wins back <b>12 min</b> on average, we predict <b>14 min</b>
+          <small class="muted">(77 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Wardha Jn</b> to <b class="board">Badnera Jn</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 73.2%"></i>
+          <i class="pred" style="width: 94.1%"></i>
+        </span>
+        <span class="rec-num">wins back <b>11 min</b> on average, we predict <b>14 min</b>
+          <small class="muted">(77 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Raigarh</b> to <b class="board">Bilaspur Jn</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 64.1%"></i>
+          <i class="pred" style="width: 58.8%"></i>
+        </span>
+        <span class="rec-num">wins back <b>10 min</b> on average, we predict <b>9 min</b>
+          <small class="muted">(79 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Raipur Jn</b> to <b class="board">Durg</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 50.3%"></i>
+          <i class="pred" style="width: 72.5%"></i>
+        </span>
+        <span class="rec-num">wins back <b>8 min</b> on average, we predict <b>11 min</b>
+          <small class="muted">(79 tests)</small></span>
+      </li>
+      
+    </ul>
+    <p class="note">Green bar: real minutes won back. Blue bar: what Track Pulse predicted beforehand.</p>
+  </div>
+  
+</section>
+
+
+
+<details class="panel sections" id="sections">
+  <summary>Running time between stations, last 90 days</summary>
+  <p class="note">Where the timetable allows more time than trains usually need, a late train can win time back;
+    where it allows less, trains usually lose time.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Timetable</th><th>Usually</th><th class="hide-sm">Slow days</th><th>Spare</th></tr></thead>
+    <tbody>
+    
+    <tr>
+      <td>Kharagpur Jn</td><td>Ghatsila</td>
+      <td class="num">71</td><td class="num">72</td>
+      <td class="num hide-sm muted">87</td>
+      <td class="num ">-1 min</td>
+    </tr>
+    
+    <tr>
+      <td>Ghatsila</td><td>Tatanagar Jn</td>
+      <td class="num">31</td><td class="num">37</td>
+      <td class="num hide-sm muted">54</td>
+      <td class="num loss-text">-6 min</td>
+    </tr>
+    
+    <tr>
+      <td>Tatanagar Jn</td><td>Chakradharpur</td>
+      <td class="num">53</td><td class="num">70</td>
+      <td class="num hide-sm muted">103</td>
+      <td class="num loss-text">-17 min</td>
+    </tr>
+    
+    <tr>
+      <td>Chakradharpur</td><td>Rourkela</td>
+      <td class="num">87</td><td class="num">104</td>
+      <td class="num hide-sm muted">123</td>
+      <td class="num loss-text">-16 min</td>
+    </tr>
+    
+    <tr>
+      <td>Rourkela</td><td>Jharsuguda Jn</td>
+      <td class="num">128</td><td class="num">149</td>
+      <td class="num hide-sm muted">187</td>
+      <td class="num loss-text">-21 min</td>
+    </tr>
+    
+    <tr>
+      <td>Jharsuguda Jn</td><td>Raigarh</td>
+      <td class="num">58</td><td class="num">73</td>
+      <td class="num hide-sm muted">107</td>
+      <td class="num loss-text">-15 min</td>
+    </tr>
+    
+    <tr>
+      <td>Raigarh</td><td>Bilaspur Jn</td>
+      <td class="num">130</td><td class="num">120</td>
+      <td class="num hide-sm muted">139</td>
+      <td class="num gain-text">+10 min</td>
+    </tr>
+    
+    <tr>
+      <td>Bilaspur Jn</td><td>Raipur Jn</td>
+      <td class="num">90</td><td class="num">119</td>
+      <td class="num hide-sm muted">142</td>
+      <td class="num loss-text">-29 min</td>
+    </tr>
+    
+    <tr>
+      <td>Raipur Jn</td><td>Durg</td>
+      <td class="num">55</td><td class="num">45</td>
+      <td class="num hide-sm muted">60</td>
+      <td class="num gain-text">+10 min</td>
+    </tr>
+    
+    <tr>
+      <td>Durg</td><td>Raj Nandgaon</td>
+      <td class="num">21</td><td class="num">31</td>
+      <td class="num hide-sm muted">40</td>
+      <td class="num loss-text">-10 min</td>
+    </tr>
+    
+    <tr>
+      <td>Raj Nandgaon</td><td>Gondia Jn</td>
+      <td class="num">85</td><td class="num">102</td>
+      <td class="num hide-sm muted">174</td>
+      <td class="num loss-text">-17 min</td>
+    </tr>
+    
+    <tr>
+      <td>Gondia Jn</td><td>Bhandara Road</td>
+      <td class="num">45</td><td class="num">48</td>
+      <td class="num hide-sm muted">65</td>
+      <td class="num loss-text">-3 min</td>
+    </tr>
+    
+    <tr>
+      <td>Bhandara Road</td><td>Nagpur</td>
+      <td class="num">78</td><td class="num">56</td>
+      <td class="num hide-sm muted">86</td>
+      <td class="num gain-text">+22 min</td>
+    </tr>
+    
+    <tr>
+      <td>Wardha Jn</td><td>Badnera Jn</td>
+      <td class="num">97</td><td class="num">82</td>
+      <td class="num hide-sm muted">104</td>
+      <td class="num gain-text">+14 min</td>
+    </tr>
+    
+    <tr>
+      <td>Akola Jn</td><td>Shegaon</td>
+      <td class="num">28</td><td class="num">27</td>
+      <td class="num hide-sm muted">33</td>
+      <td class="num ">+1 min</td>
+    </tr>
+    
+    <tr>
+      <td>Shegaon</td><td>Malkapur</td>
+      <td class="num">38</td><td class="num">42</td>
+      <td class="num hide-sm muted">52</td>
+      <td class="num loss-text">-4 min</td>
+    </tr>
+    
+    <tr>
+      <td>Malkapur</td><td>Bhusaval Jn</td>
+      <td class="num">60</td><td class="num">51</td>
+      <td class="num hide-sm muted">71</td>
+      <td class="num gain-text">+9 min</td>
+    </tr>
+    
+    <tr>
+      <td>Bhusaval Jn</td><td>Jalgaon Jn</td>
+      <td class="num">25</td><td class="num">24</td>
+      <td class="num hide-sm muted">32</td>
+      <td class="num ">+1 min</td>
+    </tr>
+    
+    <tr>
+      <td>Jalgaon Jn</td><td>Nasik Road</td>
+      <td class="num">173</td><td class="num">174</td>
+      <td class="num hide-sm muted">201</td>
+      <td class="num ">-1 min</td>
+    </tr>
+    
+    <tr>
+      <td>Nasik Road</td><td>Igatpuri</td>
+      <td class="num">60</td><td class="num">48</td>
+      <td class="num hide-sm muted">56</td>
+      <td class="num gain-text">+12 min</td>
+    </tr>
+    
+    <tr>
+      <td>Igatpuri</td><td>Kalyan Jn</td>
+      <td class="num">107</td><td class="num">111</td>
+      <td class="num hide-sm muted">167</td>
+      <td class="num loss-text">-4 min</td>
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Minutes. Slow days: 9 in 10 runs were at least this quick. API: <code>/api/trains/12860/sections</code></p>
+</details>
+
+<p class="note">Only stations that have reported in past runs can be predicted, so some routes end before the final station.</p>
+</div>
+</div>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>

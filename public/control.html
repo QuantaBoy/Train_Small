@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>Control · Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="control-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" >Live</a>
+        <a href="/#trains" >Trains</a>
+        <a href="/map" >Map</a>
+        <a href="/station/" >Stations</a>
+        <a href="/control" aria-current="page">Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 13:50 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+  <main id="main" class="wrap">
+
+<section class="block">
+  <div class="block-head">
+    <h1>Control</h1>
+    <span class="muted">Refreshes every minute. Last built 13:50.</span>
+  </div>
+  <div class="tally">
+    <p><b>28</b> running</p>
+    <p class="t-normal"><b>0</b> normal</p>
+    <p class="t-delayed"><b>16</b> delayed</p>
+    <p class="t-disrupted"><b>12</b> disrupted</p>
+    <p class="t-held"><b>3</b> possibly held</p>
+    <p class="t-clash"><b>1</b> platform clashes</p>
+  </div>
+</section>
+
+<div class="control-grid">
+  <section class="panel">
+    <h2>Needs attention</h2>
+    
+    <ul class="flags">
+      
+      <li class="flag held"><b>Possibly held</b>: <a href="/train/12314">12314 Sealdah Rajdhani</a>
+        between Asansol Jn and Durgapur, 1 h 28 min past its
+        latest likely time.</li>
+      
+      <li class="flag held"><b>Possibly held</b>: <a href="/train/12809">12809 Howrah Mail via Nagpur</a>
+        between Nandura and Jalamb Jn, 18 min past its
+        latest likely time.</li>
+      
+      <li class="flag held"><b>Possibly held</b>: <a href="/train/12639">12639 Brindavan SF Express</a>
+        between Bangarapet Jn and Krishnarajapuram, 28 min past its
+        latest likely time.</li>
+      
+      
+      <li class="flag clash"><b>Platform clash</b> at <a href="/station/ROU">Rourkela</a>
+        platform 4: 12809 (due 07:30) and 12859
+        (due 07:20).</li>
+      
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12314">12314 Sealdah Rajdhani</a>
+        is +4 h 44 min with <a href="/train/12312">12312 Netaji Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12616">12616 Grand Trunk Express</a>
+        is +1 h 23 min with <a href="/train/12626">12626 Kerala Express</a>, <a href="/train/12622">12622 Tamil Nadu Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12723">12723 Telangana Express</a>
+        is +1 h 02 min with <a href="/train/12621">12621 Tamil Nadu Express</a>, <a href="/train/12625">12625 Kerala Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12809">12809 Howrah Mail via Nagpur</a>
+        is +7 h 43 min with <a href="/train/12859">12859 Gitanjali Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12810">12810 Howrah Mail via Nagpur</a>
+        is +4 h 14 min with <a href="/train/12860">12860 Gitanjali Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12859">12859 Gitanjali Express</a>
+        is +1 h 20 min with <a href="/train/12627">12627 Karnataka Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/22625">22625 Double Decker Express</a>
+        is +1 h 35 min with <a href="/train/12639">12639 Brindavan SF Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12311">12311 Netaji Express</a>
+        is +37 min with <a href="/train/12423">12423 Dibrugarh Rajdhani</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12615">12615 Grand Trunk Express</a>
+        is +28 min with <a href="/train/12723">12723 Telangana Express</a>, <a href="/train/12621">12621 Tamil Nadu Express</a>, <a href="/train/12625">12625 Kerala Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12621">12621 Tamil Nadu Express</a>
+        is +42 min with <a href="/train/12625">12625 Kerala Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12626">12626 Kerala Express</a>
+        is +49 min with <a href="/train/12622">12622 Tamil Nadu Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12639">12639 Brindavan SF Express</a>
+        is +22 min with <a href="/train/22625">22625 Double Decker Express</a>
+        following it on the same line.</li>
+      
+      <li class="flag spread"><b>Delay can spread</b>: <a href="/train/12903">12903 Golden Temple Mail</a>
+        is +50 min with <a href="/train/12925">12925 Paschim Express</a>, <a href="/train/12615">12615 Grand Trunk Express</a>, <a href="/train/12625">12625 Kerala Express</a>
+        following it on the same line.</li>
+      
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Every running train, worst first</h2>
+    <div class="table-scroll">
+    <table class="control-table">
+      <thead><tr><th>Train</th><th>Status</th><th>At</th><th>Late now</th><th>Expected further ahead</th><th class="hide-sm">Report</th></tr></thead>
+      <tbody>
+      
+      <tr class="">
+        <td><a href="/train/12312"><span class="tno">12312</span> Netaji Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Phaphund</td>
+        <td class="num loss-text">+1 h 07 min</td>
+        <td>Howrah Jn <b class="num loss-text">+26 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">37 min ago</td>
+      </tr>
+      
+      <tr class="is-held">
+        <td><a href="/train/12314"><span class="tno">12314</span> Sealdah Rajdhani</a></td>
+        <td><span class="chip status disrupted">disrupted</span> <span class="chip held">held?</span></td>
+        <td>Asansol Jn</td>
+        <td class="num loss-text">+4 h 44 min</td>
+        <td>Durgapur <b class="num loss-text">+4 h 47 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm loss-text">2 h 04 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12616"><span class="tno">12616</span> Grand Trunk Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Hinganghat</td>
+        <td class="num loss-text">+1 h 23 min</td>
+        <td>Gudur Jn <b class="num loss-text">+8 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">43 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12625"><span class="tno">12625</span> Kerala Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Kollam Jn</td>
+        <td class="num loss-text">+10 min</td>
+        <td>Delhi H Nizamuddin <b class="num loss-text">+1 h 06 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">23 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12627"><span class="tno">12627</span> Karnataka Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Belapur</td>
+        <td class="num loss-text">+30 min</td>
+        <td>Mathura Jn <b class="num loss-text">+1 h 27 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">41 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12628"><span class="tno">12628</span> Karnataka Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Burhanpur</td>
+        <td class="num loss-text">+1 h 16 min</td>
+        <td>Yelhanka Jn <b class="num loss-text">+1 h 02 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">35 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12723"><span class="tno">12723</span> Telangana Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Chandrapur</td>
+        <td class="num loss-text">+1 h 02 min</td>
+        <td>Ballabgarh <b class="num loss-text">+51 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">32 min ago</td>
+      </tr>
+      
+      <tr class="is-held">
+        <td><a href="/train/12809"><span class="tno">12809</span> Howrah Mail via Nagpur</a></td>
+        <td><span class="chip status disrupted">disrupted</span> <span class="chip held">held?</span></td>
+        <td>Nandura</td>
+        <td class="num loss-text">+7 h 43 min</td>
+        <td>Kharagpur Jn <b class="num loss-text">+12 h 01 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">53 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12810"><span class="tno">12810</span> Howrah Mail via Nagpur</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Durg</td>
+        <td class="num loss-text">+4 h 14 min</td>
+        <td>Kalyan Jn <b class="num loss-text">+7 h 34 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">2 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12859"><span class="tno">12859</span> Gitanjali Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Jalgaon Jn</td>
+        <td class="num loss-text">+1 h 20 min</td>
+        <td>Santragachi Jn <b class="num loss-text">+5 h 51 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">31 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12860"><span class="tno">12860</span> Gitanjali Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Howrah Jn</td>
+        <td class="num ">+0 min</td>
+        <td>Mumbai Dadar Central <b class="num loss-text">+3 h 44 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">11 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/22625"><span class="tno">22625</span> Double Decker Express</a></td>
+        <td><span class="chip status disrupted">disrupted</span></td>
+        <td>Bangarapet Jn</td>
+        <td class="num loss-text">+1 h 35 min</td>
+        <td>Krishnarajapuram <b class="num loss-text">+1 h 44 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">46 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12163"><span class="tno">12163</span> Chennai Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Renigunta Jn</td>
+        <td class="num loss-text">+34 min</td>
+        <td>Arakkonam Jn <b class="num loss-text">+43 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">22 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12164"><span class="tno">12164</span> Chennai Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Lonavala</td>
+        <td class="num loss-text">+21 min</td>
+        <td>Thane <b class="num loss-text">+42 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">48 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12311"><span class="tno">12311</span> Netaji Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Fatehpur</td>
+        <td class="num loss-text">+37 min</td>
+        <td>Chandi Mandir <b class="num loss-text">+59 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm loss-text">1 h 02 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12423"><span class="tno">12423</span> Dibrugarh Rajdhani</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>New Jalpaiguri</td>
+        <td class="num loss-text">+9 min</td>
+        <td>Kanpur Central <b class="num loss-text">+16 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">27 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12424"><span class="tno">12424</span> Dibrugarh Rajdhani</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>New Jalpaiguri</td>
+        <td class="num loss-text">+56 min</td>
+        <td>New Tinsukia Jn <b class="num loss-text">+51 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">15 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12615"><span class="tno">12615</span> Grand Trunk Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Pandhurna</td>
+        <td class="num loss-text">+28 min</td>
+        <td>Delhi H Nizamuddin <b class="num loss-text">+17 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">33 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12621"><span class="tno">12621</span> Tamil Nadu Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Balharshah</td>
+        <td class="num loss-text">+42 min</td>
+        <td>Agra Cantt <b class="num loss-text">+41 min</b>
+          <small class="muted">steady</small></td>
+        <td class="hide-sm loss-text">2 h 34 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12622"><span class="tno">12622</span> Tamil Nadu Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Nagpur</td>
+        <td class="num loss-text">+31 min</td>
+        <td>Vijayawada Jn <b class="num loss-text">+34 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">15 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12626"><span class="tno">12626</span> Kerala Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Sevagram</td>
+        <td class="num loss-text">+49 min</td>
+        <td>Varkala <b class="num loss-text">+32 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">17 min ago</td>
+      </tr>
+      
+      <tr class="is-held">
+        <td><a href="/train/12639"><span class="tno">12639</span> Brindavan SF Express</a></td>
+        <td><span class="chip status delayed">delayed</span> <span class="chip held">held?</span></td>
+        <td>Bangarapet Jn</td>
+        <td class="num loss-text">+22 min</td>
+        <td>Krishnarajapuram <b class="num loss-text">+30 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm loss-text">1 h 24 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12724"><span class="tno">12724</span> Telangana Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Ramgundam</td>
+        <td class="num loss-text">+34 min</td>
+        <td>Kazipet Jn <b class="num loss-text">+29 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">46 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12903"><span class="tno">12903</span> Golden Temple Mail</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Mathura Jn</td>
+        <td class="num loss-text">+50 min</td>
+        <td>Beas <b class="num loss-text">+45 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm loss-text">1 h 16 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12904"><span class="tno">12904</span> Golden Temple Mail</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Nagda Jn</td>
+        <td class="num ">+4 min</td>
+        <td>Borivali <b class="num loss-text">+21 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">7 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12925"><span class="tno">12925</span> Paschim Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Dahanu Road</td>
+        <td class="num loss-text">+40 min</td>
+        <td>Amritsar Jn <b class="num gain-text">+3 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">3 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/12926"><span class="tno">12926</span> Paschim Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>Ambala Cant Jn</td>
+        <td class="num loss-text">+21 min</td>
+        <td>Mumbai Bandra Terminus <b class="num gain-text">-9 min</b>
+          <small class="gain-text">recovering</small></td>
+        <td class="hide-sm muted">20 min ago</td>
+      </tr>
+      
+      <tr class="">
+        <td><a href="/train/22626"><span class="tno">22626</span> Double Decker Express</a></td>
+        <td><span class="chip status delayed">delayed</span></td>
+        <td>KSR Bengaluru</td>
+        <td class="num loss-text">+10 min</td>
+        <td>Tiruvallur <b class="num loss-text">+17 min</b>
+          <small class="loss-text">losing</small></td>
+        <td class="hide-sm muted">11 min ago</td>
+      </tr>
+      
+      </tbody>
+    </table>
+    </div>
+  </section>
+</div>
+<p class="note">Same data as JSON: <code>/api/control</code> and <code>/api/platforms/clashes</code>.</p>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 13:50 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BSL", "ET", "NZM", "BPQ", "WL", "BZA", "JL", "SEG", "AK", "BD", "WR", "BRD", "G", "RJN", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "UMB", "BINA", "CD", "SKZR", "RDM", "NLR", "GDR", "JTJ", "KPD", "MMR", "KJM", "DURG", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>

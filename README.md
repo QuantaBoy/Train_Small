@@ -82,6 +82,9 @@ past runs).
 Light theme, works on phones; delays read as hours and minutes ("+5 h 38 min") with the day or date for arrivals past
 midnight. A 3-minute walkthrough for judges is in [DEMO.md](DEMO.md).
 
+**Public link:** https://sih-26028.vercel.app serves a snapshot of the site: `python snapshot.py` rebuilds `public/`,
+and committing it updates the link. The live version, with the 5-minute feed and the what-if form, runs on our server.
+
 ## How it works
 
 ```

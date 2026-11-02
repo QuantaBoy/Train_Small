@@ -441,3 +441,7 @@ table.api td:first-child { white-space: nowrap; }
   .pulse, .train-art *, .mt-loco, .mt-done, .rec-bars i, .vs-bar i, .led-row { animation: none !important; }
   .run { transition: none; }
 }
+
+/* Static snapshot banner (snapshot.py) */
+.snapshot { margin: 0; padding: 9px 28px; background: var(--brand-soft); color: var(--brand-ink); text-align: center; font-size: .9rem; border-bottom: 1px solid var(--line); }
+.snap-msg { flex-basis: 100%; }

@@ -181,6 +181,11 @@ def train(number):
                            section_days=SECTION_DAYS, prev_code=[here[1]] + ahead)
 
 
+def served() -> dict:
+    """Stations our trains pass through, for the station picker (all 9,000 names would be 350 KB a page)."""
+    return {s: STATIONS.get(s, s) for (s,) in con.execute("SELECT DISTINCT station FROM runs WHERE halts=1")}
+
+
 @app.get("/station/")
 @app.get("/station/<code>")
 def station(code=None):
@@ -192,7 +197,7 @@ def station(code=None):
             return redirect(url_for("station", code=hit))
     return render_template("station.html", code=code, name=STATIONS.get(code, code),
                            clashes=platform_clashes(code) if code else [],
-                           board=station_board(code) if code else [], stations=STATIONS,
+                           board=station_board(code) if code else [], stations=served(),
                            now=datetime.now(IST).strftime("%H:%M"))
 
 
