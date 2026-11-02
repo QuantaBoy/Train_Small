@@ -17,7 +17,8 @@ stretches, and late trains use it to win time back; on other stretches they lose
 | **Regimes**: normal, delayed, disrupted | Home, control API |
 | **Reasons** behind each ETA (LightGBM SHAP values) | Train page |
 | Weather (Open-Meteo) and congestion (other trains on the next 200 km) as model inputs | Model |
-| **Station display board** with expected times and ranges | Stations |
+| **Station display board** with expected times, ranges, platforms and platform clashes | Stations |
+| **Control room** screen: status counts, held trains, platform clashes, delay spreading to trains behind | Control |
 | **Network map** of every line in India (single vs double track) with live trains | Map |
 | Any of ~4,700 trains, including specials and new trains (history fetched on first open) | Search |
 | **Checks itself**: every live ETA is scored when the train arrives; the model retrains nightly and is only replaced by a better one | Home, How it works |
@@ -65,6 +66,8 @@ python live/feed.py live                         # in a second terminal
 ```
 
 The run database and trained model are built locally and not stored in the repository (they are over 100 MB).
+
+A 3-minute walkthrough for judges is in [DEMO.md](DEMO.md).
 
 ## Data sources
 
