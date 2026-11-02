@@ -399,6 +399,8 @@ table.api td:first-child { white-space: nowrap; }
 .k-double { width: 26px; height: 3px; background: #1f3f8f; }
 .k-single { width: 26px; height: 1.5px; background: #7d8aa6; }
 .k-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); }
+.k-done { width: 26px; height: 5px; border-radius: 3px; background: #b3261e; }
+.k-ahead { width: 26px; height: 0; border-top: 3px dashed #15203a; }
 .k-dot.normal { background: #0d7a45; } .k-dot.delayed { background: #e0a100; } .k-dot.disrupted { background: #b3261e; }
 
 /* Footer */

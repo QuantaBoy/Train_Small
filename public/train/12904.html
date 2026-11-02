@@ -29,7 +29,7 @@
       </nav>
     </div>
   </header>
-  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 14:27 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 14:32 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
   
   
 
@@ -38,10 +38,11 @@
     <p class="crumb"><a href="/#trains">All trains</a></p>
     <h1 class="train-title"><span class="tno">12904</span> Golden Temple Mail</h1>
     
-    <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at Nagda Jn,
-      4 min late, reported 13:44 (run that left 2026-11-01)</p>
+    <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at Ratlam Jn,
+      1 min early, reported 14:14 (run that left 2026-11-01).
+      <a href="/map#12904">See the stretch it has covered on the map</a></p>
     
-    <div class="mini-track wide" style="--at: 78.8%">
+    <div class="mini-track wide" style="--at: 81.8%">
       <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco"></span></span>
       <span class="mt-ends"><span>Amritsar Jn</span>
         <span>Borivali, day 2</span></span>
@@ -64,10 +65,10 @@
   <div>
     <small>Delay there</small>
     <b class="big loss-text">21 min late</b>
-    <span class="muted">now 4 min late</span>
+    <span class="muted">now 1 min early</span>
   </div>
   <div class="recover loss">
-    <b>Loses 17 min more</b><span>on the way: the stretches marked red are tighter than the timetable</span>
+    <b>Loses 22 min more</b><span>on the way: the stretches marked red are tighter than the timetable</span>
     
   </div>
 </div>
@@ -128,9 +129,9 @@
       
       <option value="167" >Shamgarh (SGZ)</option>
       
-      <option value="178" selected>Nagda Jn (NAD)</option>
+      <option value="178" >Nagda Jn (NAD)</option>
       
-      <option value="184" >Ratlam Jn (RTM)</option>
+      <option value="184" selected>Ratlam Jn (RTM)</option>
       
       <option value="196" >Meghnagar (MGN)</option>
       
@@ -145,7 +146,7 @@
     </select>
   </label>
   <label>running
-    <input type="number" name="delay" value="4" min="-60" max="600" step="1" inputmode="numeric"> min late
+    <input type="number" name="delay" value="-1" min="-60" max="600" step="1" inputmode="numeric"> min late
   </label>
   <button class="button">Update</button>
 </form>
@@ -168,8 +169,8 @@
       
       <li>
         <a href="/train/12925"><b class="tno">12925</b> Paschim Express</a>
-        <span class="chip loss">53 min late</span>
-        <small class="muted line">At Vapi now. Shares 6 stations
+        <span class="chip loss">52 min late</span>
+        <small class="muted line">At Vapi now. Shares 5 stations
           with this train: Surat, Vadodara Jn, Godhra Jn and more</small>
       </li>
       
@@ -192,10 +193,10 @@
       
       <li class="">
         <a href="/train/12926"><b class="tno">12926</b> Paschim Express</a>
-        <span class="chip loss">20 min late now</span>
+        <span class="chip loss">25 min late now</span>
         <small class="muted line">At Karnal, following this train over
-          7 stations.
-          This train is expected at <b>Ratlam Jn</b> 2 min late.</small>
+          6 stations.
+          This train is expected at <b>Meghnagar</b> 5 min late.</small>
       </li>
       
     </ul>
@@ -224,7 +225,7 @@
   <div class="panel timeline-card">
     
     <details class="passed">
-      <summary>26 stations passed</summary>
+      <summary>27 stations passed</summary>
       <ol class="timeline">
         
         <li class="stop done"><div class="t-time"><span>18:55</span></div><div class="t-rail"><i></i></div>
@@ -305,42 +306,44 @@
         <li class="stop done"><div class="t-time"><span>12:03</span></div><div class="t-rail"><i></i></div>
           <div class="t-body"><b>Shamgarh</b> <small class="muted">SGZ</small></div></li>
         
+        <li class="stop done"><div class="t-time"><span>13:38</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Nagda Jn</b> <small class="muted">NAD</small></div></li>
+        
       </ol>
     </details>
     
     <ol class="timeline">
       <li class="stop here">
-        <div class="t-time"><span>13:38</span><span class="gain-text">13:42</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>14:15</span><span class="gain-text">14:14</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i class="train" aria-hidden="true"></i></div>
-        <div class="t-body"><b class="board">Nagda Jn</b> <small class="muted">NAD</small>
-          <span class="chip gain">4 min late</span>
+        <div class="t-body"><b class="board">Ratlam Jn</b> <small class="muted">RTM</small>
+          <span class="chip gain">1 min early</span>
           <small class="muted line">Last reported here</small></div>
       </li>
       
       
-      <li class="leg gain">
+      <li class="leg loss">
         <div class="t-time"></div><div class="t-rail"></div>
         <div class="t-body">
-          <span class="pill gain">wins back 2 min</span>
-          
-          <small class="muted">timetable 35 min, usually 32: 3 min spare</small>
+          <span class="pill loss">loses 6 min</span>
+          <small class="muted">timetable 61 min, usually 60</small>
         </div>
       </li>
       <li class="stop">
-        <div class="t-time"><span>14:15</span><span class="gain-text">14:17</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>15:26</span><span class="gain-text">15:31</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i></i></div>
-        <div class="t-body"><a class="board" href="/station/RTM">Ratlam Jn</a> <small class="muted">RTM, day 2</small>
-          <span class="chip gain">2 min late</span>
+        <div class="t-body"><a class="board" href="/station/MGN">Meghnagar</a> <small class="muted">MGN, day 2</small>
+          <span class="chip gain">5 min late</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
-            <span class="range-bar" aria-hidden="true"><i style="left: 40.0%"></i></span>
-            <span class="range-labels"><span>Earliest 14:13 <em>P10</em></span><span class="p50">Expected 14:17 <em>P50</em></span><span>Latest 14:23 <em>P90</em></span></span>
+            <span class="range-bar" aria-hidden="true"><i style="left: 42.1%"></i></span>
+            <span class="range-labels"><span>Earliest 15:23 <em>P10</em></span><span class="p50">Expected 15:31 <em>P50</em></span><span>Latest 15:42 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says on time, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">last 14 days on this stretch -5 min, this train and section -4 min</small>
+          <small class="why muted">how late it is now +5 min, last 14 days on this stretch -4 min</small>
         </div>
       </li>
       
@@ -348,51 +351,25 @@
       <li class="leg loss">
         <div class="t-time"></div><div class="t-rail"></div>
         <div class="t-body">
-          <span class="pill loss">loses 5 min</span>
-          <small class="muted">timetable 61 min, usually 60</small>
+          <span class="pill loss">loses 2 min</span>
+          <small class="muted">timetable 24 min, usually 24</small>
         </div>
       </li>
       <li class="stop">
-        <div class="t-time"><span>15:26</span><span class="loss-text">15:33</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>15:52</span><span class="loss-text">15:59</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i></i></div>
-        <div class="t-body"><a class="board" href="/station/MGN">Meghnagar</a> <small class="muted">MGN, day 2</small>
+        <div class="t-body"><a class="board" href="/station/DHD">Dahod</a> <small class="muted">DHD, day 2</small>
           <span class="chip loss">7 min late</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
             <span class="range-bar" aria-hidden="true"><i style="left: 42.1%"></i></span>
-            <span class="range-labels"><span>Earliest 15:25 <em>P10</em></span><span class="p50">Expected 15:33 <em>P50</em></span><span>Latest 15:44 <em>P90</em></span></span>
+            <span class="range-labels"><span>Earliest 15:51 <em>P10</em></span><span class="p50">Expected 15:59 <em>P50</em></span><span>Latest 16:10 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 15 min late, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">last 14 days on this stretch -4 min, this train and section -4 min</small>
-        </div>
-      </li>
-      
-      
-      <li class="leg loss">
-        <div class="t-time"></div><div class="t-rail"></div>
-        <div class="t-body">
-          <span class="pill loss">loses 5 min</span>
-          <small class="muted">timetable 24 min, usually 24</small>
-        </div>
-      </li>
-      <li class="stop">
-        <div class="t-time"><span>15:52</span><span class="loss-text">16:04</span><small class="day-tag">Mon 2 Nov</small></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body"><a class="board" href="/station/DHD">Dahod</a> <small class="muted">DHD, day 2</small>
-          <span class="chip loss">12 min late</span>
-          
-          
-          <span class="range" title="8 in 10 trains arrive between P10 and P90">
-            <span class="range-bar" aria-hidden="true"><i style="left: 42.1%"></i></span>
-            <span class="range-labels"><span>Earliest 15:56 <em>P10</em></span><span class="p50">Expected 16:04 <em>P50</em></span><span>Latest 16:15 <em>P90</em></span></span>
-          </span>
-          
-          <small class="others line">Others: RailRadar says 20 min late, carrying today's delay says 4 min late</small>
-          
-          <small class="why muted">how late it is now +3 min, this train and section -3 min</small>
+          <small class="why muted">how late it is now +5 min, last 14 days on this stretch -4 min</small>
         </div>
       </li>
       
@@ -400,26 +377,26 @@
       <li class="leg gain">
         <div class="t-time"></div><div class="t-rail"></div>
         <div class="t-body">
-          <span class="pill gain">wins back 18 min</span>
+          <span class="pill gain">wins back 14 min</span>
           
           <small class="muted">timetable 71 min, usually 48: 23 min spare</small>
         </div>
       </li>
       <li class="stop">
-        <div class="t-time"><span>17:05</span><span class="gain-text">16:59</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>17:05</span><span class="gain-text">16:58</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body"><a class="board" href="/station/GDA">Godhra Jn</a> <small class="muted">GDA, day 2</small>
-          <span class="chip gain">6 min early</span>
+          <span class="chip gain">7 min early</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
-            <span class="range-bar" aria-hidden="true"><i style="left: 34.4%"></i></span>
-            <span class="range-labels"><span>Earliest 16:48 <em>P10</em></span><span class="p50">Expected 16:59 <em>P50</em></span><span>Latest 17:20 <em>P90</em></span></span>
+            <span class="range-bar" aria-hidden="true"><i style="left: 42.1%"></i></span>
+            <span class="range-labels"><span>Earliest 16:50 <em>P10</em></span><span class="p50">Expected 16:58 <em>P50</em></span><span>Latest 17:09 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 2 min early, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">last 14 days on this stretch -14 min, how late it is now +5 min</small>
+          <small class="why muted">last 14 days on this stretch -14 min, how late it is now +8 min</small>
         </div>
       </li>
       
@@ -427,25 +404,25 @@
       <li class="leg loss">
         <div class="t-time"></div><div class="t-rail"></div>
         <div class="t-body">
-          <span class="pill loss">loses 11 min</span>
+          <span class="pill loss">loses 13 min</span>
           <small class="muted">timetable 54 min, usually 54</small>
         </div>
       </li>
       <li class="stop">
-        <div class="t-time"><span>18:01</span><span class="gain-text">18:06</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>18:01</span><span class="loss-text">18:07</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body"><a class="board" href="/station/BRC">Vadodara Jn</a> <small class="muted">BRC, day 2</small>
-          <span class="chip gain">5 min late</span>
+          <span class="chip loss">6 min late</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
             <span class="range-bar" aria-hidden="true"><i style="left: 34.4%"></i></span>
-            <span class="range-labels"><span>Earliest 17:55 <em>P10</em></span><span class="p50">Expected 18:06 <em>P50</em></span><span>Latest 18:27 <em>P90</em></span></span>
+            <span class="range-labels"><span>Earliest 17:56 <em>P10</em></span><span class="p50">Expected 18:07 <em>P50</em></span><span>Latest 18:28 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 4 min late, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">how late it is now +5 min, this train and section -5 min</small>
+          <small class="why muted">how late it is now +7 min, last 14 days on this stretch -6 min</small>
         </div>
       </li>
       
@@ -459,20 +436,20 @@
         </div>
       </li>
       <li class="stop">
-        <div class="t-time"><span>19:41</span><span class="gain-text">19:44</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>19:41</span><span class="gain-text">19:45</span><small class="day-tag">Mon 2 Nov</small></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body"><a class="board" href="/station/ST">Surat</a> <small class="muted">ST, day 2</small>
-          <span class="chip gain">3 min late</span>
+          <span class="chip gain">4 min late</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
             <span class="range-bar" aria-hidden="true"><i style="left: 34.4%"></i></span>
-            <span class="range-labels"><span>Earliest 19:33 <em>P10</em></span><span class="p50">Expected 19:44 <em>P50</em></span><span>Latest 20:05 <em>P90</em></span></span>
+            <span class="range-labels"><span>Earliest 19:34 <em>P10</em></span><span class="p50">Expected 19:45 <em>P50</em></span><span>Latest 20:06 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 12 min late, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">last 14 days on this stretch -6 min, this train and section -6 min</small>
+          <small class="why muted">how late it is now +7 min, last 14 days on this stretch -7 min</small>
         </div>
       </li>
       
@@ -480,7 +457,7 @@
       <li class="leg loss">
         <div class="t-time"></div><div class="t-rail"></div>
         <div class="t-body">
-          <span class="pill loss">loses 18 min</span>
+          <span class="pill loss">loses 17 min</span>
           <small class="muted">timetable 177 min, usually 197: 20 min tight</small>
         </div>
       </li>
@@ -496,9 +473,9 @@
             <span class="range-labels"><span>Earliest 22:52 <em>P10</em></span><span class="p50">Expected 23:04 <em>P50</em></span><span>Latest 23:33 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 33 min late, carrying today's delay says 4 min late</small>
+          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 1 min early</small>
           
-          <small class="why muted">similar past runs +5 min, how late it is now +4 min</small>
+          <small class="why muted">similar past runs +8 min, how late it is now +7 min</small>
         </div>
       </li>
       
@@ -527,8 +504,8 @@
       <li>
         <span class="rec-name"><b class="board">Shamgarh</b> to <b class="board">Nagda Jn</b></span>
         <span class="rec-bars" aria-hidden="true">
-          <i class="real" style="width: 100.0%"></i>
-          <i class="pred" style="width: 104.3%"></i>
+          <i class="real" style="width: 95.8%"></i>
+          <i class="pred" style="width: 100.0%"></i>
         </span>
         <span class="rec-num">wins back <b>30 min</b> on average, we predict <b>31 min</b>
           <small class="muted">(83 tests)</small></span>
@@ -537,8 +514,8 @@
       <li>
         <span class="rec-name"><b class="board">Dahod</b> to <b class="board">Godhra Jn</b></span>
         <span class="rec-bars" aria-hidden="true">
-          <i class="real" style="width: 73.7%"></i>
-          <i class="pred" style="width: 76.7%"></i>
+          <i class="real" style="width: 70.6%"></i>
+          <i class="pred" style="width: 73.5%"></i>
         </span>
         <span class="rec-num">wins back <b>22 min</b> on average, we predict <b>23 min</b>
           <small class="muted">(83 tests)</small></span>
@@ -547,8 +524,8 @@
       <li>
         <span class="rec-name"><b class="board">Ludhiana Jn</b> to <b class="board">Ambala Cant Jn</b></span>
         <span class="rec-bars" aria-hidden="true">
-          <i class="real" style="width: 63.3%"></i>
-          <i class="pred" style="width: 67.7%"></i>
+          <i class="real" style="width: 60.7%"></i>
+          <i class="pred" style="width: 64.9%"></i>
         </span>
         <span class="rec-num">wins back <b>19 min</b> on average, we predict <b>20 min</b>
           <small class="muted">(83 tests)</small></span>
@@ -557,8 +534,8 @@
       <li>
         <span class="rec-name"><b class="board">Ghaziabad</b> to <b class="board">Delhi H Nizamuddin</b></span>
         <span class="rec-bars" aria-hidden="true">
-          <i class="real" style="width: 56.0%"></i>
-          <i class="pred" style="width: 65.7%"></i>
+          <i class="real" style="width: 53.7%"></i>
+          <i class="pred" style="width: 62.9%"></i>
         </span>
         <span class="rec-num">wins back <b>17 min</b> on average, we predict <b>20 min</b>
           <small class="muted">(85 tests)</small></span>
@@ -567,8 +544,8 @@
       <li>
         <span class="rec-name"><b class="board">Sawai Madhopur</b> to <b class="board">Kota Jn</b></span>
         <span class="rec-bars" aria-hidden="true">
-          <i class="real" style="width: 53.0%"></i>
-          <i class="pred" style="width: 62.7%"></i>
+          <i class="real" style="width: 50.8%"></i>
+          <i class="pred" style="width: 60.1%"></i>
         </span>
         <span class="rec-num">wins back <b>16 min</b> on average, we predict <b>19 min</b>
           <small class="muted">(84 tests)</small></span>
@@ -823,6 +800,6 @@
     <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
       whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
   </footer>
-<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 14:27 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["MTJ", "NGP", "KPD", "BPL", "VGLJ", "GWL", "AGC", "FDB", "NZM", "BPQ", "WL", "BZA", "JL", "AK", "BD", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "UMB", "ET", "BINA", "SKZR", "RDM", "NLR", "GDR", "JTJ", "MMR", "BSL", "WR", "BRD", "G", "SEG", "MKU", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "KKDE", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA", "CTO", "TPTY", "RU", "CD", "SEGM", "KJM", "MZR", "DMN", "PLO", "TMR", "DGG", "RJN", "DURG", "R", "BSP"]};</script><script src="/static/snapshot.js"></script>
+<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 14:32 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["MTJ", "NGP", "KPD", "BPL", "VGLJ", "GWL", "AGC", "FDB", "NZM", "BPQ", "WL", "BZA", "JL", "AK", "BD", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "UMB", "ET", "BINA", "SKZR", "RDM", "NLR", "GDR", "JTJ", "MMR", "BSL", "WR", "BRD", "G", "SEG", "MKU", "RTM", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "KUN", "KKDE", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA", "CTO", "TPTY", "RU", "CD", "SEGM", "KJM", "MZR", "DMN", "PLO", "TMR", "DGG", "RJN", "DURG", "R"]};</script><script src="/static/snapshot.js"></script>
 </body>
 </html>

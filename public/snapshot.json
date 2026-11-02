@@ -1,5 +1,5 @@
 {
- "taken": "02 Nov 2026, 14:27 IST",
+ "taken": "02 Nov 2026, 14:32 IST",
  "trains": {
   "12007": "Mysuru Shatabdi",
   "12008": "Chennai Shatabdi",
@@ -70,7 +70,6 @@
   "SNP",
   "BDMJ",
   "PNP",
-  "KUN",
   "UMB",
   "ET",
   "BINA",
@@ -86,6 +85,7 @@
   "G",
   "SEG",
   "MKU",
+  "RTM",
   "MGN",
   "DHD",
   "GDA",
@@ -93,6 +93,7 @@
   "ST",
   "AJJ",
   "GZB",
+  "KUN",
   "KKDE",
   "CDG",
   "PRYJ",
@@ -127,7 +128,6 @@
   "DGG",
   "RJN",
   "DURG",
-  "R",
-  "BSP"
+  "R"
  ]
 }
