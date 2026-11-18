@@ -29,7 +29,7 @@
       </nav>
     </div>
   </header>
-  <p class="snapshot" role="status">Snapshot taken 02 Nov 2026, 14:41 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  <p class="snapshot" role="status">Snapshot taken 18 Nov 2026, 11:07 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
   
   
 
@@ -37,10 +37,6 @@
   <div class="wrap">
     <p class="crumb"><a href="/#trains">All trains</a></p>
     <h1 class="train-title"><span class="tno">12008</span> Chennai Shatabdi</h1>
-    
-    <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at Mysuru Jn,
-      2 min late, reported 14:17 (run that left 2026-11-02).
-      <a href="/map#12008">See the stretch it has covered on the map</a></p>
     
     <div class="mini-track wide" style="--at: 0.0%">
       <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco"></span></span>
@@ -58,17 +54,18 @@
 <div class="panel summary">
   <div>
     <small>Expected at Katpadi Jn</small>
-    <b class="big">19:24</b>
-    <span class="day-tag">Mon 2 Nov</span>
+    <b class="big">19:32</b>
+    
     <span class="muted">timetable 19:23</span>
   </div>
   <div>
     <small>Delay there</small>
-    <b class="big gain-text">1 min late</b>
-    <span class="muted">now 2 min late</span>
+    <b class="big loss-text">9 min late</b>
+    <span class="muted">now 20 min late</span>
   </div>
-  <div class="recover ">
-    <b>Keeps its delay</b><span>little spare time left in the timetable ahead</span>
+  <div class="recover gain">
+    <b>Wins back 11 min</b><span>on the way, mostly on the stretches marked green below</span>
+    
   </div>
 </div>
 
@@ -83,7 +80,7 @@
     </select>
   </label>
   <label>running
-    <input type="number" name="delay" value="2" min="-60" max="600" step="1" inputmode="numeric"> min late
+    <input type="number" name="delay" value="20" min="-60" max="600" step="1" inputmode="numeric"> min late
   </label>
   <button class="button">Update</button>
 </form>
@@ -94,8 +91,8 @@
   <div class="panel line-ahead">
     
     <p><b>1</b> reports from other trains on the next 200 km in the last 2 hours: typically
-      <b class="">+10 min</b> late, and
-      holding their delays.</p>
+      <b class="loss-text">+17 min</b> late, and
+      <b class="gain-text">making up time</b>.</p>
     
     
     
@@ -105,22 +102,8 @@
       
       <li>
         <a href="/train/12626"><b class="tno">12626</b> Kerala Express</a>
-        <span class="chip loss">49 min late</span>
-        <small class="muted line">At Sevagram now. Shares 1 station
-          with this train: Katpadi Jn</small>
-      </li>
-      
-      <li>
-        <a href="/train/22626"><b class="tno">22626</b> Double Decker Express</a>
-        <span class="chip loss">14 min late</span>
-        <small class="muted line">At Krishnarajapuram now. Shares 1 station
-          with this train: Katpadi Jn</small>
-      </li>
-      
-      <li>
-        <a href="/train/12625"><b class="tno">12625</b> Kerala Express</a>
-        <span class="chip loss">9 min late</span>
-        <small class="muted line">At Tiruvalla now. Shares 1 station
+        <span class="chip loss">5 h 45 min late</span>
+        <small class="muted line">At Tirupati Main now. Shares 1 station
           with this train: Katpadi Jn</small>
       </li>
       
@@ -167,158 +150,11 @@
     
     <ol class="timeline">
       <li class="stop here">
-        <div class="t-time"><span>14:15</span><span class="gain-text">14:17</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>14:15</span><span class="loss-text">14:35</span></div>
         <div class="t-rail"><i class="train" aria-hidden="true"></i></div>
         <div class="t-body"><b class="board">Mysuru Jn</b> <small class="muted">MYS</small>
-          <span class="chip gain">2 min late</span>
-          <small class="muted line">Last reported here</small></div>
-      </li>
-      
-      
-      <li class="leg ">
-        <div class="t-time"></div><div class="t-rail"></div>
-        <div class="t-body">
-          
-          
-        </div>
-      </li>
-      
-      <li class="pass gone">
-        <div class="t-time"><span>14:21</span><span class="gain-text">14:23</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Naganahalli <small class="muted">NHY, passed</small></div>
-      </li>
-      
-      <li class="pass gone">
-        <div class="t-time"><span>14:27</span><span class="gain-text">14:29</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Shrirangapatna <small class="muted">S, passed</small></div>
-      </li>
-      
-      <li class="pass gone">
-        <div class="t-time"><span>14:30</span><span class="gain-text">14:32</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Pandavapura <small class="muted">PANP, passed</small></div>
-      </li>
-      
-      <li class="pass gone">
-        <div class="t-time"><span>14:33</span><span class="gain-text">14:35</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Chandagirikopal <small class="muted">CGKR, passed</small></div>
-      </li>
-      
-      <li class="pass gone">
-        <div class="t-time"><span>14:37</span><span class="gain-text">14:39</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Byadarahalli <small class="muted">BDRL, passed</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>14:44</span><span class="gain-text">14:46</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Yeliyur <small class="muted">Y</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>14:51</span><span class="gain-text">14:53</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Mandya <small class="muted">MYA</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>14:59</span><span class="gain-text">15:01</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Hanakere <small class="muted">HNK</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:06</span><span class="gain-text">15:08</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Maddur <small class="muted">MAD</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:10</span><span class="gain-text">15:12</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Nidaghatta Halt <small class="muted">NZH</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:15</span><span class="gain-text">15:17</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Settihally <small class="muted">SET</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:21</span><span class="gain-text">15:23</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Channapatna <small class="muted">CPT</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:30</span><span class="gain-text">15:32</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Ramanagaram <small class="muted">RMGM</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:35</span><span class="gain-text">15:37</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Ketohalli <small class="muted">KHLL</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:41</span><span class="gain-text">15:43</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Bidadi <small class="muted">BID</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:46</span><span class="gain-text">15:48</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Hejjala <small class="muted">HJL</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:55</span><span class="gain-text">15:57</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Kengeri <small class="muted">KGI</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:58</span><span class="gain-text">16:00</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Jnana Bharati Halt <small class="muted">GNB</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>15:59</span><span class="gain-text">16:01</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Nayandahalli <small class="muted">NYH</small></div>
-      </li>
-      
-      <li class="pass">
-        <div class="t-time"><span>16:01</span><span class="gain-text">16:03</span></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body">Krishnadevaraya Halt <small class="muted">KNDV</small></div>
-      </li>
-      
-      <li class="stop">
-        <div class="t-time"><span>16:05</span><span class="gain-text">16:08</span><small class="day-tag">Mon 2 Nov</small></div>
-        <div class="t-rail"><i></i></div>
-        <div class="t-body"><a class="board" href="/station/SBC">KSR Bengaluru</a> <small class="muted">SBC</small>
-          <span class="chip gain">3 min late</span>
-          
-          
-          <span class="range" title="8 in 10 trains arrive between P10 and P90">
-            <span class="range-bar" aria-hidden="true"><i style="left: 37.0%"></i></span>
-            <span class="range-labels"><span>Earliest 15:58 <em>P10</em></span><span class="p50">Expected 16:08 <em>P50</em></span><span>Latest 16:25 <em>P90</em></span></span>
-          </span>
-          
-          <small class="others line">Others: RailRadar says 7 min late, carrying today's delay says 2 min late</small>
-          
-          <small class="why muted">similar past runs -4 min, last 14 days on this stretch -2 min</small>
-        </div>
+          <span class="chip loss">20 min late</span>
+          <small class="muted line">Starting point you picked</small></div>
       </li>
       
       
@@ -327,235 +163,383 @@
         <div class="t-body">
           <span class="pill gain">wins back 2 min</span>
           
-          <small class="muted">timetable 193 min, usually 180: 13 min spare</small>
+          
         </div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:14</span><span class="gain-text">16:16</span></div>
+        <div class="t-time"><span>14:21</span><span class="loss-text">14:40</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Naganahalli <small class="muted">NHY</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:27</span><span class="loss-text">14:46</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Shrirangapatna <small class="muted">S</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:30</span><span class="loss-text">14:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Pandavapura <small class="muted">PANP</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:33</span><span class="loss-text">14:52</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Chandagirikopal <small class="muted">CGKR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:37</span><span class="loss-text">14:56</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Byadarahalli <small class="muted">BDRL</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:44</span><span class="loss-text">15:03</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Yeliyur <small class="muted">Y</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:51</span><span class="loss-text">15:10</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Mandya <small class="muted">MYA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:59</span><span class="loss-text">15:18</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Hanakere <small class="muted">HNK</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:06</span><span class="loss-text">15:25</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Maddur <small class="muted">MAD</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:10</span><span class="loss-text">15:28</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nidaghatta Halt <small class="muted">NZH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:15</span><span class="loss-text">15:33</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Settihally <small class="muted">SET</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:21</span><span class="loss-text">15:39</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Channapatna <small class="muted">CPT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:30</span><span class="loss-text">15:48</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Ramanagaram <small class="muted">RMGM</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:35</span><span class="loss-text">15:53</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Ketohalli <small class="muted">KHLL</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:41</span><span class="loss-text">15:59</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bidadi <small class="muted">BID</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:46</span><span class="loss-text">16:04</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Hejjala <small class="muted">HJL</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:55</span><span class="loss-text">16:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kengeri <small class="muted">KGI</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:58</span><span class="loss-text">16:16</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jnana Bharati Halt <small class="muted">GNB</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:59</span><span class="loss-text">16:17</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nayandahalli <small class="muted">NYH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:01</span><span class="loss-text">16:19</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Krishnadevaraya Halt <small class="muted">KNDV</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>16:05</span><span class="loss-text">16:23</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/SBC">KSR Bengaluru</a> <small class="muted">SBC</small>
+          <span class="chip loss">18 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 37.0%"></i></span>
+            <span class="range-labels"><span>Earliest 16:13 <em>P10</em></span><span class="p50">Expected 16:23 <em>P50</em></span><span>Latest 16:40 <em>P90</em></span></span>
+          </span>
+          
+          
+          
+          <small class="why muted">similar past runs -6 min, how late it is now -3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 9 min</span>
+          
+          <small class="muted">timetable 193 min, usually 178: 15 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:14</span><span class="loss-text">16:31</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Bengaluru Cantt <small class="muted">BNC</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:16</span><span class="gain-text">16:18</span></div>
+        <div class="t-time"><span>16:16</span><span class="loss-text">16:33</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Bengaluru East <small class="muted">BNCE</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:18</span><span class="gain-text">16:20</span></div>
+        <div class="t-time"><span>16:18</span><span class="loss-text">16:35</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Baiyyappanahalli West Cabin <small class="muted">BYPW</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:19</span><span class="gain-text">16:21</span></div>
+        <div class="t-time"><span>16:19</span><span class="loss-text">16:36</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Baiyyappanahalli <small class="muted">BYPL</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:22</span><span class="gain-text">16:24</span></div>
+        <div class="t-time"><span>16:22</span><span class="loss-text">16:39</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Krishnarajapurm <small class="muted">KJM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:26</span><span class="gain-text">16:28</span></div>
+        <div class="t-time"><span>16:26</span><span class="loss-text">16:43</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Hoodi Halt <small class="muted">HDIH</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:26</span><span class="gain-text">16:28</span></div>
+        <div class="t-time"><span>16:26</span><span class="loss-text">16:43</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Whitefield Panel Cabin <small class="muted">WHPC</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:30</span><span class="gain-text">16:32</span></div>
+        <div class="t-time"><span>16:30</span><span class="loss-text">16:47</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Whitefield <small class="muted">WFD</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:36</span><span class="gain-text">16:38</span></div>
+        <div class="t-time"><span>16:36</span><span class="loss-text">16:52</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Devangonthi <small class="muted">DKN</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:47</span><span class="gain-text">16:49</span></div>
+        <div class="t-time"><span>16:47</span><span class="loss-text">17:03</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Malur <small class="muted">MLO</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:54</span><span class="gain-text">16:56</span></div>
+        <div class="t-time"><span>16:54</span><span class="loss-text">17:09</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Byatrayanhalli <small class="muted">BFW</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>16:59</span><span class="gain-text">17:01</span></div>
+        <div class="t-time"><span>16:59</span><span class="loss-text">17:14</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Tyakal <small class="muted">TCL</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:04</span><span class="gain-text">17:06</span></div>
+        <div class="t-time"><span>17:04</span><span class="loss-text">17:19</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Maralahalli <small class="muted">MZV</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:09</span><span class="gain-text">17:11</span></div>
+        <div class="t-time"><span>17:09</span><span class="loss-text">17:24</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Bangarapet Jn <small class="muted">BWT</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:15</span><span class="gain-text">17:17</span></div>
+        <div class="t-time"><span>17:15</span><span class="loss-text">17:29</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Varadapura <small class="muted">VRDP</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:19</span><span class="gain-text">17:21</span></div>
+        <div class="t-time"><span>17:19</span><span class="loss-text">17:33</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Kamasamudram <small class="muted">KSM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:25</span><span class="gain-text">17:27</span></div>
+        <div class="t-time"><span>17:25</span><span class="loss-text">17:39</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Bisanattam <small class="muted">BSM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:30</span><span class="gain-text">17:32</span></div>
+        <div class="t-time"><span>17:30</span><span class="loss-text">17:44</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Gudupulli <small class="muted">GDP</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:38</span><span class="gain-text">17:40</span></div>
+        <div class="t-time"><span>17:38</span><span class="loss-text">17:51</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Kuppam <small class="muted">KPN</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:48</span><span class="gain-text">17:49</span></div>
+        <div class="t-time"><span>17:48</span><span class="loss-text">18:01</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Mulanur <small class="muted">MAR</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>17:57</span><span class="gain-text">17:58</span></div>
+        <div class="t-time"><span>17:57</span><span class="loss-text">18:09</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Patchur <small class="muted">PU</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:04</span><span class="gain-text">18:05</span></div>
+        <div class="t-time"><span>18:04</span><span class="loss-text">18:16</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Somanayakkanpti <small class="muted">SKPT</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:12</span><span class="gain-text">18:13</span></div>
+        <div class="t-time"><span>18:12</span><span class="loss-text">18:24</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Jolarpettai Jn <small class="muted">JTJ</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:18</span><span class="gain-text">18:19</span></div>
+        <div class="t-time"><span>18:18</span><span class="loss-text">18:30</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Kettandapatti <small class="muted">KDY</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:26</span><span class="gain-text">18:27</span></div>
+        <div class="t-time"><span>18:26</span><span class="loss-text">18:37</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Vaniyambadi <small class="muted">VN</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:32</span><span class="gain-text">18:33</span></div>
+        <div class="t-time"><span>18:32</span><span class="loss-text">18:43</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Vinnamangalam <small class="muted">VGM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:39</span><span class="gain-text">18:40</span></div>
+        <div class="t-time"><span>18:39</span><span class="loss-text">18:50</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Ambur <small class="muted">AB</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:44</span><span class="gain-text">18:45</span></div>
+        <div class="t-time"><span>18:44</span><span class="loss-text">18:54</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Pachchakuppam <small class="muted">PCKM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:49</span><span class="gain-text">18:50</span></div>
+        <div class="t-time"><span>18:49</span><span class="loss-text">18:59</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Melpatti <small class="muted">MPI</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:54</span><span class="gain-text">18:55</span></div>
+        <div class="t-time"><span>18:54</span><span class="loss-text">19:04</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Valathoor <small class="muted">VLT</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>18:58</span><span class="gain-text">18:59</span></div>
+        <div class="t-time"><span>18:58</span><span class="loss-text">19:08</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Melalathur <small class="muted">MEH</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>19:02</span><span class="gain-text">19:03</span></div>
+        <div class="t-time"><span>19:02</span><span class="loss-text">19:11</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Gudiyattam <small class="muted">GYM</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>19:07</span><span class="gain-text">19:08</span></div>
+        <div class="t-time"><span>19:07</span><span class="loss-text">19:16</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Kavanur <small class="muted">KVN</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>19:13</span><span class="gain-text">19:14</span></div>
+        <div class="t-time"><span>19:13</span><span class="loss-text">19:22</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Virinchipuram <small class="muted">VJ</small></div>
       </li>
       
       <li class="pass">
-        <div class="t-time"><span>19:16</span><span class="gain-text">19:17</span></div>
+        <div class="t-time"><span>19:16</span><span class="loss-text">19:25</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body">Latteri <small class="muted">LTI</small></div>
       </li>
       
       <li class="stop end">
-        <div class="t-time"><span>19:23</span><span class="gain-text">19:24</span><small class="day-tag">Mon 2 Nov</small></div>
+        <div class="t-time"><span>19:23</span><span class="loss-text">19:32</span></div>
         <div class="t-rail"><i></i></div>
         <div class="t-body"><a class="board" href="/station/KPD">Katpadi Jn</a> <small class="muted">KPD</small>
-          <span class="chip gain">1 min late</span>
+          <span class="chip loss">9 min late</span>
           
           
           <span class="range" title="8 in 10 trains arrive between P10 and P90">
             <span class="range-bar" aria-hidden="true"><i style="left: 52.0%"></i></span>
-            <span class="range-labels"><span>Earliest 19:11 <em>P10</em></span><span class="p50">Expected 19:24 <em>P50</em></span><span>Latest 19:36 <em>P90</em></span></span>
+            <span class="range-labels"><span>Earliest 19:19 <em>P10</em></span><span class="p50">Expected 19:32 <em>P50</em></span><span>Latest 19:44 <em>P90</em></span></span>
           </span>
           
-          <small class="others line">Others: RailRadar says 2 min late, carrying today's delay says 2 min late</small>
+          <small class="others line">Others: carrying today's delay says 20 min late</small>
           
-          <small class="why muted">last 14 days on this stretch -7 min, how late it is now +2 min</small>
+          <small class="why muted">similar past runs -6 min, last 14 days on this stretch -6 min</small>
         </div>
       </li>
       
@@ -610,9 +594,9 @@
     
     <tr>
       <td>KSR Bengaluru</td><td>Katpadi Jn</td>
-      <td class="num">193</td><td class="num">180</td>
-      <td class="num hide-sm muted">194</td>
-      <td class="num gain-text">+13 min</td>
+      <td class="num">193</td><td class="num">178</td>
+      <td class="num hide-sm muted">193</td>
+      <td class="num gain-text">+15 min</td>
     </tr>
     
     </tbody>
@@ -630,6 +614,6 @@
     <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
       whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
   </footer>
-<script>window.SNAPSHOT = {"taken": "02 Nov 2026, 14:41 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["MTJ", "BPL", "VGLJ", "GWL", "AGC", "NGP", "KPD", "ET", "FDB", "NZM", "BPQ", "WL", "BZA", "JL", "AK", "BD", "KYN", "CNB", "SZM", "SNP", "BDMJ", "PNP", "UMB", "BINA", "SKZR", "RDM", "NLR", "GDR", "JTJ", "MMR", "BSL", "WR", "BRD", "G", "SEG", "MKU", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "KUN", "KKDE", "CDG", "PRYJ", "DDU", "DGR", "HWH", "KMT", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "PGT", "CBE", "TUP", "ED", "SA", "CTO", "TPTY", "RU", "CD", "SEGM", "KJM", "MZR", "DMN", "PLO", "TMR", "DGG", "RJN", "DURG", "R", "BSP", "RIG", "JSG"]};</script><script src="/static/snapshot.js"></script>
+<script>window.SNAPSHOT = {"taken": "18 Nov 2026, 11:07 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["NGP", "MTJ", "JL", "BSL", "UMB", "BPL", "VGLJ", "GWL", "AGC", "FDB", "BPQ", "BRD", "KYN", "PRYJ", "CNB", "SZM", "SNP", "BDMJ", "PNP", "KUN", "KKDE", "CDG", "ET", "NZM", "MMR", "G", "RJN", "DURG", "R", "WR", "BD", "AK", "SEG", "MKU", "FTP", "PHD", "ETW", "GZB", "DDU", "HWH", "NCB", "NJP", "KNE", "BINA", "SEGM", "CD", "SKZR", "BPA", "MCI", "RDM", "WL", "KMT", "BZA", "JTJ", "ANG", "BAP", "KPG", "BAU", "KNW", "KPN", "BWT", "KJM", "TMR", "DGG", "BYT", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "NK", "IGP", "LDH", "JUC", "BEAS", "RMA", "SGZ", "NAD"]};</script><script src="/static/snapshot.js"></script>
 </body>
 </html>
