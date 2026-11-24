@@ -1,0 +1,2518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>12424 Dibrugarh Rajdhani · Track Pulse</title>
+  <meta name="description" content="Recovery-aware arrival times for Indian Railways coaching trains, learnt from real running.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3f8f'/%3E%3Cpath d='M6 20h6l3-9 4 13 3-7h4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="train-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Track Pulse</a>
+      <nav aria-label="Main">
+        <a href="/#live" >Live</a>
+        <a href="/#trains" aria-current="page">Trains</a>
+        <a href="/map" >Map</a>
+        <a href="/station/" >Stations</a>
+        <a href="/control" >Control</a>
+        <a href="/docs" >How it works</a>
+        <a href="/docs#api">API</a>
+      </nav>
+    </div>
+  </header>
+  <p class="snapshot" role="status">Snapshot taken 24 Nov 2026, 14:40 IST. Track Pulse updates every 5 minutes on our server; this copy shows the site as it was then.</p>
+  
+  
+
+<section class="hero train-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#trains">All trains</a></p>
+    <h1 class="train-title"><span class="tno">12424</span> Dibrugarh Rajdhani</h1>
+    
+    <p class="live-note"><span class="pulse" aria-hidden="true"></span>Live: at New Jalpaiguri,
+      22 min late, reported 13:02 (run that left 2026-11-23).
+      <a href="/map#12424">See the stretch it has covered on the map</a></p>
+    
+    <div class="mini-track wide" style="--at: 47.8%">
+      <span class="mt-rail"><span class="mt-done"></span><span class="mt-loco"></span></span>
+      <span class="mt-ends"><span>New Delhi</span>
+        <span>New Tinsukia Jn, day 3</span></span>
+    </div>
+  </div>
+</section>
+
+  <main id="main" class="wrap">
+<div class="train-bar" aria-label="Summary">
+  <span><b class="tno">12424</b> Dibrugarh Rajdhani</span>
+  <span>Now New Jalpaiguri, <b class="loss-text">22 min late</b></span>
+  <span>New Tinsukia Jn <b>04:45</b> <b class="loss-text">25 min late</b></span>
+</div>
+<div class="train-layout">
+<aside class="side" aria-label="Summary, what if, and trains around it">
+
+
+<div class="panel summary">
+  <div>
+    <small>Expected at New Tinsukia Jn</small>
+    <b class="big">04:45</b>
+    <span class="day-tag">Wed 25 Nov</span>
+    <span class="muted">timetable 04:20, day 3</span>
+  </div>
+  <div>
+    <small>Delay there</small>
+    <b class="big loss-text">25 min late</b>
+    <span class="muted">now 22 min late</span>
+  </div>
+  <div class="recover loss">
+    <b>Loses 3 min more</b><span>on the way: the stretches marked red are tighter than the timetable</span>
+    
+  </div>
+</div>
+
+<form class="panel where" method="get">
+  <label>Train is at
+    <select name="at">
+      
+      <option value="0" >New Delhi (NDLS)</option>
+      
+      <option value="69" >Kanpur Central (CNB)</option>
+      
+      <option value="99" >Prayagraj Jn (PRYJ)</option>
+      
+      <option value="121" >Pt. Deen Dayal Upadhyaya Jn (DDU)</option>
+      
+      <option value="170" >Danapur (DNR)</option>
+      
+      <option value="171" >Patliputra (PPTA)</option>
+      
+      <option value="197" >Barauni Jn (BJU)</option>
+      
+      <option value="210" >Mansi Jn (MNE)</option>
+      
+      <option value="220" >Naugachia (NNA)</option>
+      
+      <option value="230" >Katihar Jn (KIR)</option>
+      
+      <option value="252" >Kishanganj (KNE)</option>
+      
+      <option value="265" selected>New Jalpaiguri (NJP)</option>
+      
+      <option value="283" >New Cooch Behar (NCB)</option>
+      
+      <option value="295" >Kokrajhar (KOJ)</option>
+      
+      <option value="300" >New Bongaigaon (NBQ)</option>
+      
+      <option value="315" >Rangiya Jn (RNY)</option>
+      
+      <option value="321" >Guwahati (GHY)</option>
+      
+      <option value="338" >Chaparmukh Jn (CPK)</option>
+      
+      <option value="349" >Lumding Jn (LMG)</option>
+      
+      <option value="353" >Diphu (DPU)</option>
+      
+      <option value="359" >Dimapur (DMV)</option>
+      
+      <option value="369" >Furkating Jn (FKG)</option>
+      
+      <option value="374" >Mariani Jn (MXN)</option>
+      
+    </select>
+  </label>
+  <label>running
+    <input type="number" name="delay" value="22" min="-60" max="600" step="1" inputmode="numeric"> min late
+  </label>
+  <button class="button">Update</button>
+</form>
+
+<section class="block" id="network">
+  <h2>Trains on the line ahead</h2>
+  <p class="note">A late train ahead holds the line for the trains behind it. These are the inputs the model sees.</p>
+  <div class="panel line-ahead">
+    
+    <p><b>1</b> reports from other trains on the next 200 km in the last 2 hours: typically
+      <b class="loss-text">+1 h 32 min</b> late, and
+      <b class="loss-text">losing time</b> (the line ahead is slow).</p>
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+
+<section class="block" id="impact">
+  <h2>Trains this delay can hold up</h2>
+  <p class="note">Same direction, behind this train: they still have to pass the stretch it is on. If this train runs late
+    through a shared station, the train behind can be held at a signal or kept off the platform.</p>
+  <div class="panel line-ahead">
+    
+    <p class="muted">No train we follow is running behind this one on its route right now, so its delay is not passed on.</p>
+    
+  </div>
+</section>
+
+
+<p class="note">For this train, on 19538 predictions in recent runs the model never saw: average error
+  <b>18.06 min</b>, against 27.11 min when the delay is carried forward and 41.04 min for the timetable.</p>
+
+</aside>
+<div class="main-col">
+<section class="block">
+  <div class="block-head">
+    <h2>Journey</h2>
+    
+    <span class="muted">by ml model</span>
+  </div>
+  <div class="legend" aria-label="How to read the arrival range">
+    <div class="legend-bar" aria-hidden="true"><span class="lg-out">1 in 10<br>earlier</span><span class="lg-in"><i></i>8 in 10 trains arrive in here</span><span class="lg-out">1 in 10<br>later</span></div>
+    <p><b>Expected (P50)</b> is our best estimate: half of trains in this situation arrive before it, half after.
+      <b>Earliest (P10)</b> and <b>Latest (P90)</b> bound the likely window: 8 in 10 trains arrive between them.
+      The window is set from how far off the model really was on past runs, so it is wider the further ahead the station is.</p>
+  </div>
+  <div class="panel timeline-card">
+    
+    <details class="passed">
+      <summary>255 stations passed on this run, with the time it went through (~ estimated)</summary>
+      <ol class="timeline">
+        
+        <li class="stop done"><div class="t-time"><span>16:20</span><span class="gain-text" >16:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>New Delhi</b> <small class="muted">NDLS</small>
+            <small class="gain-text">3 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:21</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Shivaji Bridge</b> <small class="muted">CSB, runs through</small>
+            <small class="gain-text">3 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:22</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:25</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tilak Bridge</b> <small class="muted">TKJ, runs through</small>
+            <small class="gain-text">3 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:26</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mandawali Chander Vihar Halt</b> <small class="muted">MWC, runs through</small>
+            <small class="gain-text">3 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:28</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Anand Vihar</b> <small class="muted">ANVR, runs through</small>
+            <small class="gain-text">3 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:29</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:32</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chander Nagar Halt</b> <small class="muted">CNJ, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:29</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:32</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Delhi Shahdara B Panel</b> <small class="muted">DSBP, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:31</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:34</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sahibabad</b> <small class="muted">SBB, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:36</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ghaziabad</b> <small class="muted">GZB, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:39</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chipyana Buzurg</b> <small class="muted">CYZ, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:42</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Maripat</b> <small class="muted">MIU, runs through</small>
+            <small class="gain-text">4 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:46</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:50</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dadri</b> <small class="muted">DER, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:49</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:53</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Boraki</b> <small class="muted">BRKY, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:52</span><span class="gain-text" title="Estimated from the nearest reported stations">~16:56</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ajaibpur</b> <small class="muted">AJR, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>16:57</span><span class="gain-text" title="Estimated from the nearest reported stations">~17:02</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dankaur</b> <small class="muted">DKDE, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:01</span><span class="gain-text" title="Estimated from the nearest reported stations">~17:06</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Fatehpur Makrandpur</b> <small class="muted">FPMP, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:03</span><span class="gain-text" title="Estimated from the nearest reported stations">~17:08</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Wair</b> <small class="muted">WAIR, runs through</small>
+            <small class="gain-text">5 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:06</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chola</b> <small class="muted">CHL, runs through</small>
+            <small class="loss-text">6 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:14</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gangraul Halt</b> <small class="muted">GNRL, runs through</small>
+            <small class="loss-text">6 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sikandarpur</b> <small class="muted">SKQ, runs through</small>
+            <small class="loss-text">6 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Khurja Jn</b> <small class="muted">KRJ, runs through</small>
+            <small class="loss-text">6 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:19</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:25</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kamalpur</b> <small class="muted">KAMP, runs through</small>
+            <small class="loss-text">6 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:23</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Danwar</b> <small class="muted">DAR, runs through</small>
+            <small class="loss-text">7 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:35</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Somna</b> <small class="muted">SOM, runs through</small>
+            <small class="loss-text">7 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:36</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kulwa</b> <small class="muted">KLA, runs through</small>
+            <small class="loss-text">7 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:39</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mahrawal</b> <small class="muted">MWUE, runs through</small>
+            <small class="loss-text">8 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:43</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:50</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Aligarh Jn</b> <small class="muted">ALJN, runs through</small>
+            <small class="loss-text">8 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:48</span><span class="loss-text" title="Estimated from the nearest reported stations">~17:56</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Daud Khan</b> <small class="muted">DAQ, runs through</small>
+            <small class="loss-text">8 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:52</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:00</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mandrak</b> <small class="muted">MXK, runs through</small>
+            <small class="loss-text">8 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>17:57</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:05</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sasni</b> <small class="muted">SNS, runs through</small>
+            <small class="loss-text">9 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:10</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Hathras Jn</b> <small class="muted">HRS, runs through</small>
+            <small class="loss-text">9 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:18</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pora</b> <small class="muted">PORA, runs through</small>
+            <small class="loss-text">9 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:15</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jalesar Road</b> <small class="muted">JLS, runs through</small>
+            <small class="loss-text">10 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:19</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chamrola</b> <small class="muted">CMR, runs through</small>
+            <small class="loss-text">10 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:24</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:34</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Barhan Jn</b> <small class="muted">BRN, runs through</small>
+            <small class="loss-text">10 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mitawali</b> <small class="muted">MTI, runs through</small>
+            <small class="loss-text">10 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:33</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tundla Jn</b> <small class="muted">TDL, runs through</small>
+            <small class="loss-text">11 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:39</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:49</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Hirangaon</b> <small class="muted">HNG, runs through</small>
+            <small class="loss-text">11 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:43</span><span class="loss-text" title="Estimated from the nearest reported stations">~18:54</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Firozabad</b> <small class="muted">FZD, runs through</small>
+            <small class="loss-text">11 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:50</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Makkhanpur</b> <small class="muted">MNR, runs through</small>
+            <small class="loss-text">12 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>18:56</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:07</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Shikohabad Jn</b> <small class="muted">SKB, runs through</small>
+            <small class="loss-text">12 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:03</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:15</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kaurara</b> <small class="muted">KAA, runs through</small>
+            <small class="loss-text">12 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:21</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bhadan</b> <small class="muted">BDN, runs through</small>
+            <small class="loss-text">13 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Balrai</b> <small class="muted">BBL, runs through</small>
+            <small class="loss-text">13 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:34</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jaswantnagar</b> <small class="muted">JGR, runs through</small>
+            <small class="loss-text">13 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:26</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sarai Bhopat</b> <small class="muted">SB, runs through</small>
+            <small class="loss-text">14 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:44</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Etawah Jn</b> <small class="muted">ETW, runs through</small>
+            <small class="loss-text">14 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:52</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ekdil</b> <small class="muted">EKL, runs through</small>
+            <small class="loss-text">14 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~19:58</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bharthana</b> <small class="muted">BNT, runs through</small>
+            <small class="loss-text">15 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:51</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:06</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Samhon</b> <small class="muted">SHW, runs through</small>
+            <small class="loss-text">15 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:53</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:08</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ghasara Halt</b> <small class="muted">GHSR, runs through</small>
+            <small class="loss-text">15 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>19:56</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Achalda</b> <small class="muted">ULD, runs through</small>
+            <small class="loss-text">15 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pata</b> <small class="muted">PATA, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:07</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Phaphund</b> <small class="muted">PHD, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:13</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanchausi</b> <small class="muted">KNS, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:32</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Para Jani Halt</b> <small class="muted">PJY, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:20</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:36</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jhinjhak</b> <small class="muted">JJK, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:26</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ambiapur</b> <small class="muted">AAP, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:32</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:49</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Rura</b> <small class="muted">RURA, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:35</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:52</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Patra</b> <small class="muted">PTRA, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:37</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:54</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Roshan Mau</b> <small class="muted">RMW, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:39</span><span class="loss-text" title="Estimated from the nearest reported stations">~20:56</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Maitha</b> <small class="muted">MTO, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:46</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:04</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bhaupur</b> <small class="muted">BPU, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:53</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Panki Dham</b> <small class="muted">PNKD, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:58</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:16</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Govindpuri</b> <small class="muted">GOY, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>20:59</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanpur Goods Marshal</b> <small class="muted">GMC, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>21:00</span><span class="loss-text" >21:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanpur Central</b> <small class="muted">CNB</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:08</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:27</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chandari</b> <small class="muted">CNBI, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chakeri</b> <small class="muted">CHK, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:15</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:34</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Rooma</b> <small class="muted">RXM, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:19</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:38</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sirsaul</b> <small class="muted">SSL, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:23</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:42</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Prempur</b> <small class="muted">PMPR, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:26</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:45</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Karbigwan</b> <small class="muted">KBN, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:50</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Aung</b> <small class="muted">AUNG, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:34</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:53</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bindki Road</b> <small class="muted">BKO, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:39</span><span class="loss-text" title="Estimated from the nearest reported stations">~21:58</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanspur Gugauli</b> <small class="muted">KSQ, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:03</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Malwan</b> <small class="muted">MWH, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:50</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kurasti Kalan</b> <small class="muted">KKS, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:13</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Fatehpur</b> <small class="muted">FTP, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>21:58</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ramva</b> <small class="muted">RAMA, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:01</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:20</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Faizullapur</b> <small class="muted">FYZ, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:07</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:27</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Rasulabad</b> <small class="muted">RUB, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:11</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sath Naraini</b> <small class="muted">SNIE, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:36</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Khaga</b> <small class="muted">KGA, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:20</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:40</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Katoghan</b> <small class="muted">KTCE, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:24</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:44</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanwar</b> <small class="muted">KUW, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:28</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:48</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Athsarai</b> <small class="muted">ASCE, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:32</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:52</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sirathu</b> <small class="muted">SRO, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~22:58</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Shujaatpur</b> <small class="muted">SJT, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:41</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bidanpur</b> <small class="muted">BDNP, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:04</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bharwari</b> <small class="muted">BRE, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:49</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Manoharganj</b> <small class="muted">MNJ, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:14</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Saiyid Sarawan</b> <small class="muted">SYWN, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>22:57</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Manauri</b> <small class="muted">MRE, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bamhrauli</b> <small class="muted">BMU, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:06</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:26</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Subedarganj</b> <small class="muted">SFG, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>23:08</span><span class="loss-text" >23:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Prayagraj Jn</b> <small class="muted">PRYJ</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Naini</b> <small class="muted">NYN, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:17</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:38</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Prayagraj Chheoki</b> <small class="muted">PCOI, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:24</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:45</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Karchana</b> <small class="muted">KCN, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:32</span><span class="loss-text" title="Estimated from the nearest reported stations">~23:53</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bheerpur</b> <small class="muted">BEP, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:41</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:02</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Meja Road</b> <small class="muted">MJA, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:47</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:08</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Unchdih</b> <small class="muted">UND, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>23:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:15</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Manda Road</b> <small class="muted">MNF, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:01</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jigna</b> <small class="muted">JIA, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:06</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:27</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gaipura</b> <small class="muted">GAE, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:33</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Birohe</b> <small class="muted">BEO, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Vindhyachal</b> <small class="muted">BDL, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:22</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mirzapur</b> <small class="muted">MZP, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:50</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jhingura</b> <small class="muted">JHG, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:35</span><span class="loss-text" title="Estimated from the nearest reported stations">~00:56</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pahara</b> <small class="muted">PRE, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:41</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:02</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dagmagpur</b> <small class="muted">DAP, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:47</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:08</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chunar</b> <small class="muted">CAR, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>00:55</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:16</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kailahat</b> <small class="muted">KYT, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:23</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Narayanpur Bazar</b> <small class="muted">NPBR, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:07</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jeonathpur</b> <small class="muted">JEP, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>01:13</span><span class="loss-text" >01:41</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pt. Deen Dayal Upadhyaya Jn</b> <small class="muted">DDU</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>New West Cabin</b> <small class="muted">NEWC, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:22</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:44</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pt. Deen Dayal Upadhyaya Jn</b> <small class="muted">DDU, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:47</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jn Hut Mgsn</b> <small class="muted">JTHT, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:26</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:48</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Eocm Cabin</b> <small class="muted">EOCM, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:51</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kuchman</b> <small class="muted">KCA, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:34</span><span class="loss-text" title="Estimated from the nearest reported stations">~01:56</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sakaldiha</b> <small class="muted">SLD, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tulsi Ashram</b> <small class="muted">TLAM, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:43</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:06</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dheena</b> <small class="muted">DHA, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:48</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bahora Chandil</b> <small class="muted">BHCL, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:51</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:14</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Zamania</b> <small class="muted">ZNA, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>01:56</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:20</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Darauli</b> <small class="muted">DRV, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:01</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:25</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dildarnagar Jn</b> <small class="muted">DLN, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:04</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Usia Khas</b> <small class="muted">USK, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:06</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:30</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bhadaura</b> <small class="muted">BWH, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:33</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Karahia</b> <small class="muted">KKRH, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:11</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:35</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gahmar</b> <small class="muted">GMR, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:14</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Barakalan</b> <small class="muted">BQW, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:18</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:43</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chausa</b> <small class="muted">CSA, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pawani Kumarpur Halt</b> <small class="muted">PWXP, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:50</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Buxar</b> <small class="muted">BXR, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:28</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:53</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Nadaon Halt</b> <small class="muted">NDON, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:57</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Baruna</b> <small class="muted">BUE, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:33</span><span class="loss-text" title="Estimated from the nearest reported stations">~02:59</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kushalpur Harnaha Halt</b> <small class="muted">KPHH, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:36</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:02</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dumraon</b> <small class="muted">DURE, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:39</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:05</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>V. V.giri Halt</b> <small class="muted">VVG, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:41</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:07</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Twining Ganj</b> <small class="muted">TWG, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:10</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Veer Kunwar Singh Dharauli Halt</b> <small class="muted">VKDH, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:47</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:14</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Raghunathpur</b> <small class="muted">RPR, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:50</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sikaria</b> <small class="muted">SKRI, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:53</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:20</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Banahi</b> <small class="muted">BYN, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:21</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Amar Saheed Jagdeo Prasad Halt</b> <small class="muted">ASJP, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>02:57</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bihiya</b> <small class="muted">BEA, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:00</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:27</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ramanand Tiwari Halt</b> <small class="muted">RNTE, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:01</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sarvodaya Halt</b> <small class="muted">XSAN, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kauriya</b> <small class="muted">KYA, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:05</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:33</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Karisath</b> <small class="muted">KRS, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:07</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:35</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mahatbania Halt</b> <small class="muted">MTBH, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jagjivan Halt</b> <small class="muted">JGWL, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:11</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ara</b> <small class="muted">ARA, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:14</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:42</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jamira Halt</b> <small class="muted">JMIR, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:18</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kulharia</b> <small class="muted">KUA, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:49</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Koelwar</b> <small class="muted">KWR, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:22</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:51</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pali Halt</b> <small class="muted">PAIL, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:26</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:55</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bihta</b> <small class="muted">BTA, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:28</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:57</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Patel Halt</b> <small class="muted">PATL, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~03:58</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sadisopur</b> <small class="muted">SDE, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:32</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gandhi Halt</b> <small class="muted">GNHI, runs through</small>
+            <small class="loss-text">30 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>03:34</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:03</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Neora</b> <small class="muted">NEO, runs through</small>
+            <small class="loss-text">30 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>03:38</span><span class="loss-text" >04:10</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Danapur</b> <small class="muted">DNR</small>
+            <small class="loss-text">30 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>04:00</span><span class="loss-text" >04:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Patliputra</b> <small class="muted">PPTA</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:14</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Digha Bridge Halt</b> <small class="muted">DGBH, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:42</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bharpura Pahleja Ghat Jn</b> <small class="muted">BPGJ, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:48</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sonpur</b> <small class="muted">SEE, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~04:55</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Hajipur Jn</b> <small class="muted">HJP, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:46</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:03</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chakmakrand</b> <small class="muted">CKRD, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:52</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Akshaywat Rai Nagar</b> <small class="muted">AYRN, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:56</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:13</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dhabauli Halt</b> <small class="muted">DHBI, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>04:59</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:16</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chak Sikandar</b> <small class="muted">CSR, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:19</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gram Kharika Halt</b> <small class="muted">GKHT, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:05</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:22</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Desari</b> <small class="muted">DES, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:11</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sahadai Buzurg</b> <small class="muted">SDG, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:18</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:35</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mehnar Road</b> <small class="muted">MNO, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:23</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Basudeopur Chandel H</b> <small class="muted">BDUA, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:28</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:44</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Shahpur Patoree</b> <small class="muted">SPP, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:35</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:51</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Nandani Lagunia</b> <small class="muted">NNNL, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:41</span><span class="loss-text" title="Estimated from the nearest reported stations">~05:57</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Rajajan Halt</b> <small class="muted">RJJN, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:46</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:02</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mohiuddinnagar</b> <small class="muted">MOG, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:53</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Harpar Bochaha</b> <small class="muted">HBP, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>05:59</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:15</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Vidyapatidham</b> <small class="muted">VPDA, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:05</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:21</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sherpur Dhipura</b> <small class="muted">SPPA, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:07</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:23</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Fateha Halt</b> <small class="muted">FAH, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:13</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bachwara Jn</b> <small class="muted">BCA, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:20</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:36</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Majnupur Navada Halt</b> <small class="muted">MPNH, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:41</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Teghra</b> <small class="muted">TGA, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~06:47</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Barauni Flag</b> <small class="muted">BUJ, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>06:35</span><span class="loss-text" >07:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Barauni Jn</b> <small class="muted">BJU</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:49</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:05</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bihat Halt</b> <small class="muted">BEHT, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:52</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tilrath</b> <small class="muted">TIL, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Singhaul Halt</b> <small class="muted">SHHT, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>06:58</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:16</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Begusarai</b> <small class="muted">BGS, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:04</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:23</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Lakho</b> <small class="muted">LAK, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:08</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Danauli Phlwria</b> <small class="muted">DPL, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:33</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Lakhminia</b> <small class="muted">LKN, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:17</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sanha Halt</b> <small class="muted">SANH, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:20</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:42</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sahibpur Kamal Jn</b> <small class="muted">SKJ, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:48</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Umeshnagar</b> <small class="muted">UMNR, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~07:55</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Khagaria Jn</b> <small class="muted">KGG, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>07:38</span><span class="loss-text" >08:06</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mansi Jn</b> <small class="muted">MNE</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chedhabanni Halt</b> <small class="muted">CDBN, runs through</small>
+            <small class="loss-text">26 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:48</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:13</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mahes Khunt</b> <small class="muted">MSK, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:51</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:15</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gauchhari</b> <small class="muted">GAI, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>07:57</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:21</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Pasraha</b> <small class="muted">PSR, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:02</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:25</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bharat Khand</b> <small class="muted">BRKB, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:06</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:29</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Narayanpur</b> <small class="muted">NNR, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:34</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Thana Bihpur Jn</b> <small class="muted">THB, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:16</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bagrigram Halt</b> <small class="muted">BIGH, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:18</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:39</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kharik</b> <small class="muted">KHQ, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>08:24</span><span class="loss-text" >08:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Naugachia</b> <small class="muted">NNA</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:32</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:52</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Banikpur Halt</b> <small class="muted">BNPR, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:37</span><span class="loss-text" title="Estimated from the nearest reported stations">~08:57</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Katareah</b> <small class="muted">KTRH, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:03</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Koshi Block Hut Cabin</b> <small class="muted">KIBH, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:48</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:07</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kursela</b> <small class="muted">KUE, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:12</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sameli Halt</b> <small class="muted">SIHT, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>08:59</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:17</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bakhri</b> <small class="muted">BKHR, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:08</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:25</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Karagola Road</b> <small class="muted">CRR, runs through</small>
+            <small class="loss-text">17 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~09:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Semapur</b> <small class="muted">SMO, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>09:35</span><span class="loss-text" >09:59</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Katihar Jn</b> <small class="muted">KIR</small>
+            <small class="loss-text">15 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:48</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:04</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Nayatola</b> <small class="muted">NYT, runs through</small>
+            <small class="loss-text">16 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:52</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:09</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dandkhora</b> <small class="muted">DNQ, runs through</small>
+            <small class="loss-text">18 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:12</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gorphar</b> <small class="muted">GRR, runs through</small>
+            <small class="loss-text">19 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>09:58</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:18</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sonalli</b> <small class="muted">SI, runs through</small>
+            <small class="loss-text">20 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:00</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:20</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Bishanpur Halt</b> <small class="muted">BHNP, runs through</small>
+            <small class="loss-text">21 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:03</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Jhaua</b> <small class="muted">JAU, runs through</small>
+            <small class="loss-text">22 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:05</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:27</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Meenapur</b> <small class="muted">MENP, runs through</small>
+            <small class="loss-text">23 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:08</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Salmari</b> <small class="muted">SRI, runs through</small>
+            <small class="loss-text">24 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:12</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:37</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mukuria</b> <small class="muted">MFA, runs through</small>
+            <small class="loss-text">25 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:15</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:41</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Barsoi Jn</b> <small class="muted">BOE, runs through</small>
+            <small class="loss-text">27 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:21</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:49</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sanjay Gram</b> <small class="muted">SJGM, runs through</small>
+            <small class="loss-text">29 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~10:55</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Sudhani</b> <small class="muted">SUD, runs through</small>
+            <small class="loss-text">30 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:29</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:01</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Ajharail</b> <small class="muted">AHL, runs through</small>
+            <small class="loss-text">32 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:31</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:03</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Telta</b> <small class="muted">TETA, runs through</small>
+            <small class="loss-text">33 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:13</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dalkolha</b> <small class="muted">DLK, runs through</small>
+            <small class="loss-text">35 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:43</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:20</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Surja Kamal</b> <small class="muted">SJKL, runs through</small>
+            <small class="loss-text">38 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:49</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:28</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kanki</b> <small class="muted">KKA, runs through</small>
+            <small class="loss-text">40 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:54</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:35</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Hatwar</b> <small class="muted">HWR, runs through</small>
+            <small class="loss-text">42 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>10:58</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:41</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tauheed</b> <small class="muted">THED, runs through</small>
+            <small class="loss-text">43 min late</small></div></li>
+        
+        <li class="stop done"><div class="t-time"><span>11:00</span><span class="loss-text" >11:46</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Kishanganj</b> <small class="muted">KNE</small>
+            <small class="loss-text">44 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:10</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:52</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Panjipara</b> <small class="muted">PJP, runs through</small>
+            <small class="loss-text">42 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:19</span><span class="loss-text" title="Estimated from the nearest reported stations">~11:59</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gaisal</b> <small class="muted">GIL, runs through</small>
+            <small class="loss-text">41 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:25</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:04</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Gunjaria</b> <small class="muted">GEOR, runs through</small>
+            <small class="loss-text">40 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:33</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:11</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Aluabari Road</b> <small class="muted">AUB, runs through</small>
+            <small class="loss-text">38 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:38</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:15</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dhulabari</b> <small class="muted">DBQ, runs through</small>
+            <small class="loss-text">37 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:44</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:19</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Mangurjan</b> <small class="muted">MXJ, runs through</small>
+            <small class="loss-text">36 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:50</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:24</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Tin Mile Hat</b> <small class="muted">TMH, runs through</small>
+            <small class="loss-text">35 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>11:59</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:31</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Dumdangi</b> <small class="muted">DMZ, runs through</small>
+            <small class="loss-text">33 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>12:09</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:40</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Chattar Hat</b> <small class="muted">CAT, runs through</small>
+            <small class="loss-text">31 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>12:15</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:44</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Nijbari</b> <small class="muted">NJB, runs through</small>
+            <small class="loss-text">30 min late</small></div></li>
+        
+        <li class="stop done through"><div class="t-time"><span>12:23</span><span class="loss-text" title="Estimated from the nearest reported stations">~12:51</span></div><div class="t-rail"><i></i></div>
+          <div class="t-body"><b>Rangapani</b> <small class="muted">RNI, runs through</small>
+            <small class="loss-text">28 min late</small></div></li>
+        
+      </ol>
+    </details>
+    
+    <ol class="timeline">
+      <li class="stop here">
+        <div class="t-time"><span>12:30</span><span class="loss-text">12:52</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i class="train" aria-hidden="true"></i></div>
+        <div class="t-body"><b class="board">New Jalpaiguri</b> <small class="muted">NJP</small>
+          <span class="chip loss">22 min late</span>
+          <small class="muted line">Last reported here</small></div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 4 min</span>
+          
+          <small class="muted">timetable 95 min, usually 91: 4 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>12:47</span><span class="loss-text">13:08</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Ambari Falakata <small class="muted">ABFC, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>12:54</span><span class="loss-text">13:15</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Belakoba <small class="muted">BLK, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:00</span><span class="loss-text">13:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Raninagar Jalpaiguri <small class="muted">RQJ, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:05</span><span class="loss-text">13:25</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jalpaiguri Road <small class="muted">JPE, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:10</span><span class="loss-text">13:30</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Y-Leg Connection Cabin <small class="muted">YLSC, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:11</span><span class="loss-text">13:31</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Domohani <small class="muted">NQH, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:14</span><span class="loss-text">13:34</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Maynaguri <small class="muted">NMX, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:18</span><span class="loss-text">13:38</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Betgara <small class="muted">BYXA, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:24</span><span class="loss-text">13:44</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Altagram <small class="muted">ATM, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:30</span><span class="loss-text">13:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Dhupguri <small class="muted">DQG, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:35</span><span class="loss-text">13:54</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Khalaigram <small class="muted">KLGR, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:40</span><span class="loss-text">13:59</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Salbari <small class="muted">SXX, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:46</span><span class="loss-text">14:05</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Falakata <small class="muted">FLK, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:53</span><span class="loss-text">14:11</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Gumani Hat <small class="muted">GUZ, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>13:58</span><span class="loss-text">14:16</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Ghoksadanga <small class="muted">GDX, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>14:04</span><span class="loss-text">14:22</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sajherpar <small class="muted">SJRR, passed</small></div>
+      </li>
+      
+      <li class="pass gone">
+        <div class="t-time"><span>14:07</span><span class="loss-text">14:25</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Pundibari <small class="muted">PQZ, passed</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>14:15</span><span class="loss-text">14:33</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/NCB">New Cooch Behar</a> <small class="muted">NCB, day 2</small>
+          <span class="chip loss">18 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 36.0%"></i></span>
+            <span class="range-labels"><span>Earliest 14:24 <em>P10</em></span><span class="p50">Expected 14:33 <em>P50</em></span><span>Latest 14:49 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -8 min, similar past runs -3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 18 min</span>
+          <small class="muted">timetable 58 min, usually 68: 10 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:22</span><span class="loss-text">14:41</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Baneswar <small class="muted">NBS</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:28</span><span class="loss-text">14:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Alipurduar <small class="muted">NOQ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:34</span><span class="loss-text">14:57</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Samuktala Road <small class="muted">SMTA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:40</span><span class="loss-text">15:05</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kamakhyaguri <small class="muted">KAMG</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:45</span><span class="loss-text">15:11</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jorai <small class="muted">JOQ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:51</span><span class="loss-text">15:19</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Srirampur Assam <small class="muted">SRPB</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>14:55</span><span class="loss-text">15:24</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Gossaigaon Hat <small class="muted">GOGH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:02</span><span class="loss-text">15:34</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Chautara <small class="muted">CROA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:09</span><span class="loss-text">15:43</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Fakiragram Jn <small class="muted">FKM</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>15:15</span><span class="loss-text">15:51</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/KOJ">Kokrajhar</a> <small class="muted">KOJ, day 2</small>
+          <span class="chip loss">36 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 36.0%"></i></span>
+            <span class="range-labels"><span>Earliest 15:42 <em>P10</em></span><span class="p50">Expected 15:51 <em>P50</em></span><span>Latest 16:07 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">similar past runs +5 min, how late it is now -2 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 29 min</span>
+          
+          <small class="muted">timetable 58 min, usually 29: 29 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:36</span><span class="loss-text">16:02</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Salakati <small class="muted">SLKX</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>15:50</span><span class="loss-text">16:09</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Basugaon <small class="muted">BSGN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:06</span><span class="loss-text">16:17</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Dangtal <small class="muted">DTX</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:10</span><span class="loss-text">16:19</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Bongaigaon Yard <small class="muted">NBQY</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>16:15</span><span class="loss-text">16:22</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/NBQ">New Bongaigaon</a> <small class="muted">NBQ, day 2</small>
+          <span class="chip loss">7 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 31.7%"></i></span>
+            <span class="range-labels"><span>Earliest 16:09 <em>P10</em></span><span class="p50">Expected 16:22 <em>P50</em></span><span>Latest 16:50 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -16 min, similar past runs -6 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 7 min</span>
+          <small class="muted">timetable 75 min, usually 79: 4 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:27</span><span class="loss-text">16:34</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bongaigaon <small class="muted">BNGN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:30</span><span class="loss-text">16:37</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Chaprakata <small class="muted">CPQ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:37</span><span class="loss-text">16:45</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bijni <small class="muted">BJF</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:44</span><span class="loss-text">16:52</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Patiladaha <small class="muted">PTLD</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:50</span><span class="loss-text">16:59</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sorbhog Jn <small class="muted">SBE</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:55</span><span class="loss-text">17:04</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Barpeta Road <small class="muted">BPRD</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>16:59</span><span class="loss-text">17:09</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Guagachha <small class="muted">GSA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:03</span><span class="loss-text">17:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sorupeta <small class="muted">SPQ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:10</span><span class="loss-text">17:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Pathsala <small class="muted">PBL</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:13</span><span class="loss-text">17:24</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Niz-Sariha-Halt <small class="muted">NSRH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:17</span><span class="loss-text">17:28</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Tihu <small class="muted">TIHU</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:22</span><span class="loss-text">17:34</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kaithalkuchi <small class="muted">KTCH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:29</span><span class="loss-text">17:41</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nalbari <small class="muted">NLV</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>17:35</span><span class="loss-text">17:48</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Ghograpar <small class="muted">GOE</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>17:40</span><span class="loss-text">17:54</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/RNY">Rangiya Jn</a> <small class="muted">RNY, day 2</small>
+          <span class="chip loss">14 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 31.7%"></i></span>
+            <span class="range-labels"><span>Earliest 17:41 <em>P10</em></span><span class="p50">Expected 17:54 <em>P50</em></span><span>Latest 18:22 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -12 min, how late it is now -2 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 12 min</span>
+          
+          <small class="muted">timetable 88 min, usually 62: 26 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>18:01</span><span class="loss-text">18:12</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kendukana <small class="muted">KDKN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>18:10</span><span class="loss-text">18:20</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Baihata <small class="muted">BIZ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>18:29</span><span class="loss-text">18:36</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Changsari <small class="muted">CGS</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>18:44</span><span class="loss-text">18:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Agthori <small class="muted">AGT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>18:58</span><span class="gain-text">19:01</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kamakhya <small class="muted">KYQ</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>19:10</span><span class="gain-text">19:12</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/GHY">Guwahati</a> <small class="muted">GHY, day 2</small>
+          <span class="chip gain">2 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 31.7%"></i></span>
+            <span class="range-labels"><span>Earliest 18:59 <em>P10</em></span><span class="p50">Expected 19:12 <em>P50</em></span><span>Latest 19:40 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -22 min, similar past runs -9 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 13 min</span>
+          <small class="muted">timetable 78 min, usually 86: 8 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:29</span><span class="gain-text">19:31</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">New Guwahati G/Shed <small class="muted">NGC</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:32</span><span class="gain-text">19:35</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Narangi <small class="muted">NNGE</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:37</span><span class="gain-text">19:40</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Panikhaiti <small class="muted">PHI</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:41</span><span class="gain-text">19:45</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Thakurkuchi <small class="muted">TKC</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:48</span><span class="loss-text">19:53</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Panbari <small class="muted">PNB</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:54</span><span class="loss-text">20:00</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Digaru <small class="muted">DGU</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>19:58</span><span class="loss-text">20:05</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Tetelia <small class="muted">TTLA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:04</span><span class="loss-text">20:12</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kamrup Khetri <small class="muted">KKET</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:09</span><span class="loss-text">20:18</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Barahu <small class="muted">BRHU</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:14</span><span class="loss-text">20:24</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jagi Road <small class="muted">JID</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:20</span><span class="loss-text">20:31</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Aujari <small class="muted">AJRE</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:25</span><span class="loss-text">20:37</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sonuabary <small class="muted">SNBR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:30</span><span class="loss-text">20:42</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Dharamtul <small class="muted">DML</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:36</span><span class="loss-text">20:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Thekeraguri <small class="muted">TGE</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>20:43</span><span class="loss-text">20:58</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/CPK">Chaparmukh Jn</a> <small class="muted">CPK, day 2</small>
+          <span class="chip loss">15 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 20:42 <em>P10</em></span><span class="p50">Expected 20:58 <em>P50</em></span><span>Latest 21:43 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -12 min, how late it is now -3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 8 min</span>
+          <small class="muted">timetable 90 min, usually 100: 10 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>20:54</span><span class="loss-text">21:09</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Laopani <small class="muted">LPN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:02</span><span class="loss-text">21:18</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kampur <small class="muted">KWM</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:13</span><span class="loss-text">21:30</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jamunamukh <small class="muted">JMK</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:23</span><span class="loss-text">21:41</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jugijan <small class="muted">JGJN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:30</span><span class="loss-text">21:48</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Hojai <small class="muted">HJI</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:37</span><span class="loss-text">21:56</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Dhalpukhuri <small class="muted">DHRY</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:44</span><span class="loss-text">22:04</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Lanka <small class="muted">LKA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>21:50</span><span class="loss-text">22:10</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Habaipur <small class="muted">HWX</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:00</span><span class="loss-text">22:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Lamsakhang <small class="muted">LKG</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:06</span><span class="loss-text">22:28</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Patharkhola <small class="muted">PKB</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:13</span><span class="loss-text">22:35</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Lumding South Cabin <small class="muted">LMGS</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>22:15</span><span class="loss-text">22:38</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/LMG">Lumding Jn</a> <small class="muted">LMG, day 2</small>
+          <span class="chip loss">23 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 22:22 <em>P10</em></span><span class="p50">Expected 22:38 <em>P50</em></span><span>Latest 23:23 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">similar past runs -4 min, how late it is now -3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 14 min</span>
+          <small class="muted">timetable 30 min, usually 35: 5 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:26</span><span class="loss-text">22:51</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Barlongfer <small class="muted">BRLF</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:33</span><span class="loss-text">23:01</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Langcholiet <small class="muted">LCT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>22:41</span><span class="loss-text">23:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nailalung <small class="muted">NLN</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>22:50</span><span class="loss-text">23:27</span><small class="day-tag">Tue 24 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/DPU">Diphu</a> <small class="muted">DPU, day 2</small>
+          <span class="chip loss">37 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 23:11 <em>P10</em></span><span class="p50">Expected 23:27 <em>P50</em></span><span>Latest 00:12 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">how late it is now -3 min, similar past runs +2 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg ">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          
+          <small class="muted">timetable 38 min, usually 35: 3 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:02</span><span class="loss-text">23:39</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Daldali <small class="muted">DLDE</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:11</span><span class="loss-text">23:48</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Dhansiri <small class="muted">DSR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:18</span><span class="loss-text">23:55</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Rangapahar <small class="muted">RXR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:24</span><span class="loss-text">00:01</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Rangapahar Crs <small class="muted">RXRX</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>23:30</span><span class="loss-text">00:08</span><small class="day-tag">Wed 25 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/DMV">Dimapur</a> <small class="muted">DMV, day 2</small>
+          <span class="chip loss">38 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 23:52 <em>P10</em></span><span class="p50">Expected 00:08 <em>P50</em></span><span>Latest 00:53 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">how late it is now -3 min, last 14 days on this stretch +3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 4 min</span>
+          
+          <small class="muted">timetable 81 min, usually 68: 13 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:44</span><span class="loss-text">00:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Khotkhoti <small class="muted">KHKT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>23:53</span><span class="loss-text">00:30</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bokajan <small class="muted">BXJ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:00</span><span class="loss-text">00:36</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Chongajan <small class="muted">CJA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:09</span><span class="loss-text">00:45</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Naojan <small class="muted">NJN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:19</span><span class="loss-text">00:54</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sarupathar <small class="muted">SZR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:30</span><span class="loss-text">01:05</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Barpathar <small class="muted">BXP</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:39</span><span class="loss-text">01:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bhilgaon <small class="muted">BHGN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:47</span><span class="loss-text">01:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Jamguri <small class="muted">JMI</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>00:53</span><span class="loss-text">01:27</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Oating <small class="muted">OTN</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>00:58</span><span class="loss-text">01:32</span><small class="day-tag">Wed 25 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/FKG">Furkating Jn</a> <small class="muted">FKG, day 3</small>
+          <span class="chip loss">34 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 01:16 <em>P10</em></span><span class="p50">Expected 01:32 <em>P50</em></span><span>Latest 02:17 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">similar past runs +4 min, how late it is now -2 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg gain">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill gain">wins back 19 min</span>
+          
+          <small class="muted">timetable 70 min, usually 52: 18 min spare</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>01:17</span><span class="loss-text">01:46</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kamarbandha Ali <small class="muted">KXL</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>01:26</span><span class="loss-text">01:52</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Chakiting <small class="muted">CFG</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>01:47</span><span class="loss-text">02:08</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Titabar <small class="muted">TTB</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>01:59</span><span class="loss-text">02:16</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Kharikatia <small class="muted">KQY</small></div>
+      </li>
+      
+      <li class="stop">
+        <div class="t-time"><span>02:10</span><span class="loss-text">02:25</span><small class="day-tag">Wed 25 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/MXN">Mariani Jn</a> <small class="muted">MXN, day 3</small>
+          <span class="chip loss">15 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 02:09 <em>P10</em></span><span class="p50">Expected 02:25 <em>P50</em></span><span>Latest 03:10 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -13 min, similar past runs -3 min</small>
+        </div>
+      </li>
+      
+      
+      <li class="leg loss">
+        <div class="t-time"></div><div class="t-rail"></div>
+        <div class="t-body">
+          <span class="pill loss">loses 10 min</span>
+          <small class="muted">timetable 125 min, usually 136: 11 min tight</small>
+        </div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:23</span><span class="loss-text">02:38</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nakachari <small class="muted">NCH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:28</span><span class="loss-text">02:44</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Lahing <small class="muted">LH</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:33</span><span class="loss-text">02:49</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Seleng Hat <small class="muted">SLX</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:37</span><span class="loss-text">02:53</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Amguri <small class="muted">AGI</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:47</span><span class="loss-text">03:04</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Namtiali <small class="muted">NMT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:52</span><span class="loss-text">03:09</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Mezenga S <small class="muted">MZA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:55</span><span class="loss-text">03:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Nazira <small class="muted">NZR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>02:58</span><span class="loss-text">03:16</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Simaluguri Jn <small class="muted">SLGR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:03</span><span class="loss-text">03:21</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Mahutgaon <small class="muted">MUGN</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:09</span><span class="loss-text">03:28</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Lakswa <small class="muted">LXA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:17</span><span class="loss-text">03:36</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Safrai <small class="muted">SFR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:25</span><span class="loss-text">03:45</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bhojo <small class="muted">BOJ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:30</span><span class="loss-text">03:51</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Longpatia <small class="muted">LPTA</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:36</span><span class="loss-text">03:57</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sapekhati <small class="muted">SPK</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:43</span><span class="loss-text">04:05</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Baruanagar <small class="muted">BRNR</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:47</span><span class="loss-text">04:09</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Borhat <small class="muted">BFD</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:51</span><span class="loss-text">04:13</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Namrup <small class="muted">NAM</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:55</span><span class="loss-text">04:17</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Balimara <small class="muted">BTZ</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>03:59</span><span class="loss-text">04:22</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Naharkatiya <small class="muted">NHK</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>04:07</span><span class="loss-text">04:30</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Duliajan <small class="muted">DJG</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>04:10</span><span class="loss-text">04:34</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Bordubi Road <small class="muted">BDT</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>04:15</span><span class="loss-text">04:39</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Charali <small class="muted">CGF</small></div>
+      </li>
+      
+      <li class="pass">
+        <div class="t-time"><span>04:17</span><span class="loss-text">04:41</span></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body">Sripuriagaon <small class="muted">SPGN</small></div>
+      </li>
+      
+      <li class="stop end">
+        <div class="t-time"><span>04:20</span><span class="loss-text">04:45</span><small class="day-tag">Wed 25 Nov</small></div>
+        <div class="t-rail"><i></i></div>
+        <div class="t-body"><a class="board" href="/station/NTSK">New Tinsukia Jn</a> <small class="muted">NTSK, day 3</small>
+          <span class="chip loss">25 min late</span>
+          
+          
+          <span class="range" title="8 in 10 trains arrive between P10 and P90">
+            <span class="range-bar" aria-hidden="true"><i style="left: 26.2%"></i></span>
+            <span class="range-labels"><span>Earliest 04:29 <em>P10</em></span><span class="p50">Expected 04:45 <em>P50</em></span><span>Latest 05:30 <em>P90</em></span></span>
+          </span>
+          
+          <small class="others line">Others: RailRadar says 31 min late, carrying today's delay says 22 min late</small>
+          
+          <small class="why muted">last 14 days on this stretch -7 min, weather ahead +3 min</small>
+        </div>
+      </li>
+      
+    </ol>
+  </div>
+  <p class="note">Green and red between stations: minutes the train is predicted to win back or lose on that stretch.
+    Small text under a delay: what moved that prediction most. <a href="/docs#why">How reasons are worked out</a></p>
+</section>
+
+
+<section class="block" id="recovery">
+  <h2>Where Dibrugarh Rajdhani wins back time</h2>
+  <p class="note">In the last 90 days of runs the model never learnt from, this train won back 5 or more minutes between
+    two stations 800 times.</p>
+  <div class="rec-stats">
+    <p><b>90%</b> of those recoveries predicted by Track Pulse</p>
+    <p><b>84%</b> of predicted recoveries that really happened</p>
+    <p><b>0%</b> predicted by carrying the delay forward, which assumes a late train never catches up</p>
+  </div>
+  
+  <div class="panel">
+    <h3 class="rec-title">Stretches where it recovers most</h3>
+    <ul class="rec-list">
+      
+      
+      <li>
+        <span class="rec-name"><b class="board">Kokrajhar</b> to <b class="board">New Bongaigaon</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 97.9%"></i>
+          <i class="pred" style="width: 100.0%"></i>
+        </span>
+        <span class="rec-num">wins back <b>28 min</b> on average, we predict <b>29 min</b>
+          <small class="muted">(76 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Kishanganj</b> to <b class="board">New Jalpaiguri</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 72.7%"></i>
+          <i class="pred" style="width: 74.8%"></i>
+        </span>
+        <span class="rec-num">wins back <b>21 min</b> on average, we predict <b>21 min</b>
+          <small class="muted">(76 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Rangiya Jn</b> to <b class="board">Guwahati</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 72.4%"></i>
+          <i class="pred" style="width: 72.7%"></i>
+        </span>
+        <span class="rec-num">wins back <b>21 min</b> on average, we predict <b>21 min</b>
+          <small class="muted">(69 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Prayagraj Jn</b> to <b class="board">Pt. Deen Dayal Upadhyaya Jn</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 65.7%"></i>
+          <i class="pred" style="width: 81.5%"></i>
+        </span>
+        <span class="rec-num">wins back <b>19 min</b> on average, we predict <b>23 min</b>
+          <small class="muted">(77 tests)</small></span>
+      </li>
+      
+      <li>
+        <span class="rec-name"><b class="board">Patliputra</b> to <b class="board">Barauni Jn</b></span>
+        <span class="rec-bars" aria-hidden="true">
+          <i class="real" style="width: 62.6%"></i>
+          <i class="pred" style="width: 57.0%"></i>
+        </span>
+        <span class="rec-num">wins back <b>18 min</b> on average, we predict <b>16 min</b>
+          <small class="muted">(77 tests)</small></span>
+      </li>
+      
+    </ul>
+    <p class="note">Green bar: real minutes won back. Blue bar: what Track Pulse predicted beforehand.</p>
+  </div>
+  
+</section>
+
+
+
+<details class="panel sections" id="sections">
+  <summary>Running time between stations, last 90 days</summary>
+  <p class="note">Where the timetable allows more time than trains usually need, a late train can win time back;
+    where it allows less, trains usually lose time.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Timetable</th><th>Usually</th><th class="hide-sm">Slow days</th><th>Spare</th></tr></thead>
+    <tbody>
+    
+    <tr>
+      <td>Kanpur Central</td><td>Prayagraj Jn</td>
+      <td class="num">123</td><td class="num">116</td>
+      <td class="num hide-sm muted">124</td>
+      <td class="num gain-text">+7 min</td>
+    </tr>
+    
+    <tr>
+      <td>Prayagraj Jn</td><td>Pt. Deen Dayal Upadhyaya Jn</td>
+      <td class="num">123</td><td class="num">103</td>
+      <td class="num hide-sm muted">113</td>
+      <td class="num gain-text">+20 min</td>
+    </tr>
+    
+    <tr>
+      <td>Pt. Deen Dayal Upadhyaya Jn</td><td>Danapur</td>
+      <td class="num">138</td><td class="num">138</td>
+      <td class="num hide-sm muted">160</td>
+      <td class="num ">+0 min</td>
+    </tr>
+    
+    <tr>
+      <td>Danapur</td><td>Patliputra</td>
+      <td class="num">20</td><td class="num">12</td>
+      <td class="num hide-sm muted">15</td>
+      <td class="num gain-text">+8 min</td>
+    </tr>
+    
+    <tr>
+      <td>Patliputra</td><td>Barauni Jn</td>
+      <td class="num">145</td><td class="num">130</td>
+      <td class="num hide-sm muted">144</td>
+      <td class="num gain-text">+15 min</td>
+    </tr>
+    
+    <tr>
+      <td>Barauni Jn</td><td>Mansi Jn</td>
+      <td class="num">53</td><td class="num">58</td>
+      <td class="num hide-sm muted">65</td>
+      <td class="num loss-text">-5 min</td>
+    </tr>
+    
+    <tr>
+      <td>Mansi Jn</td><td>Naugachia</td>
+      <td class="num">44</td><td class="num">39</td>
+      <td class="num hide-sm muted">43</td>
+      <td class="num gain-text">+5 min</td>
+    </tr>
+    
+    <tr>
+      <td>Naugachia</td><td>Katihar Jn</td>
+      <td class="num">69</td><td class="num">53</td>
+      <td class="num hide-sm muted">64</td>
+      <td class="num gain-text">+16 min</td>
+    </tr>
+    
+    <tr>
+      <td>Kishanganj</td><td>New Jalpaiguri</td>
+      <td class="num">88</td><td class="num">66</td>
+      <td class="num hide-sm muted">74</td>
+      <td class="num gain-text">+22 min</td>
+    </tr>
+    
+    <tr>
+      <td>New Jalpaiguri</td><td>New Cooch Behar</td>
+      <td class="num">95</td><td class="num">91</td>
+      <td class="num hide-sm muted">99</td>
+      <td class="num gain-text">+4 min</td>
+    </tr>
+    
+    <tr>
+      <td>New Cooch Behar</td><td>Kokrajhar</td>
+      <td class="num">58</td><td class="num">68</td>
+      <td class="num hide-sm muted">74</td>
+      <td class="num loss-text">-10 min</td>
+    </tr>
+    
+    <tr>
+      <td>Kokrajhar</td><td>New Bongaigaon</td>
+      <td class="num">58</td><td class="num">29</td>
+      <td class="num hide-sm muted">36</td>
+      <td class="num gain-text">+29 min</td>
+    </tr>
+    
+    <tr>
+      <td>New Bongaigaon</td><td>Rangiya Jn</td>
+      <td class="num">75</td><td class="num">79</td>
+      <td class="num hide-sm muted">91</td>
+      <td class="num loss-text">-4 min</td>
+    </tr>
+    
+    <tr>
+      <td>Rangiya Jn</td><td>Guwahati</td>
+      <td class="num">88</td><td class="num">62</td>
+      <td class="num hide-sm muted">91</td>
+      <td class="num gain-text">+26 min</td>
+    </tr>
+    
+    <tr>
+      <td>Guwahati</td><td>Chaparmukh Jn</td>
+      <td class="num">78</td><td class="num">86</td>
+      <td class="num hide-sm muted">101</td>
+      <td class="num loss-text">-8 min</td>
+    </tr>
+    
+    <tr>
+      <td>Chaparmukh Jn</td><td>Lumding Jn</td>
+      <td class="num">90</td><td class="num">100</td>
+      <td class="num hide-sm muted">109</td>
+      <td class="num loss-text">-10 min</td>
+    </tr>
+    
+    <tr>
+      <td>Lumding Jn</td><td>Diphu</td>
+      <td class="num">30</td><td class="num">35</td>
+      <td class="num hide-sm muted">43</td>
+      <td class="num loss-text">-5 min</td>
+    </tr>
+    
+    <tr>
+      <td>Diphu</td><td>Dimapur</td>
+      <td class="num">38</td><td class="num">35</td>
+      <td class="num hide-sm muted">49</td>
+      <td class="num gain-text">+3 min</td>
+    </tr>
+    
+    <tr>
+      <td>Dimapur</td><td>Furkating Jn</td>
+      <td class="num">81</td><td class="num">68</td>
+      <td class="num hide-sm muted">79</td>
+      <td class="num gain-text">+13 min</td>
+    </tr>
+    
+    <tr>
+      <td>Furkating Jn</td><td>Mariani Jn</td>
+      <td class="num">70</td><td class="num">52</td>
+      <td class="num hide-sm muted">67</td>
+      <td class="num gain-text">+18 min</td>
+    </tr>
+    
+    <tr>
+      <td>Mariani Jn</td><td>New Tinsukia Jn</td>
+      <td class="num">125</td><td class="num">136</td>
+      <td class="num hide-sm muted">146</td>
+      <td class="num loss-text">-11 min</td>
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+  <p class="note">Minutes. Slow days: 9 in 10 runs were at least this quick. API: <code>/api/trains/12424/sections</code></p>
+</details>
+
+<p class="note">Only stations that have reported in past runs can be predicted, so some routes end before the final station.</p>
+</div>
+</div>
+</main>
+  <footer class="wrap site-foot">
+    <p>Track Pulse is a Smart India Hackathon 2026 prototype for problem SIH26028, by Team Tech Sprints.</p>
+    <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
+      whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
+  </footer>
+<script>
+  // Opening a train can take a few seconds the first time (its full route is fetched): say so.
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href^='/train/']");
+    if (!a || e.ctrlKey || e.metaKey) return;
+    document.body.insertAdjacentHTML("beforeend", "<p class='loading' role='status'>Loading the train’s route and arrival times…</p>");
+  });
+</script>
+<script>window.SNAPSHOT = {"taken": "24 Nov 2026, 14:40 IST", "trains": {"12007": "Mysuru Shatabdi", "12008": "Chennai Shatabdi", "12027": "Bengaluru Shatabdi", "12028": "Chennai Shatabdi", "12163": "Chennai Express", "12164": "Chennai Express", "12301": "Howrah Rajdhani", "12302": "Howrah Rajdhani", "12311": "Netaji Express", "12312": "Netaji Express", "12313": "Sealdah Rajdhani", "12314": "Sealdah Rajdhani", "12423": "Dibrugarh Rajdhani", "12424": "Dibrugarh Rajdhani", "12607": "Lalbagh SF Express", "12608": "Lalbagh SF Express", "12615": "Grand Trunk Express", "12616": "Grand Trunk Express", "12621": "Tamil Nadu Express", "12622": "Tamil Nadu Express", "12625": "Kerala Express", "12626": "Kerala Express", "12627": "Karnataka Express", "12628": "Karnataka Express", "12639": "Brindavan SF Express", "12640": "Brindavan SF Express", "12657": "Bengaluru SF Mail", "12658": "Chennai SF Mail", "12723": "Telangana Express", "12724": "Telangana Express", "12809": "Howrah Mail via Nagpur", "12810": "Howrah Mail via Nagpur", "12859": "Gitanjali Express", "12860": "Gitanjali Express", "12903": "Golden Temple Mail", "12904": "Golden Temple Mail", "12925": "Paschim Express", "12926": "Paschim Express", "12951": "Mumbai Rajdhani", "12952": "Mumbai Rajdhani", "12953": "August Kranti Rajdhani", "12954": "August Kranti Rajdhani", "16021": "Kaveri Express", "16022": "Kaveri Express", "22625": "Double Decker Express", "22626": "Double Decker Express"}, "stations": ["MTJ", "BPL", "VGLJ", "GWL", "AGC", "NGP", "ET", "FDB", "RJN", "DURG", "KPD", "KYN", "SZM", "SNP", "BDMJ", "UMB", "BINA", "NZM", "BPQ", "WL", "BZA", "MMR", "JL", "BSL", "R", "BSP", "RIG", "JSG", "ROU", "CKP", "TATA", "KGP", "G", "BRD", "WR", "BD", "AK", "SEG", "MGN", "DHD", "GDA", "BRC", "ST", "AJJ", "GZB", "PNP", "KUN", "KKDE", "CDG", "CNB", "PRYJ", "DDU", "HWH", "CD", "SKZR", "RDM", "KMT", "NLR", "GDR", "KYJ", "MVLK", "CNGR", "TRVL", "CGY", "KTYM", "VARD", "ERN", "AWY", "TCR", "OTP", "JTJ", "SEGM", "KJM", "DGG", "MKU", "NK", "IGP", "GTS", "LDH", "JUC"]};</script><script src="/static/snapshot.js"></script>
+</body>
+</html>
