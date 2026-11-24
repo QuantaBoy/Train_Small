@@ -23,6 +23,11 @@
 </section>
 {% endblock %}
 {% block body %}
+<div class="train-bar" aria-label="Summary">
+  <span><b class="tno">{{ no }}</b> {{ name }}</span>
+  <span>Now {{ stn(here[1]) }}, <b class="{{ 'loss-text' if delay > 5 else 'gain-text' }}">{{ behind(delay) }}</b></span>
+  <span>{{ stn(last.station) }} <b>{{ last.eta }}</b> <b class="{{ 'loss-text' if last.delay > 5 else 'gain-text' }}">{{ behind(last.delay) }}</b></span>
+</div>
 <div class="train-layout">
 <aside class="side" aria-label="Summary, what if, and trains around it">
 {% if halt %}

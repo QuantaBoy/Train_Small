@@ -24,7 +24,17 @@
         </ul>
         {% endif %}
       </div>
-      {% if hero %}
+      {% set best = live | selectattr('trend', 'equalto', 'recovering') | sort(attribute='delay_there_min') | list %}
+      {% set best = (best | sort(attribute='delay_min', reverse=True) | list)[:1] %}
+      {% if best %}{% set t = best[0] %}
+      <a class="ticket-stub" href="{{ url_for('train', number=t.train) }}">
+        <span class="stub-train"><span class="pulse" aria-hidden="true"></span>Live now: {{ t.train }} {{ t.name }}</span>
+        <span class="stub-line"><b class="loss-text">{{ behind(t.delay_min) }}</b> at {{ stn(t.at) }}</span>
+        {% set hm, dd = clock(t.eta_there) %}
+        <span class="stub-line">Expected at {{ stn(t.last_station) }} <b>{{ hm }}</b>: <b class="gain-text">{{ behind(t.delay_there_min) }}</b></span>
+        <span class="stub-note">It wins back {{ span(t.delay_min - t.delay_there_min) }} on the way. A late-running display would still say {{ behind(t.delay_min) }}. See how</span>
+      </a>
+      {% elif hero %}
       <a class="ticket-stub" href="{{ url_for('train', number='16021', at=43, delay=30) }}">
         <span class="stub-train">16021 Kaveri Express</span>
         <span class="stub-line"><b>{{ hero.delay_now }} min</b> late leaving {{ stn(hero.at) }}</span>

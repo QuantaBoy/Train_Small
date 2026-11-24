@@ -40,5 +40,13 @@
     <p>Run history from the Kaggle dataset “Indian Railways: stop-level delay history” (GPL-3.0), live positions from the
       whereismytrain.in public cache with RailRadar as backup. Neither is official Indian Railways data.</p>
   </footer>
+<script>
+  // Opening a train can take a few seconds the first time (its full route is fetched): say so.
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href^='/train/']");
+    if (!a || e.ctrlKey || e.metaKey) return;
+    document.body.insertAdjacentHTML("beforeend", "<p class='loading' role='status'>Loading the train’s route and arrival times…</p>");
+  });
+</script>
 </body>
 </html>
